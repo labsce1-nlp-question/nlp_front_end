@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Tk_Search extends React.Component {
+class TkSearch extends React.Component {
   state = {
     question: ''
   };
@@ -24,4 +24,4 @@ class Tk_Search extends React.Component {
   };
 };
 
-export default Tk_Search;
+export default TkSearch;
