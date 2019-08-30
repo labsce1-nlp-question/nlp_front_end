@@ -9,7 +9,8 @@ import '../styles/main_page.css';
 class MainPage extends React.Component {
   state = {
     results: [],
-    userHistory: []
+    userHistory: [],
+    error: ''
   };
   sendQuestion = (e, q) => {
     e.preventDefault();
@@ -17,15 +18,19 @@ class MainPage extends React.Component {
 
     axios
       .post(`http://localhost:3000/api/question`, question, { headers: { Authorization: localStorage.getItem('id')}})
-      .then(res => this.setState({ results: res.data }))
+      .then(res => {
+        if(res.data.message){
+          this.setState({ error: res.data.message });
+        } else {
+          this.setState({ results: res.data, error: '' });
+        }
+      })
       .catch(err => console.log(err));
   };
   getUserHistory = () => {
     axios
       .get(`http://localhost:3000/api/history?limit=10`, { headers: { Authorization: localStorage.getItem('id')}})
-      .then(res => {
-        console.log(res.data);
-        this.setState({ userHistory: res.data })})
+      .then(res => this.setState({ userHistory: res.data }))
       .catch(err => console.log(err));
   }
   signOut = () => {
@@ -44,9 +49,11 @@ class MainPage extends React.Component {
         <>
           <button onClick={() => this.signOut()}>Sign Out</button>
           <div className="main-page-wrapper">
-            <TkSearch sendQuestion={this.sendQuestion}/>
-            <QuestionResults results={this.state.results}/>
-            <UserHistory userHistory={this.state.userHistory}/>
+            <div className="search-wrapper">
+              <TkSearch sendQuestion={this.sendQuestion}/>
+              {this.state.error ? <p>{this.state.error}</p> : <QuestionResults results={this.state.results}/> }
+            </div>
+            {this.state.userHistory ? <UserHistory userHistory={this.state.userHistory}/>: <p>No search history yet. Ask a question!</p> } 
           </div>
         </>
       );

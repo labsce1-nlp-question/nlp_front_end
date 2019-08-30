@@ -1,3 +1,10 @@
 .main-page-wrapper {
-  display: flex
+  display: flex;
+  justify-content: center;
+}
+
+.search-wrapper{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
 }
