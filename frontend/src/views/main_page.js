@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+import Axios from '../helpers/axiosConfig.js';
 import SlackLogin from '../components/slack_login_button.js';
 import TkSearch from '../components/tk_search.js';
 import QuestionResults from '../components/question_results.js';
@@ -15,8 +15,8 @@ class MainPage extends React.Component {
     e.preventDefault();
     const question = { question: q };
 
-    axios
-      .post(`${process.env.REACT_APP_BACKEND_URL}/api/question`, question, { headers: { Authorization: localStorage.getItem('id')}})
+    Axios()
+      .post('question', question)
       .then(res => {
         if(res.data.message){
           this.setState({ error: res.data.message });
@@ -31,7 +31,7 @@ class MainPage extends React.Component {
     this.props.history.push('/');
   };
   render(){
-    if(!localStorage.getItem('id')){
+    if(!localStorage.getItem('AuthToken')){
       return <SlackLogin/>
     } else {
       return (

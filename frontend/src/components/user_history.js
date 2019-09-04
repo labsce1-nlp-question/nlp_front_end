@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+import Axios from '../helpers/axiosConfig.js';
 import History from './history.js';
 
 class UserHistory extends React.Component {
@@ -7,8 +7,8 @@ class UserHistory extends React.Component {
     userHistory: []
   };
   getUserHistory = () => {
-    axios
-      .get(`${process.env.REACT_APP_BACKEND_URL}/api/history?limit=10`, { headers: { Authorization: localStorage.getItem('id')}})
+    Axios()
+      .get('/history?limit=10')
       .then(res => this.setState({ userHistory: res.data }))
       .catch(err => {
         if(err.response.status === 401){
