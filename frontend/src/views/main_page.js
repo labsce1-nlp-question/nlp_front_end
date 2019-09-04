@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import Slb from '../components/slack_login_button.js';
+import SlackLogin from '../components/slack_login_button.js';
 import TkSearch from '../components/tk_search.js';
 import QuestionResults from '../components/question_results.js';
 import UserHistory from '../components/user_history.js';
@@ -9,7 +9,6 @@ import '../styles/main_page.css';
 class MainPage extends React.Component {
   state = {
     results: [],
-    userHistory: [],
     error: ''
   };
   sendQuestion = (e, q) => {
@@ -17,7 +16,7 @@ class MainPage extends React.Component {
     const question = { question: q };
 
     axios
-      .post(`http://localhost:3000/api/question`, question, { headers: { Authorization: localStorage.getItem('id')}})
+      .post(`${process.env.REACT_APP_BACKEND_URL}/api/question`, question, { headers: { Authorization: localStorage.getItem('id')}})
       .then(res => {
         if(res.data.message){
           this.setState({ error: res.data.message });
@@ -25,25 +24,15 @@ class MainPage extends React.Component {
           this.setState({ results: res.data, error: '' });
         }
       })
-      .catch(err => console.log(err));
+      .catch(err => console.log(err.response));
   };
-  getUserHistory = () => {
-    axios
-      .get(`http://localhost:3000/api/history?limit=10`, { headers: { Authorization: localStorage.getItem('id')}})
-      .then(res => this.setState({ userHistory: res.data }))
-      .catch(err => console.log(err));
-  }
   signOut = () => {
     localStorage.clear();
     this.props.history.push('/');
   };
-
-  componentDidMount = () => {
-    this.getUserHistory();
-  }
   render(){
     if(!localStorage.getItem('id')){
-      return <Slb/>
+      return <SlackLogin/>
     } else {
       return (
         <>
@@ -53,7 +42,7 @@ class MainPage extends React.Component {
               <TkSearch sendQuestion={this.sendQuestion}/>
               {this.state.error ? <p>{this.state.error}</p> : <QuestionResults results={this.state.results}/> }
             </div>
-            {this.state.userHistory ? <UserHistory userHistory={this.state.userHistory}/>: <p>No search history yet. Ask a question!</p> } 
+            <UserHistory/>
           </div>
         </>
       );
