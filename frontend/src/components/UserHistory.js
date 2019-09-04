@@ -1,6 +1,6 @@
 import React from 'react';
 import Axios from '../helpers/axiosConfig.js';
-import History from './history.js';
+import History from './History.js';
 
 class UserHistory extends React.Component {
   state = {
@@ -32,7 +32,7 @@ class UserHistory extends React.Component {
               )
             })}
           </ul> : 
-          <p>No search history yet. Ask a questions!</p>
+          <p>No search history yet. Ask a question!</p>
         }
       </>
     )

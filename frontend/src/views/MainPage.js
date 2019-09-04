@@ -1,10 +1,13 @@
 import React from 'react';
 import Axios from '../helpers/axiosConfig.js';
-import SlackLogin from '../components/slack_login_button.js';
-import TkSearch from '../components/tk_search.js';
-import QuestionResults from '../components/question_results.js';
-import UserHistory from '../components/user_history.js';
-import '../styles/main_page.css';
+
+import SlackLogin from '../components/SlackLoginButton.js';
+import TkSearch from '../components/TkSearch.js';
+import QuestionResults from '../components/QuestionResults.js';
+import UserHistory from '../components/UserHistory.js';
+import NavBar from '../components/NavBar.js';
+
+import '../styles/MainPage.css';
 
 class MainPage extends React.Component {
   state = {
@@ -26,17 +29,13 @@ class MainPage extends React.Component {
       })
       .catch(err => console.log(err.response));
   };
-  signOut = () => {
-    localStorage.clear();
-    this.props.history.push('/');
-  };
   render(){
     if(!localStorage.getItem('AuthToken')){
       return <SlackLogin/>
     } else {
       return (
         <>
-          <button onClick={() => this.signOut()}>Sign Out</button>
+          <NavBar history={this.props.history}/>
           <div className="main-page-wrapper">
             <div className="search-wrapper">
               <TkSearch sendQuestion={this.sendQuestion}/>
