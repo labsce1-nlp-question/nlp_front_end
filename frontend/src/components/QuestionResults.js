@@ -1,16 +1,15 @@
 import React from 'react';
+import QuestionResult from './QuestionResult.js';
+import '../styles/QuestionResults.css';
 
 const QuestionResults = props => {
   return (
     <>
-      {props.results.length > 0 ? 
-      <ul>
+      {props.results.length > 0 ?
+      <ul className="question-results">
         {props.results.map( result => {
           return(
-            <div key={result.id}>
-              <a href={result.URL}>{result.name}</a>
-              <p>{result.description}</p>
-            </div>
+            <QuestionResult result={result} />
           )
         })} 
       </ul>: null}
