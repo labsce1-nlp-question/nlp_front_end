@@ -14,7 +14,7 @@ class MainPage extends React.Component {
     results: [],
     error: ''
   };
-  
+
   sendQuestion = (e, q) => {
     e.preventDefault();
     const question = { question: q };
@@ -47,7 +47,7 @@ class MainPage extends React.Component {
           <div className="main-page-wrapper">
             <div className="search-wrapper">
               <TkSearch sendQuestion={this.sendQuestion}/>
-              {this.state.error ? <p>{this.state.error}</p> : <QuestionResults results={this.state.results}/> }
+              {this.state.error ? <p>{this.state.error}</p> : <QuestionResults results={this.state.results}/>}
             </div>
             <UserHistory signOut={this.signOut}/>
           </div>

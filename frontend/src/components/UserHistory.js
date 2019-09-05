@@ -1,6 +1,7 @@
 import React from 'react';
 import Axios from '../helpers/axiosConfig.js';
 import History from './History.js';
+import '../styles/UserHistory.css';
 
 class UserHistory extends React.Component {
   state = {
@@ -29,7 +30,7 @@ class UserHistory extends React.Component {
       <div className="user-history-wrapper">
         <h3>Recently asked Questions</h3>
         {this.state.userHistory ? 
-          <ul>
+          <ul className="user-history">
             {this.state.userHistory.map((history, index) => {
               return(
                 <History history={history} key={index}/>

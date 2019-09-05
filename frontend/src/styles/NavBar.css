@@ -1,3 +1,44 @@
 .navbar {
-  border: 2px solid;
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 50px;
+  background: #bb1333;
+  width: 100%;
+  font-size: 1.6rem;
+}
+
+.logo-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 17%;
+  color: white;
+}
+
+.logo-wrapper h1 {
+  margin-bottom: 4px;
+  font-size: 2rem;
+}
+.logo {
+  width: 120px;
+}
+
+.sign-out-button {
+  border: none;
+  background: none;
+  font-size: 1.6rem;
+  color: white;
+  cursor: pointer;
+}
+
+@media (max-width: 991px){
+  .navbar{
+    padding: 25px 30px;
+  }
+}
+
+@media (max-width: 767px){
+  .navbar{
+    padding: 20px 30px;
+  }
 }
