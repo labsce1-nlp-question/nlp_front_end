@@ -6,24 +6,28 @@ class UserHistory extends React.Component {
   state = {
     userHistory: []
   };
+
   getUserHistory = () => {
     Axios()
       .get('/history?limit=10')
       .then(res => this.setState({ userHistory: res.data }))
       .catch(err => {
         if(err.response.status === 401){
-          this.signOut();
+          this.props.signOut();
           alert(err.response.data.message);
         }
         console.log(err.response)
       });
   }
+
   componentDidMount = () => {
     this.getUserHistory();
   }
+
   render(){
     return(
-      <>
+      <div className="user-history-wrapper">
+        <h3>Recently asked Questions</h3>
         {this.state.userHistory ? 
           <ul>
             {this.state.userHistory.map((history, index) => {
@@ -34,7 +38,7 @@ class UserHistory extends React.Component {
           </ul> : 
           <p>No search history yet. Ask a question!</p>
         }
-      </>
+      </div>
     )
   }
 };

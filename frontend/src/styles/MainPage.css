@@ -1,6 +1,7 @@
 .main-page-wrapper {
   display: flex;
   justify-content: center;
+  font-size: 1.6rem;
 }
 
 .search-wrapper{

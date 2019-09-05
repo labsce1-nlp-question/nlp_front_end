@@ -14,6 +14,7 @@ class MainPage extends React.Component {
     results: [],
     error: ''
   };
+  
   sendQuestion = (e, q) => {
     e.preventDefault();
     const question = { question: q };
@@ -29,19 +30,26 @@ class MainPage extends React.Component {
       })
       .catch(err => console.log(err.response));
   };
+
+  signOut = () => {
+
+    localStorage.clear();
+    this.props.history.push('/');
+  };
+
   render(){
     if(!localStorage.getItem('AuthToken')){
       return <SlackLogin/>
     } else {
       return (
         <>
-          <NavBar history={this.props.history}/>
+          <NavBar signOut={this.signOut}/>
           <div className="main-page-wrapper">
             <div className="search-wrapper">
               <TkSearch sendQuestion={this.sendQuestion}/>
               {this.state.error ? <p>{this.state.error}</p> : <QuestionResults results={this.state.results}/> }
             </div>
-            <UserHistory/>
+            <UserHistory signOut={this.signOut}/>
           </div>
         </>
       );
