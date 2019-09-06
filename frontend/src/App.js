@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import MainPage from './views/main_page.js';
-import SlackLogin from './views/slack_login.js';
+import MainPage from './views/MainPage.js';
+import SlackLogin from './views/SlackLogin.js';
 
 function App() {
 

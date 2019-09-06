@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/TkSearch.css';
 
 class TkSearch extends React.Component {
   state = {
@@ -11,7 +12,7 @@ class TkSearch extends React.Component {
 
   render(){
     return(
-      <form onSubmit={e => this.props.sendQuestion(e, this.state.question)}>
+      <form className="search-form" onSubmit={e => this.props.sendQuestion(e, this.state.question)}>
         <input 
           type='text' 
           name='search'
