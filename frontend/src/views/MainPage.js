@@ -12,6 +12,7 @@ import NavBar from '../components/NavBar.js';
 class MainPage extends React.Component {
   state = {
     results: [],
+    userHistory: [],
     error: ''
   };
 
@@ -25,18 +26,33 @@ class MainPage extends React.Component {
         if(res.data.message){
           this.setState({ error: res.data.message });
         } else {
-          console.log(res.data)
-          this.setState({ results: res.data.trimmed, error: '' });
+          this.setState({ results: res.data.trimmed, userHistory: res.data.user_history, error: '' });
         }
       })
       .catch(err => console.log(err.response));
   };
 
-  signOut = () => {
+  getUserHistory = () => {
+    Axios()
+      .get('/history?limit=10')
+      .then(res => this.setState({ userHistory: res.data }))
+      .catch(err => {
+        if(err.response.status === 401){
+          this.props.signOut();
+          alert(err.response.data.message);
+        }
+        console.log(err.response)
+      });
+  }
 
+  signOut = () => {
     localStorage.clear();
     this.props.history.push('/');
   };
+
+  componentDidMount = () => {
+    this.getUserHistory();
+  }
 
   render(){
     if(!localStorage.getItem('AuthToken')){
@@ -50,7 +66,7 @@ class MainPage extends React.Component {
               <TkSearch sendQuestion={this.sendQuestion}/>
               {this.state.error ? <p>{this.state.error}</p> : <QuestionResults results={this.state.results}/>}
             </div>
-            <UserHistory signOut={this.signOut}/>
+            <UserHistory userHistory={this.state.userHistory} signOut={this.signOut}/>
           </div>
         </>
       );
