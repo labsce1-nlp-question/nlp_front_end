@@ -1,5 +1,4 @@
 import React from 'react';
-import '../styles/TkSearch.css';
 
 class TkSearch extends React.Component {
   state = {

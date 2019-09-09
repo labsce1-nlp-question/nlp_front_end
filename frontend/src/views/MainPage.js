@@ -7,7 +7,7 @@ import QuestionResults from '../components/QuestionResults.js';
 import UserHistory from '../components/UserHistory.js';
 import NavBar from '../components/NavBar.js';
 
-import '../styles/MainPage.css';
+// import '../styles/MainPage.css';
 
 class MainPage extends React.Component {
   state = {
@@ -25,7 +25,8 @@ class MainPage extends React.Component {
         if(res.data.message){
           this.setState({ error: res.data.message });
         } else {
-          this.setState({ results: res.data, error: '' });
+          console.log(res.data)
+          this.setState({ results: res.data.trimmed, error: '' });
         }
       })
       .catch(err => console.log(err.response));

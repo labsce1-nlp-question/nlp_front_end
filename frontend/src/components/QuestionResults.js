@@ -1,6 +1,5 @@
 import React from 'react';
 import QuestionResult from './QuestionResult.js';
-import '../styles/QuestionResults.css';
 
 const QuestionResults = props => {
   return (
@@ -9,7 +8,7 @@ const QuestionResults = props => {
       <ul className="question-results">
         {props.results.map( result => {
           return(
-            <QuestionResult result={result} />
+            <QuestionResult result={result} key={result.id}/>
           )
         })} 
       </ul>: null}

@@ -1,7 +1,6 @@
 import React from 'react';
 import Axios from '../helpers/axiosConfig.js';
 import History from './History.js';
-import '../styles/UserHistory.css';
 
 class UserHistory extends React.Component {
   state = {
