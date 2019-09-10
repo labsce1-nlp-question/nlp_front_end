@@ -5,7 +5,6 @@ import SlackLogin from '../components/SlackLoginButton.js';
 import TkSearch from '../components/TkSearch.js';
 import QuestionResults from '../components/QuestionResults.js';
 import UserHistory from '../components/UserHistory.js';
-import NavBar from '../components/NavBar.js';
 
 // import '../styles/MainPage.css';
 
@@ -45,11 +44,6 @@ class MainPage extends React.Component {
       });
   }
 
-  signOut = () => {
-    localStorage.clear();
-    this.props.history.push('/');
-  };
-
   componentDidMount = () => {
     this.getUserHistory();
   }
@@ -60,7 +54,6 @@ class MainPage extends React.Component {
     } else {
       return (
         <>
-          <NavBar signOut={this.signOut}/>
           <div className="main-page-wrapper">
             <div className="search-wrapper">
               <TkSearch sendQuestion={this.sendQuestion}/>

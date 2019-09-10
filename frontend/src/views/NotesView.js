@@ -1,18 +1,36 @@
 import React from 'react';
+import Axios from '../helpers/axiosConfig.js'
 import QuestionResults from '../components/QuestionResults';
 
 class Notesview extends React.Component {
   state = {
-    question: this.props.location.state.history.question,
-    results: this.props.location.state.history.bot_response,
-    notes: this.props.location.state.history.notes
+    question: '',
+    results: [],
+    notes: ''
   };
+
   componentDidMount(){
-    console.log(this.props.location.state.history)
-    if(!this.props.location.state.history){
-      this.props.history.goBack();
+    // check if state was passed via React Router Link component otherwise fetch data from Database
+    if(!this.props.location.state){
+      Axios()
+        .get(`/history/${this.props.match.params.id}`)
+        .then(res => 
+          this.setState({
+            question: res.data.question,
+            results: res.data.bot_response,
+            notes: res.data.notes
+          })
+        )
+        .catch(err => console.log(err.response));
+    } else {
+      this.setState({ 
+        question: this.props.location.state.history.question,
+        results: this.props.location.state.history.bot_response,
+        notes: this.props.location.state.history.notes 
+      });
     }
-  }
+  };
+
   render(){
     return(
       <div className="notes-view-wrapper">

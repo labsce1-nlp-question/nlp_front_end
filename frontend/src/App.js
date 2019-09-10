@@ -1,18 +1,25 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import MainPage from './views/MainPage.js';
-import SlackLogin from './views/SlackLogin.js';
+import SlackLogin from './components/SlackLogin.js';
 import NotesView from './views/NotesView.js';
+import Navbar from './components/NavBar.js';
 
-function App() {
+function App(props) {
+  
+  const signOut = () => {
+    localStorage.clear();
+    props.history.push('/');
+  };
 
   return (
     <div className="App">
-      <Route exact path = '/' component = {MainPage}/>
-      <Route path = '/slack-login' component = {SlackLogin}/>
+      <Navbar history={props.history} signOut={signOut}/>
+      <Route exact path = '/' render={props => <MainPage {...props} signOut={signOut}/>}/>
       <Route path = '/history/:id' component = {NotesView}/>
+      <Route path = '/slack-login' component = {SlackLogin}/>
     </div>
   );
 }
 
-export default App;
+export default withRouter(App);
