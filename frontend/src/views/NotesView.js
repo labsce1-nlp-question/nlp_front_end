@@ -6,17 +6,24 @@ class Notesview extends React.Component {
   state = {
     question: '',
     results: [],
-    notes: '',
-    isDisplayNotes: false
+    notes: ''
   };
   
-  inputHandler = () => {
-
+  inputHandler = e => {
+    this.setState({ [e.target.name]: e.target.value }, () => {
+      this.updateUserNote();
+    });
   }
 
   // Send user note to be added to database
   updateUserNote = () => {
+    const id = this.props.match.params.id;
+    const notes = { notes: this.state.notes };
 
+    Axios() 
+      .put(`/history/update-note/${id}`, notes)
+      .then(res => console.log(res.data))
+      .catch(err => console.log(err.response));
   }
 
   componentDidMount(){
@@ -28,7 +35,7 @@ class Notesview extends React.Component {
           this.setState({
             question: res.data.question,
             results: res.data.bot_response,
-            notes: res.data.notes
+            notes: res.data.notes ? res.data.notes : ''
           })
         )
         .catch(err => {
@@ -42,7 +49,7 @@ class Notesview extends React.Component {
       this.setState({ 
         question: this.props.location.state.history.question,
         results: this.props.location.state.history.bot_response,
-        notes: this.props.location.state.history.notes 
+        notes: this.props.location.state.history.notes ? this.props.location.state.history.notes : ''
       });
     }
   };
@@ -62,7 +69,7 @@ class Notesview extends React.Component {
           </div>
           <div className="notes">
             <h3>Notes</h3>
-            <textarea name="notes" row="30" col="50" value={this.state.notes} spellCheck="true"/>
+            <textarea name="notes" row="30" col="50" value={this.state.notes} spellCheck="true" onChange={this.inputHandler}/>
           </div>
         </div>
       </div>
