@@ -1,10 +1,13 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 const History = props => {
   return(
     <li className="history">
-      <p>{props.history.question}</p>
-      <a href={props.history.bot_response[0].URL}>{props.history.bot_response[0].name}</a>
+      <Link to={{
+        pathname: `/history/${props.history.id}`,
+        state: {history: props.history} }}>
+        <p>{props.history.question}</p>
+      </Link>
     </li>
   );
 };
