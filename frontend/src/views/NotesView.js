@@ -1,5 +1,7 @@
 import React from 'react';
 import Axios from '../helpers/axiosConfig.js'
+
+import Notes from '../components/Notes.js';
 import QuestionResults from '../components/QuestionResults';
 
 class Notesview extends React.Component {
@@ -67,10 +69,7 @@ class Notesview extends React.Component {
             <h3>Question Results:</h3>
             <QuestionResults results={this.state.results}/>
           </div>
-          <div className="notes">
-            <h3>Notes</h3>
-            <textarea name="notes" row="30" col="50" value={this.state.notes} spellCheck="true" onChange={this.inputHandler}/>
-          </div>
+          <Notes notes={this.state.notes} inputHandler={this.inputHandler}/>
         </div>
       </div>
     );
