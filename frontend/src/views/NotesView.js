@@ -6,8 +6,18 @@ class Notesview extends React.Component {
   state = {
     question: '',
     results: [],
-    notes: ''
+    notes: '',
+    isDisplayNotes: false
   };
+  
+  inputHandler = () => {
+
+  }
+
+  // Send user note to be added to database
+  updateUserNote = () => {
+
+  }
 
   componentDidMount(){
     // check if state was passed via React Router Link component otherwise fetch data from Database
@@ -21,7 +31,13 @@ class Notesview extends React.Component {
             notes: res.data.notes
           })
         )
-        .catch(err => console.log(err.response));
+        .catch(err => {
+          if(err.response.status === 401){
+            this.props.signOut();
+            alert(err.response.data.message);
+          }
+          console.log(err.response)
+        });
     } else {
       this.setState({ 
         question: this.props.location.state.history.question,
@@ -34,9 +50,21 @@ class Notesview extends React.Component {
   render(){
     return(
       <div className="notes-view-wrapper">
-        <h1>{this.state.question}</h1>
-        <textarea name="notes" row="30" col="30" value={this.state.notes} spellCheck="true"/>
-        <QuestionResults results={this.state.results} />
+        <h1>
+          Question:
+          <br/>
+          {this.state.question}
+        </h1>
+        <div className="notes-wrapper">
+          <div className="results">
+            <h3>Question Results:</h3>
+            <QuestionResults results={this.state.results}/>
+          </div>
+          <div className="notes">
+            <h3>Notes</h3>
+            <textarea name="notes" row="30" col="50" value={this.state.notes} spellCheck="true"/>
+          </div>
+        </div>
       </div>
     );
   };

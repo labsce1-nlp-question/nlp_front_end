@@ -15,8 +15,8 @@ function App(props) {
   return (
     <div className="App">
       <Navbar history={props.history} signOut={signOut}/>
-      <Route exact path = '/' render={props => <MainPage {...props} signOut={signOut}/>}/>
-      <Route path = '/history/:id' component = {NotesView}/>
+      <Route exact path = '/' render={props => <MainPage {...props} signOut={signOut}/>} />
+      <Route path = '/history/:id' render={props => <NotesView {...props} signOut={signOut}/>} />
       <Route path = '/slack-login' component = {SlackLogin}/>
     </div>
   );

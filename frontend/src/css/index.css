@@ -175,6 +175,7 @@ h5 {
 }
 .logo {
   width: 120px;
+  cursor: pointer;
 }
 .sign-out-button {
   border: none;
@@ -226,4 +227,33 @@ h5 {
 }
 .notes-view-wrapper {
   font-size: 1.6rem;
+  margin-top: 3%;
+}
+.notes-view-wrapper h1 {
+  text-align: center;
+  font-size: 3rem;
+}
+.notes-view-wrapper .notes-wrapper {
+  display: flex;
+  margin: 2%;
+}
+.notes-view-wrapper .notes-wrapper h3 {
+  font-size: 2rem;
+}
+.notes-view-wrapper .notes-wrapper .results {
+  width: 50%;
+}
+.notes-view-wrapper .notes-wrapper .results h3 {
+  margin-left: 3%;
+}
+.notes-view-wrapper .notes-wrapper .notes {
+  width: 50%;
+}
+.notes-view-wrapper .notes-wrapper .notes h3 {
+  margin-bottom: 3%;
+}
+.notes-view-wrapper .notes-wrapper .notes textarea {
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
 }
