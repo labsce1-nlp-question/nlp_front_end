@@ -1,7 +1,7 @@
 import React from 'react';
 import Axios from '../helpers/axiosConfig.js';
 
-import SlackLogin from '../components/SlackLoginButton.js';
+import SlackLoginButton from '../components/SlackLoginButton.js';
 import TkSearch from '../components/TkSearch.js';
 import QuestionResults from '../components/QuestionResults.js';
 import UserHistory from '../components/UserHistory.js';
@@ -25,7 +25,7 @@ class MainPage extends React.Component {
         if(res.data.message){
           this.setState({ error: res.data.message });
         } else {
-          this.setState({ results: res.data.trimmed, userHistory: res.data.user_history, error: '' });
+          this.setState({ results: res.data.response, userHistory: res.data.user_history, error: '' });
         }
       })
       .catch(err => console.log(err.response));
@@ -45,12 +45,14 @@ class MainPage extends React.Component {
   }
 
   componentDidMount = () => {
-    this.getUserHistory();
+    if(localStorage.getItem("AuthToken")){
+      this.getUserHistory();
+    }
   }
 
   render(){
     if(!localStorage.getItem('AuthToken')){
-      return <SlackLogin/>
+      return <SlackLoginButton/>
     } else {
       return (
         <>
