@@ -36,7 +36,7 @@ class Notesview extends React.Component {
         .then(res => 
           this.setState({
             question: res.data.question,
-            results: res.data.bot_response,
+            results: res.data.bot_response.match,
             notes: res.data.notes ? res.data.notes : ''
           })
         )
@@ -50,7 +50,7 @@ class Notesview extends React.Component {
     } else {
       this.setState({ 
         question: this.props.location.state.history.question,
-        results: this.props.location.state.history.bot_response,
+        results: this.props.location.state.history.bot_response.match,
         notes: this.props.location.state.history.notes ? this.props.location.state.history.notes : ''
       });
     }

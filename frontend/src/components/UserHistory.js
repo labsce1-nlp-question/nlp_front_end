@@ -7,9 +7,9 @@ const UserHistory = props =>{
       <h3>Recently asked Questions</h3>
       {props.userHistory ? 
         <ul className="user-history">
-          {props.userHistory.map((history, index) => {
+          {props.userHistory.map(history => {
             return(
-              <History history={history} key={index}/>
+              <History history={history} key={history.id}/>
             )
           })}
         </ul> : 
