@@ -25,7 +25,7 @@ class MainPage extends React.Component {
         if(res.data.message){
           this.setState({ error: res.data.message });
         } else {
-          this.setState({ results: res.data.response, userHistory: res.data.user_history, error: '' });
+          this.setState({ results: res.data, error: '' });
         }
       })
       .catch(err => console.log(err.response));
