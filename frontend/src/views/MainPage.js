@@ -1,7 +1,7 @@
 import React from 'react';
 import Axios from '../helpers/axiosConfig.js';
 
-import SlackLoginButton from '../components/SlackLoginButton.js';
+import LoginPage from '../components/LoginPage.js';
 import TkSearch from '../components/TkSearch.js';
 import QuestionResults from '../components/QuestionResults.js';
 import UserHistory from '../components/UserHistory.js';
@@ -52,7 +52,7 @@ class MainPage extends React.Component {
 
   render(){
     if(!localStorage.getItem('AuthToken')){
-      return <SlackLoginButton/>
+      return <LoginPage/>
     } else {
       return (
         <>
