@@ -1,4 +1,7 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+
+import WhiteLambdaLogo from '../imgs/Lambda_Logo_white.png';
 
 const NavBar = props => {
   return(
@@ -6,16 +9,37 @@ const NavBar = props => {
       <div className="logo-wrapper">
         <img 
           className="logo" 
-          src="https://assets-global.website-files.com/5ca6aa5b04fdce3dfc90bd80/5cb54224f6b7462aac67e7a5_lambda-newlogo-white.png" 
+          src={WhiteLambdaLogo}
           alt="logo"
           onClick={() => props.history.push('/')}
         />
         <h1>Training Kit Bot</h1>
       </div>
       <ul>
-        <li>Search</li>
-        <li>Search History</li>
+        <NavLink 
+          to="/"
+          activeStyle={{
+            color:"black"
+          }}
+        >
+          <li>Search</li>
+        </NavLink>
+        <NavLink
+          to="/search-history"
+          activeStyle={{
+            color:"black"
+          }}
+        >
+          <li>Search History</li>
+        </NavLink>
+        <NavLink
+          to="/notes"
+          activeStyle={{
+            color:"black"
+          }}
+        >
         <li>Notes</li>
+        </NavLink>
       </ul>
       {localStorage.getItem("AuthToken") ? <button className="sign-out-button" onClick={() => props.signOut()}>Sign Out</button> : null}
     </div>
