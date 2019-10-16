@@ -144,6 +144,9 @@ h5 {
   font-family: 'Lato', sans-serif;
   letter-spacing: 1px;
 }
+.logo {
+  width: 150px;
+}
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -162,22 +165,21 @@ h5 {
     padding: 20px 30px;
   }
 }
-.logo-wrapper {
+.navbar .logo-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 285px;
   color: white;
 }
-.logo-wrapper h1 {
+.navbar .logo-wrapper .logo {
+  cursor: pointer;
+}
+.navbar .logo-wrapper h1 {
   margin-bottom: 4px;
   font-size: 2rem;
 }
-.logo {
-  width: 120px;
-  cursor: pointer;
-}
-.sign-out-button {
+.navbar .sign-out-button {
   border: none;
   background: none;
   font-size: 1.6rem;
@@ -255,17 +257,46 @@ h5 {
   height: 100%;
 }
 .login-page-wrapper {
-  text-align: center;
-  background: #bb1333;
-  height: 61vh;
-  width: 45%;
+  height: 100vh;
+}
+.login-page-wrapper header {
+  font-size: 2.6rem;
+  display: flex;
+  align-items: center;
+  padding: 3% 5%;
+}
+.login-page-wrapper header h1 {
+  margin-left: 1%;
+}
+.login-page-wrapper .login-text-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 73.5%;
+}
+.login-page-wrapper .login-text-wrapper .login-text {
   display: flex;
   flex-direction: column;
-  margin: 9% 0px 0px 26%;
-  position: fixed;
+  align-items: center;
+  max-width: 500px;
+  font-size: 1.6rem;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
   border-radius: 5px;
-  color: white;
+  padding: 5% 6%;
+  border: 1px solid #fff;
+  background-color: #fafbfc;
+  margin-bottom: 9%;
 }
-.login-page-wrapper .login-text {
-  font-size: 2.5rem;
+.login-page-wrapper .login-text-wrapper .login-text h1 {
+  font-size: 3.6rem;
+  margin-bottom: 25%;
+}
+.login-page-wrapper footer {
+  height: 100px;
+  background-color: #1e2326;
+  text-align: center;
+  padding-top: 32px;
+}
+.login-page-wrapper footer img {
+  opacity: 0.15;
 }
