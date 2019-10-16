@@ -3,7 +3,7 @@ import Axios from '../helpers/axiosConfig.js';
 
 import UserHistory from '../components/UserHistory.js';
 
-class HistoryView extends React.Component {
+class SearchHistoryView extends React.Component {
   state = {
     userHistory: [],
   }
@@ -32,4 +32,4 @@ class HistoryView extends React.Component {
   };
 };
 
-export default HistoryView;
+export default SearchHistoryView;

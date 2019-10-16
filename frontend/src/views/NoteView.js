@@ -4,7 +4,7 @@ import Axios from '../helpers/axiosConfig.js'
 import Note from '../components/Note.js';
 import QuestionResults from '../components/QuestionResults';
 
-class Notesview extends React.Component {
+class Noteview extends React.Component {
   state = {
     question: '',
     results: [],
@@ -76,4 +76,4 @@ class Notesview extends React.Component {
   };
 };
 
-export default Notesview;
+export default Noteview;
