@@ -2,7 +2,7 @@ import React from 'react';
 
 const NavBar = props => {
   return(
-    <div className='navbar'>
+    <div className='side-nav'>
       <div className="logo-wrapper">
         <img 
           className="logo" 
@@ -12,6 +12,11 @@ const NavBar = props => {
         />
         <h1>Training Kit Bot</h1>
       </div>
+      <ul>
+        <li>Search</li>
+        <li>Search History</li>
+        <li>Notes</li>
+      </ul>
       {localStorage.getItem("AuthToken") ? <button className="sign-out-button" onClick={() => props.signOut()}>Sign Out</button> : null}
     </div>
   )
