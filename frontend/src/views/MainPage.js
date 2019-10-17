@@ -26,7 +26,12 @@ class MainPage extends React.Component {
           this.setState({ results: res.data, error: '' });
         }
       })
-      .catch(err => console.log(err.response));
+      .catch(err => {
+        alert(err.response.data.message);
+        if(err.response.data.message.includes("expired")){ 
+          this.props.signOut();
+        }
+      });
   };
 
   render(){

@@ -1,7 +1,40 @@
-.question-results .result {
-  margin: 3%;
-}
+.question-results {
 
-.question-results .result p {
-  margin-top: 1%;
+  margin-top: 3%;
+
+  .result {
+    margin: 3% 0px;
+    padding: 2%;
+
+    &:hover {
+      border-radius: 3px;
+      box-shadow: 0 5px 4px -4px rgba(0, 0, 0, 0.14), 0 0px 4px -4px rgba(0, 0, 0, 0.12), 0 0px 0px 0px rgba(0, 0, 0, 0.2);
+      background-color: #D2D2DD;
+    }
+
+    .result-url {
+      text-decoration: none;
+      color: #1a61b0;
+
+      &:hover h2 {
+        text-decoration: underline;
+        color: #0c3c78;
+      }
+      
+      h2 {
+        font-size: 2rem;
+        
+      }
+
+      div {
+        margin-top: 5px;
+        font-size: 1.4rem;
+      }
+    }
+
+    p {
+      margin-top: 1%;
+      opacity: .96;
+    }
+  }
 }

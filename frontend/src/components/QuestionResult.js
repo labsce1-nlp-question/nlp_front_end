@@ -3,7 +3,10 @@ import React from 'react';
 const QuestionResult = props => {
   return (
     <div className="result">
-      <a href={props.result.URL}>{props.result.name}</a>
+      <a className="result-url" href={props.result.URL}>
+        <h2>{props.result.name}</h2>
+        <div>{props.result.URL}</div>
+      </a>
       <p>{props.result.description}</p>
     </div>
   );
