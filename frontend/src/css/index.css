@@ -186,6 +186,7 @@ h5 {
 .side-nav ul {
   display: flex;
   flex-direction: column;
+  width: 100%;
   padding: 5%;
   margin-bottom: 35%;
   font-size: 2.6rem;
@@ -194,18 +195,18 @@ h5 {
 .side-nav ul a {
   text-decoration: none;
   color: white;
+  height: 26px;
+  margin: 15% auto;
 }
 .side-nav ul a:hover {
   font-weight: bold;
   font-size: 3rem;
 }
 .side-nav ul a li {
-  margin: 15% auto;
-  height: 30px;
-  width: 200px;
   text-align: center;
 }
 .side-nav .sign-out-button {
+  height: 20px;
   border: none;
   background: none;
   font-size: 1.6rem;
@@ -214,7 +215,7 @@ h5 {
 }
 .side-nav .sign-out-button:hover {
   font-weight: bold;
-  font-size: 3rem;
+  font-size: 2rem;
 }
 .main-page-wrapper {
   display: flex;
