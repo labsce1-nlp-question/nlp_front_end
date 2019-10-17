@@ -17,9 +17,9 @@ const NavBar = props => {
       </div>
       <ul>
         <NavLink 
-          to="/"
+          exact to="/"
           activeStyle={{
-            color:"black"
+            textDecoration: "underline"
           }}
         >
           <li>Search</li>
@@ -27,7 +27,7 @@ const NavBar = props => {
         <NavLink
           to="/search-history"
           activeStyle={{
-            color:"black"
+            textDecoration: "underline"
           }}
         >
           <li>Search History</li>
@@ -35,7 +35,7 @@ const NavBar = props => {
         <NavLink
           to="/notes"
           activeStyle={{
-            color:"black"
+            textDecoration: "underline"
           }}
         >
         <li>Notes</li>

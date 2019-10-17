@@ -156,7 +156,7 @@ h5 {
   justify-content: space-between;
   padding: 30px 50px;
   background: #bb1333;
-  width: 25%;
+  width: 320px;
   font-size: 1.6rem;
   height: 100vh;
 }
@@ -172,25 +172,38 @@ h5 {
 }
 .side-nav .logo-wrapper {
   display: flex;
-  color: white;
   align-items: center;
+  flex-direction: column;
+  color: white;
 }
 .side-nav .logo-wrapper .logo {
   cursor: pointer;
 }
 .side-nav .logo-wrapper h1 {
-  margin: 5px 0px 0px 24px;
+  margin: 15px 0px 0px 5px;
   font-size: 2rem;
 }
 .side-nav ul {
+  display: flex;
+  flex-direction: column;
   padding: 5%;
   margin-bottom: 35%;
   font-size: 2.6rem;
   color: white;
-  text-align: center;
 }
-.side-nav ul li {
-  margin: 10% 5%;
+.side-nav ul a {
+  text-decoration: none;
+  color: white;
+}
+.side-nav ul a:hover {
+  font-weight: bold;
+  font-size: 3rem;
+}
+.side-nav ul a li {
+  margin: 15% auto;
+  height: 30px;
+  width: 200px;
+  text-align: center;
 }
 .side-nav .sign-out-button {
   border: none;
@@ -198,6 +211,10 @@ h5 {
   font-size: 1.6rem;
   color: white;
   cursor: pointer;
+}
+.side-nav .sign-out-button:hover {
+  font-weight: bold;
+  font-size: 3rem;
 }
 .main-page-wrapper {
   display: flex;
