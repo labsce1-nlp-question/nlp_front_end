@@ -1,7 +1,6 @@
 import React from 'react';
 import Axios from '../helpers/axiosConfig.js';
 
-import LoginPage from '../components/LoginPage.js';
 import TkSearch from '../components/TkSearch.js';
 import QuestionResults from '../components/QuestionResults.js';
 
@@ -20,10 +19,10 @@ class MainPage extends React.Component {
     Axios()
       .post('question', question)
       .then(res => {
-        if(res.data.message){
-          this.setState({ error: res.data.message });
-        } else {
+        if(!res.data.message){
           this.setState({ results: res.data, error: '' });
+        } else {
+          this.setState({ error: res.data.message });
         }
       })
       .catch(err => {
@@ -35,9 +34,6 @@ class MainPage extends React.Component {
   };
 
   render(){
-    if(!localStorage.getItem('AuthToken')){
-      return <LoginPage/>
-    } else {
       return (
         <>
           <div className="main-page-wrapper">
@@ -49,7 +45,6 @@ class MainPage extends React.Component {
         </>
       );
     }
-  }
 };
 
 export default MainPage;

@@ -1,7 +1,7 @@
 import React from 'react';
-import History from './History.js';
+import SearchHistory from './SearchHistory.js';
 
-const UserHistory = props =>{
+const UserSearchHistory = props =>{
   return(
     <div className="user-history-wrapper">
       <h3>Recently asked Questions</h3>
@@ -9,7 +9,7 @@ const UserHistory = props =>{
         <ul className="user-history">
           {props.userHistory.map(history => {
             return(
-              <History history={history} key={history.id}/>
+              <SearchHistory history={history} key={history.id}/>
             )
           })}
         </ul> : 
@@ -19,4 +19,4 @@ const UserHistory = props =>{
   )
 };
 
-export default UserHistory;
+export default UserSearchHistory;

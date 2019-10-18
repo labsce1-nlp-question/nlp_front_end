@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const History = props => {
+const SearchHistory = props => {
   return(
     <li className="history">
       <Link to={{
@@ -14,4 +14,4 @@ const History = props => {
   );
 };
 
-export default History;
+export default SearchHistory;
