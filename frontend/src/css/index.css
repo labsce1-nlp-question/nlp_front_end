@@ -273,7 +273,7 @@ h5 {
 .user-history-wrapper {
   display: flex;
   width: 70%;
-  margin: 5% auto;
+  margin: 4% auto;
   font-size: 1.6rem;
 }
 .notes-view-wrapper {
@@ -354,24 +354,23 @@ h5 {
 .login-page-wrapper footer img {
   opacity: 0.15;
 }
-table,
-th,
-td {
-  border: 1px solid lightgrey;
-  text-align: center;
-}
 .table-wrapper {
   width: 90%;
+  height: 90%;
   border-collapse: collapse;
 }
 .table-wrapper th,
 .table-wrapper td {
   padding: 10px;
+  text-align: center;
+  vertical-align: middle;
+  border-bottom: 1px solid lightgrey;
 }
 .table-wrapper .table-caption {
-  font-size: 2.5rem;
+  font-size: 3rem;
   margin-bottom: 5%;
 }
 .table-wrapper .table-col-name {
   font-weight: 600;
+  font-size: 2rem;
 }

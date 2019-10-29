@@ -7,9 +7,9 @@ const Table = ({ caption, headers, tableData })=> {
         <caption className="table-caption">{caption}</caption>
         <thead className="table-col-name">
           <tr>
-            {headers.map(header => {
+            {headers.map((header, index) => {
               return(
-                <th>{header}</th>
+                <th key={index}>{header}</th>
               )
             })}
           </tr>
@@ -17,7 +17,7 @@ const Table = ({ caption, headers, tableData })=> {
         <tbody className="table-data">
           {tableData.map(data => {
             return(
-              <SearchHistory history={data}/>
+              <SearchHistory history={data} key={data.id}/>
             )
           })}
         </tbody>
