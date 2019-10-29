@@ -37,7 +37,7 @@ import UserSearchHistory from '../components/UserSearchHistory.js';
 const UserSearchHistoryView = ({ signOut }) => {
   const [ userHistory, setUserHistory ] = useState([]);
 
-  //fetch data from back end, dependent on signOut funtion prop from parent
+  //fetch data from back end, dependent on signOut function prop from parent
   //this useEffect only runs the first time the component renders
   useEffect(() => {
     const getUserHistory = () => {
@@ -45,6 +45,7 @@ const UserSearchHistoryView = ({ signOut }) => {
         .get('/history?limit=10')
         .then(res => setUserHistory(res.data))
         .catch(err => {
+          //if token has expired logout the user
           if(err.response.status === 401){
             alert(err.response.data.message);
             signOut();
@@ -52,7 +53,6 @@ const UserSearchHistoryView = ({ signOut }) => {
           console.log(err.response)
         });
     }
-    console.log("running");
     getUserHistory();
   }, [signOut]);
 

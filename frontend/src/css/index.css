@@ -276,10 +276,10 @@ h5 {
   align-items: center;
   margin-left: 5%;
 }
-.user-history {
+.user-history-wrapper .user-history {
   margin-top: 10%;
 }
-.history {
+.user-history-wrapper .user-history .history {
   margin-bottom: 10%;
 }
 .notes-view-wrapper {

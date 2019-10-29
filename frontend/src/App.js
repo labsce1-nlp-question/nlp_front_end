@@ -13,7 +13,7 @@ function App(props) {
 
   const signOut = () => {
     localStorage.clear();
-    props.history.push('/');
+    // props.history.push('/');
   }
 
   return (

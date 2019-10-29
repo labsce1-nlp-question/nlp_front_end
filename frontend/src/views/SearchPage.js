@@ -35,14 +35,12 @@ class MainPage extends React.Component {
 
   render(){
       return (
-        <>
-          <div className="main-page-wrapper">
-            <div className="search-wrapper">
-              <TkSearch sendQuestion={this.sendQuestion}/>
-              {this.state.error ? <p>{this.state.error}</p> : <QuestionResults results={this.state.results}/>}
-            </div>
+        <div className="main-page-wrapper">
+          <div className="search-wrapper">
+            <TkSearch sendQuestion={this.sendQuestion}/>
+            {this.state.error ? <p>{this.state.error}</p> : <QuestionResults results={this.state.results}/>}
           </div>
-        </>
+        </div>
       );
     }
 };
