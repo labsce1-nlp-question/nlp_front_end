@@ -272,15 +272,9 @@ h5 {
 }
 .user-history-wrapper {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-left: 5%;
-}
-.user-history-wrapper .user-history {
-  margin-top: 10%;
-}
-.user-history-wrapper .user-history .history {
-  margin-bottom: 10%;
+  width: 70%;
+  margin: 5% auto;
+  font-size: 1.6rem;
 }
 .notes-view-wrapper {
   font-size: 1.6rem;
@@ -359,4 +353,25 @@ h5 {
 }
 .login-page-wrapper footer img {
   opacity: 0.15;
+}
+table,
+th,
+td {
+  border: 1px solid lightgrey;
+  text-align: center;
+}
+.table-wrapper {
+  width: 90%;
+  border-collapse: collapse;
+}
+.table-wrapper th,
+.table-wrapper td {
+  padding: 10px;
+}
+.table-wrapper .table-caption {
+  font-size: 2.5rem;
+  margin-bottom: 5%;
+}
+.table-wrapper .table-col-name {
+  font-weight: 600;
 }

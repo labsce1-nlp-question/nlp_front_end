@@ -1,21 +1,17 @@
 import React from 'react';
-import SearchHistory from './SearchHistory.js';
+import Table from './Table';
 
-const UserSearchHistory = props =>{
+const UserSearchHistory = ({ userHistory }) =>{
+  const tableHeaders = ["Question", "Created At"];
+
   return(
-    <div className="user-history-wrapper">
-      <h3>Recently asked Questions</h3>
-      {props.userHistory ? 
-        <ul className="user-history">
-          {props.userHistory.map(history => {
-            return(
-              <SearchHistory history={history} key={history.id}/>
-            )
-          })}
-        </ul> : 
-        <p>No search history yet. Ask a question!</p>
+    <section className="user-history-wrapper">
+      { userHistory ?
+        <Table caption="Search History" headers={tableHeaders} tableData={userHistory}/>
+        :
+        <h2>No search history yet. Ask a question!</h2>
       }
-    </div>
+    </section>
   )
 };
 

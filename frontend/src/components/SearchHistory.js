@@ -1,16 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const SearchHistory = props => {
+const SearchHistory = ({ history }) => {
   return(
-    <li className="history">
-      <Link to={{
-        pathname: `/note/${props.history.id}`,
-        state: {history: props.history} 
-      }}>
-        <p>{props.history.question}</p>
-      </Link>
-    </li>
+    <tr>
+      <td>
+        <Link to={{
+          pathname: `/note/${history.id}`,
+          state: { history } 
+        }}>
+          {history.question}
+        </Link>
+      </td>
+      <td>{history.time}</td>
+    </tr>
   );
 };
 
