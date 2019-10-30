@@ -229,32 +229,32 @@ h5 {
   flex-direction: column;
   width: 100%;
 }
-.question-results .result {
+.result {
   margin: 3% 0px;
   padding: 2%;
   width: 50%;
 }
-.question-results .result:hover {
+.result:hover {
   border-radius: 5px;
   box-shadow: 0 5px 4px -4px rgba(0, 0, 0, 0.14), 0 0px 4px -4px rgba(0, 0, 0, 0.12), 0 0px 0px 0px rgba(0, 0, 0, 0.2);
   background-color: #D2D2DD;
 }
-.question-results .result .result-url {
+.result .result-url {
   text-decoration: none;
   color: #1a61b0;
 }
-.question-results .result .result-url:hover h2 {
+.result .result-url:hover h2 {
   text-decoration: underline;
   color: #0c3c78;
 }
-.question-results .result .result-url h2 {
+.result .result-url h2 {
   font-size: 2rem;
 }
-.question-results .result .result-url div {
+.result .result-url div {
   margin-top: 5px;
   font-size: 1.4rem;
 }
-.question-results .result p {
+.result p {
   margin-top: 1%;
   opacity: 0.96;
 }
@@ -373,4 +373,14 @@ h5 {
 .table-wrapper .table-col-name {
   font-weight: 600;
   font-size: 2rem;
+}
+.expand {
+  height: 30%;
+}
+.expand td {
+  vertical-align: top;
+  padding-top: 3%;
+}
+.expand .table-question-data {
+  width: 20%;
 }

@@ -1,13 +1,13 @@
 import React from 'react';
 
-const QuestionResult = props => {
+const QuestionResult = ({ result, showDesc }) => {
   return (
     <div className="result">
-      <a className="result-url" href={props.result.URL}>
-        <h2>{props.result.name}</h2>
-        <div>{props.result.URL}</div>
+      <a className="result-url" href={result.URL}>
+        <h2>{result.name}</h2>
+        <div>{result.URL}</div>
       </a>
-      <p>{props.result.description}</p>
+      {showDesc ? <p>{result.description}</p> : null}
     </div>
   );
 };

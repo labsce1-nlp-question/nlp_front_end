@@ -14,7 +14,7 @@ const Table = ({ caption, headers, tableData })=> {
             })}
           </tr>
         </thead>
-        <tbody className="table-data">
+        <tbody>
           {tableData.map(data => {
             return(
               <SearchHistory history={data} key={data.id}/>

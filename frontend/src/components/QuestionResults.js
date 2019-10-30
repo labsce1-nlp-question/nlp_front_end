@@ -12,7 +12,7 @@ const QuestionResults = props => {
             result.description = result.description.slice(0, 400) + '...';
           }
           return(
-            <QuestionResult result={result} key={result.id}/>
+            <QuestionResult result={result} key={result.id} showDesc={true}/>
           )
         })} 
       </ul>: null}

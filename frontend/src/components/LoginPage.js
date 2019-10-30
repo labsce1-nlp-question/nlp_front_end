@@ -16,7 +16,6 @@ const LoginPage = () => {
       <div className="login-text-wrapper">
         <div className="login-text">
           <h1>Sign in</h1>
-          {/* <p>You need to sign in with your Lambda School Slack account to take advantage of this web app</p> */}
           <SlackLoginButton />
         </div>
       </div>
