@@ -61,7 +61,7 @@ const UserSearchHistoryView = ({ signOut }) => {
 
   return(
     <section className="user-history-wrapper">
-      { userHistory ?
+      { userHistory.length > 0 ?
         <Table caption="Search History" headers={tableHeaders} tableData={userHistory}/>
         :
         <h2>No search history yet. Ask a question!</h2>

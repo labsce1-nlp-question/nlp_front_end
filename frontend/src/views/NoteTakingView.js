@@ -58,13 +58,13 @@ class Noteview extends React.Component {
 
   render(){
     return(
-      <div className="notes-view-wrapper">
+      <div className="note-view-wrapper">
         <h1>
           Question:
           <br/>
           {this.state.question}
         </h1>
-        <div className="notes-wrapper">
+        <div className="note-wrapper">
           <div className="results">
             <h3>Question Results:</h3>
             <QuestionResults results={this.state.results}/>

@@ -8,9 +8,8 @@ const SearchHistory = ({ history }) => {
   const [ isExpanded, setisExpanded ] = useState('not-expanded');
 
   const toggleExpand = e => {
-    //set the state to the opposite of what it currently is
     setShowResults(!showResults);
-    //if showResults is true add expand class other wise remove it
+    
     return !showResults ? setisExpanded('expanded') : setisExpanded('not-expanded');
   }
 
