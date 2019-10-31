@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Axios from '../helpers/axiosConfig.js';
 
-// import UserSearchHistory from '../components/UserSearchHistory.js';
-import Table from '../components/Table.js';
+import UserSearchHistoryTable from '../components/UserSearchHistoryTable.js';
 
 // ------class component------
 // class UserSearchHistoryView extends React.Component {
@@ -37,7 +36,7 @@ import Table from '../components/Table.js';
 
 const UserSearchHistoryView = ({ signOut }) => {
   const [ userHistory, setUserHistory ] = useState([]);
-  const tableHeaders = ["Question", "Created", "Note"];
+  const tableHeaders = ["Created", "Question", "Note"];
 
   //fetch data from back end, dependent on signOut function prop from parent
   //this useEffect only runs the first time the component renders
@@ -62,7 +61,7 @@ const UserSearchHistoryView = ({ signOut }) => {
   return(
     <section className="user-history-wrapper">
       { userHistory.length > 0 ?
-        <Table caption="Search History" headers={tableHeaders} tableData={userHistory}/>
+        <UserSearchHistoryTable caption="Search History" headers={tableHeaders} userHistory={userHistory}/>
         :
         <h2>No search history yet. Ask a question!</h2>
       }

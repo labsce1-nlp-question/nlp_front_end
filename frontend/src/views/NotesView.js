@@ -29,7 +29,7 @@ const NotesView  = ({ signOut })=> {
       <div className="notes-wrapper">
         {notes.length > 0 ? 
           notes.map(note => {
-            return <NoteCard note={note}/>;
+            return <NoteCard note={note} key={note.id}/>;
           })
         : <p>No notes yet!</p>}
       </div>

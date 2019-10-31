@@ -15,36 +15,55 @@ const SearchHistory = ({ history }) => {
   }
 
   return(
-    <tr className={`table-data ${isExpanded}`} onClick={e => toggleExpand(e)}>
-      <td className="table-question-data">
-        {history.question}
-        <div className="table-question-results">
-          <h3>Results:</h3>
-          {history.bot_response.match.map(result => {
-            return(
-              <QuestionResult result={result} key={result.id} showDesc={false}/>
-            );
-          })}
+    <div className="user-history-table-data">
+      <div className="user-history">
+        <span className="user-history-timestamp">
+          { moment(new Date(history.time)).fromNow() }
+        </span>
+        <p className="user-history-question">{history.question}</p>
+        <div className="user-history-note">
+          { history.notes ? 
+            <Link to={{
+              pathname: `/note/${history.id}`,
+              state: { note: history } 
+            }}>
+              View Note
+            </Link> 
+            : "Create Note"
+          }
         </div>
-      </td>
-      {/* Add ability to click the question and have the bot response results listed below 
-          expand the row to fit the results, add UI for expanding ability, Create modal for 
-          adding a note and replace the create note with a button to make the modal appear.
-          Add moment.js to convert timestamp to readable time
-      */}
-      <td className="table-createdat-data">{moment(new Date(history.time)).fromNow()}</td>
-      <td className="table-note-data">
-        { history.notes ? 
-          <Link to={{
-            pathname: `/note/${history.id}`,
-            state: { note: history } 
-          }}>
-            View Note
-          </Link> 
-          : "Create Note"
-        }
-      </td>
-    </tr>
+      </div>
+    </div>
+    // <tr className={`table-data ${isExpanded}`} onClick={e => toggleExpand(e)}>
+    //   <td className="table-question-data">
+    //     {history.question}
+    //     <div className="table-question-results">
+    //       <h3>Results:</h3>
+    //       {history.bot_response.match.map(result => {
+    //         return(
+    //           <QuestionResult result={result} key={result.id} showDesc={false}/>
+    //         );
+    //       })}
+    //     </div>
+    //   </td>
+    //   {/* Add ability to click the question and have the bot response results listed below 
+    //       expand the row to fit the results, add UI for expanding ability, Create modal for 
+    //       adding a note and replace the create note with a button to make the modal appear.
+    //       Add moment.js to convert timestamp to readable time
+    //   */}
+    //   <td className="table-createdat-data">{moment(new Date(history.time)).fromNow()}</td>
+    //   <td className="table-note-data">
+    //     { history.notes ? 
+    //       <Link to={{
+    //         pathname: `/note/${history.id}`,
+    //         state: { note: history } 
+    //       }}>
+    //         View Note
+    //       </Link> 
+    //       : "Create Note"
+    //     }
+    //   </td>
+    // </tr>
   );
 };
 
