@@ -24,7 +24,7 @@ const NotesView  = ({ signOut })=> {
   },[signOut]);
 
   return(
-    <div className="notes-view-wrapper">
+    <section className="notes-view-wrapper">
       <h2>Notes</h2>
       <div className="notes-wrapper">
         {notes.length > 0 ? 
@@ -33,7 +33,7 @@ const NotesView  = ({ signOut })=> {
           })
         : <p>No notes yet!</p>}
       </div>
-    </div>
+    </section>
   );
 };
 

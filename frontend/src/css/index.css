@@ -218,17 +218,6 @@ h5 {
   font-weight: bold;
   font-size: 2rem;
 }
-.main-page-wrapper {
-  display: flex;
-  font-size: 1.7rem;
-  margin: 7% 0 0 4%;
-  width: 75%;
-}
-.main-page-wrapper .search-wrapper {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
 .result {
   margin: 3% 0px;
   padding: 2%;
@@ -257,71 +246,6 @@ h5 {
 .result p {
   margin-top: 1%;
   opacity: 0.96;
-}
-.search-form input {
-  width: 50%;
-  height: 45px;
-  border-radius: 2px;
-  border: 1px solid lightgrey;
-  font-size: 1.8rem;
-  padding: 1%;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
-}
-.search-form input:hover {
-  border-color: #55596d;
-}
-.user-history-wrapper {
-  display: flex;
-  width: 70%;
-  margin: 4% auto;
-  font-size: 1.6rem;
-}
-.note-view-wrapper {
-  font-size: 1.6rem;
-  margin-top: 3%;
-}
-.note-view-wrapper h1 {
-  text-align: center;
-  font-size: 3rem;
-}
-.note-view-wrapper .note-wrapper {
-  display: flex;
-  margin: 2%;
-}
-.note-view-wrapper .note-wrapper h3 {
-  font-size: 2rem;
-}
-.note-view-wrapper .note-wrapper .results {
-  width: 50%;
-}
-.note-view-wrapper .note-wrapper .results h3 {
-  margin-left: 3%;
-}
-.note-view-wrapper .note-wrapper .notes {
-  width: 50%;
-}
-.note-view-wrapper .note-wrapper .notes h3 {
-  margin-bottom: 3%;
-}
-.note-view-wrapper .note-wrapper .notes textarea {
-  max-width: 100%;
-  width: 100%;
-  height: 100%;
-}
-.notes-view-wrapper {
-  display: flex;
-  flex-direction: column;
-  width: 70%;
-  margin: 4% auto;
-  font-size: 1.6rem;
-}
-.notes-view-wrapper h2 {
-  font-size: 3rem;
-  text-align: center;
-}
-.notes-view-wrapper .notes-wrapper {
-  display: flex;
-  margin: 5%;
 }
 .login-page-wrapper {
   height: 100vh;
@@ -389,6 +313,35 @@ h5 {
   font-weight: 600;
   font-size: 2rem;
 }
+.main-page-wrapper {
+  display: flex;
+  font-size: 1.7rem;
+  margin: 7% 0 0 4%;
+  width: 75%;
+}
+.main-page-wrapper .search-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.search-form input {
+  width: 50%;
+  height: 45px;
+  border-radius: 2px;
+  border: 1px solid lightgrey;
+  font-size: 1.8rem;
+  padding: 1%;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+.search-form input:hover {
+  border-color: #55596d;
+}
+.user-history-wrapper {
+  display: flex;
+  width: 70%;
+  margin: 4% auto;
+  font-size: 1.6rem;
+}
 .table-data .table-question-data {
   width: 30%;
 }
@@ -411,6 +364,53 @@ h5 {
 .expanded .table-question-data .table-question-results .result {
   width: 100%;
   margin: 0;
+}
+.note-view-wrapper {
+  font-size: 1.6rem;
+  margin-top: 3%;
+}
+.note-view-wrapper h1 {
+  text-align: center;
+  font-size: 3rem;
+}
+.note-view-wrapper .note-wrapper {
+  display: flex;
+  margin: 2%;
+}
+.note-view-wrapper .note-wrapper h3 {
+  font-size: 2rem;
+}
+.note-view-wrapper .note-wrapper .results {
+  width: 50%;
+}
+.note-view-wrapper .note-wrapper .results h3 {
+  margin-left: 3%;
+}
+.note-view-wrapper .note-wrapper .notes {
+  width: 50%;
+}
+.note-view-wrapper .note-wrapper .notes h3 {
+  margin-bottom: 3%;
+}
+.note-view-wrapper .note-wrapper .notes textarea {
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+}
+.notes-view-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin: 4% auto;
+  font-size: 1.6rem;
+}
+.notes-view-wrapper h2 {
+  font-size: 3rem;
+  text-align: center;
+}
+.notes-view-wrapper .notes-wrapper {
+  display: flex;
+  margin: 5%;
 }
 .note-card {
   width: 25%;
