@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import moment from 'moment';
 
 import QuestionResult from './QuestionResult';
 
@@ -31,7 +32,7 @@ const SearchHistory = ({ history }) => {
           adding a note and replace the create note with a button to make the modal appear.
           Add moment.js to convert timestamp to readable time
       */}
-      <td className="table-createdat-data">{history.time}</td>
+      <td className="table-createdat-data">{moment(new Date(history.time)).fromNow()}</td>
       <td className="table-note-data">
         { history.notes ? 
           <Link to={{

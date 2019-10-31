@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import moment from 'moment';
 
 const NoteCard = ({ note }) => {
   return(
@@ -17,8 +18,8 @@ const NoteCard = ({ note }) => {
           <p>{note.notes}</p>
         </div>
         <div className="note-card-timestamps">
-          <p>Created at: {note.time}</p>
-          <p>Updated at: {note.time_updated_at}</p>
+          <span>Created:<br/>{moment(new Date(note.time)).fromNow()}</span>
+          <span>Updated:<br/>{moment(new Date(note.time_updated_at)).fromNow()}</span>
         </div>
       </div>
     </Link>

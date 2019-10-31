@@ -2,7 +2,7 @@ import React from 'react';
 import Table from './Table.js';
 
 const UserSearchHistory = ({ userHistory }) =>{
-  const tableHeaders = ["Question", "Created At", "Note"];
+  const tableHeaders = ["Question", "Created", "Note"];
 
   return(
     <section className="user-history-wrapper">

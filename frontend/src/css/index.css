@@ -218,35 +218,6 @@ h5 {
   font-weight: bold;
   font-size: 2rem;
 }
-.result {
-  margin: 3% 0px;
-  padding: 2%;
-  width: 50%;
-}
-.result:hover {
-  border-radius: 5px;
-  box-shadow: 0 5px 4px -4px rgba(0, 0, 0, 0.14), 0 0px 4px -4px rgba(0, 0, 0, 0.12), 0 0px 0px 0px rgba(0, 0, 0, 0.2);
-  background-color: #D2D2DD;
-}
-.result .result-url {
-  text-decoration: none;
-  color: #1a61b0;
-}
-.result .result-url:hover h2 {
-  text-decoration: underline;
-  color: #0c3c78;
-}
-.result .result-url h2 {
-  font-size: 2rem;
-}
-.result .result-url div {
-  margin-top: 5px;
-  font-size: 1.4rem;
-}
-.result p {
-  margin-top: 1%;
-  opacity: 0.96;
-}
 .login-page-wrapper {
   height: 100vh;
   width: 100%;
@@ -312,6 +283,35 @@ h5 {
 .table-wrapper .table-col-name {
   font-weight: 600;
   font-size: 2rem;
+}
+.result {
+  margin: 3% 0px;
+  padding: 2%;
+  width: 50%;
+}
+.result:hover {
+  border-radius: 5px;
+  box-shadow: 0 5px 4px -4px rgba(0, 0, 0, 0.14), 0 0px 4px -4px rgba(0, 0, 0, 0.12), 0 0px 0px 0px rgba(0, 0, 0, 0.2);
+  background-color: #D2D2DD;
+}
+.result .result-url {
+  text-decoration: none;
+  color: #1a61b0;
+}
+.result .result-url:hover h2 {
+  text-decoration: underline;
+  color: #0c3c78;
+}
+.result .result-url h2 {
+  font-size: 2rem;
+}
+.result .result-url div {
+  margin-top: 5px;
+  font-size: 1.4rem;
+}
+.result p {
+  margin-top: 1%;
+  opacity: 0.96;
 }
 .main-page-wrapper {
   display: flex;
@@ -439,5 +439,5 @@ h5 {
 }
 .note-card .note .note-card-timestamps {
   display: flex;
-  overflow: hidden;
+  justify-content: space-between;
 }
