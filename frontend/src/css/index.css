@@ -374,13 +374,22 @@ h5 {
   font-weight: 600;
   font-size: 2rem;
 }
-.expand {
+.table-data .table-question-data {
+  width: 30%;
+}
+.table-data .table-question-data .result {
+  display: none;
+}
+.expanded {
   height: 30%;
 }
-.expand td {
+.expanded td {
   vertical-align: top;
   padding-top: 3%;
 }
-.expand .table-question-data {
-  width: 20%;
+.expanded .table-question-data .result {
+  display: block;
+  width: 320px;
+  overflow-wrap: break-word;
+  margin: auto;
 }

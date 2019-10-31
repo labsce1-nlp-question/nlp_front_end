@@ -1,4 +1,14 @@
-.expand {
+
+.table-data {
+  .table-question-data {
+    width: 30%;
+    .result {
+      display: none;
+    }
+  }
+}
+
+.expanded {
   height: 30%;
 
   td {
@@ -6,7 +16,13 @@
     padding-top: 3%;
   }
 
-  .table-question-data {
-    width: 20%;
+  .table-question-data{
+    .result {
+      display: block;
+      width: 320px;
+      overflow-wrap: break-word;
+      margin: auto;
+    }
   }
 }
+
