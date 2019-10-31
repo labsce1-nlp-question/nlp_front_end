@@ -12,10 +12,14 @@ const NoteCard = ({ note }) => {
       className="note-card"
     >
       <div className="note">
-        <h2>{note.title}</h2>
-        <p>Note: {note.notes}</p>
-        <p>Created at: {note.time}</p>
-        <p>Updated at: {note.time_updated_at}</p>
+        <h2>{note.title ? note.title : 'No Title'}</h2>
+        <div className="note-card-preview">
+          <p>{note.notes}</p>
+        </div>
+        <div className="note-card-timestamps">
+          <p>Created at: {note.time}</p>
+          <p>Updated at: {note.time_updated_at}</p>
+        </div>
       </div>
     </Link>
   );

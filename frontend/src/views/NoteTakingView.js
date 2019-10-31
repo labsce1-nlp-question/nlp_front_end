@@ -49,9 +49,9 @@ class Noteview extends React.Component {
         });
     } else {
       this.setState({ 
-        question: this.props.location.state.history.question,
-        results: this.props.location.state.history.bot_response.match,
-        notes: this.props.location.state.history.notes ? this.props.location.state.history.notes : ''
+        question: this.props.location.state.note.question,
+        results: this.props.location.state.note.bot_response.match,
+        notes: this.props.location.state.note.notes ? this.props.location.state.note.notes : ''
       });
     }
   };

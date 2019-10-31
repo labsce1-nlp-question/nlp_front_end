@@ -36,7 +36,7 @@ const SearchHistory = ({ history }) => {
         { history.notes ? 
           <Link to={{
             pathname: `/note/${history.id}`,
-            state: { history } 
+            state: { note: history } 
           }}>
             View Note
           </Link> 
