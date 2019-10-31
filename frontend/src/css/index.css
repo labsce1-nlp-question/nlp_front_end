@@ -377,7 +377,7 @@ h5 {
 .table-data .table-question-data {
   width: 30%;
 }
-.table-data .table-question-data .result {
+.table-data .table-question-data .table-question-results {
   display: none;
 }
 .expanded {
@@ -387,9 +387,13 @@ h5 {
   vertical-align: top;
   padding-top: 3%;
 }
-.expanded .table-question-data .result {
+.expanded .table-question-data .table-question-results {
   display: block;
   width: 320px;
   overflow-wrap: break-word;
   margin: auto;
+}
+.expanded .table-question-data .table-question-results .result {
+  width: 100%;
+  margin: 0;
 }

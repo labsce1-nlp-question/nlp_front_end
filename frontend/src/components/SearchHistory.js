@@ -18,21 +18,14 @@ const SearchHistory = ({ history }) => {
     <tr className={`table-data ${isExpanded}`} onClick={e => toggleExpand(e)}>
       <td className="table-question-data">
         {history.question}
-        {/* {history.bot_response.match.map(result => {
-          return (
-            <div className="table-results">
-              <a href={result.URL}>
-                <h2>{result.name}</h2>
-                <p>{result.URL}</p>
-              </a>
-            </div>
-          )
-        })} */}
-        {history.bot_response.match.map(result => {
-          return(
-            <QuestionResult result={result} key={result.id} showDesc={false}/>
-          );
-        })}
+        <div className="table-question-results">
+          <h3>Results:</h3>
+          {history.bot_response.match.map(result => {
+            return(
+              <QuestionResult result={result} key={result.id} showDesc={false}/>
+            );
+          })}
+        </div>
       </td>
       {/* Add ability to click the question and have the bot response results listed below 
           expand the row to fit the results, add UI for expanding ability, Create modal for 
