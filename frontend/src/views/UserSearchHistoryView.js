@@ -36,14 +36,15 @@ import UserSearchHistoryTable from '../components/UserSearchHistoryTable.js';
 
 const UserSearchHistoryView = ({ signOut }) => {
   const [ userHistory, setUserHistory ] = useState([]);
-  const tableHeaders = ["Created", "Question", "Note"];
+  const [ limit, setLimit ] = useState(10);
+  const tableHeaders = ["Question", "Searched", "Note"];
 
   //fetch data from back end, dependent on signOut function prop from parent
   //this useEffect only runs the first time the component renders
   useEffect(() => {
     const getUserHistory = () => {
       Axios()
-        .get('/history?limit=10')
+        .get(`/history?limit=${limit}`)
         .then(res => setUserHistory(res.data))
         .catch(err => {
           //if token has expired logout the user
@@ -55,11 +56,23 @@ const UserSearchHistoryView = ({ signOut }) => {
         });
     }
     getUserHistory();
-  }, [signOut]);
+  }, [signOut, limit]);
 
+  const SetHistoryLimit = e => {
+    console.log(e.target.value);
+  }
 
   return(
     <section className="user-history-wrapper">
+      <form className="limit-select" onSubmit={e => SetHistoryLimit(e)}>
+        <select name="limit">
+          <option value="10">10</option>
+          <option value="20">20</option>
+          <option value="50">50</option>
+          <option value="100">100</option>
+        </select>
+      </form>
+
       { userHistory.length > 0 ?
         <UserSearchHistoryTable caption="Search History" headers={tableHeaders} userHistory={userHistory}/>
         :

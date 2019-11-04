@@ -1,26 +1,31 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import moment from 'moment';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import moment from "moment";
 
-import QuestionResult from './QuestionResult';
+import QuestionResult from "./QuestionResult";
 
 const SearchHistory = ({ history }) => {
   const [ showResults, setShowResults ] = useState(false);
-  const [ isExpanded, setisExpanded ] = useState('not-expanded');
+  const [ isExpanded, setisExpanded ] = useState("not-expanded");
 
-  const toggleExpand = e => {
+  const toggleExpand = () => {
     setShowResults(!showResults);
     
-    return !showResults ? setisExpanded('expanded') : setisExpanded('not-expanded');
+    return !showResults ? setisExpanded("expanded") : setisExpanded("not-expanded");
   }
 
   return(
-    <div className="user-history-table-data">
+  //   {/* Add ability to click the question and have the bot response results listed below 
+  //       expand the row to fit the results, add UI for expanding ability, Create modal for 
+  //       adding a note and replace the create note with a button to make the modal appear.
+  //       Add moment.js to convert timestamp to readable time
+  //   */}
+    <div className={`user-history-table-data ${isExpanded}`} onClick={() => toggleExpand()}>
       <div className="user-history">
+        <p className="user-history-question">{history.question}</p>
         <span className="user-history-timestamp">
           { moment(new Date(history.time)).fromNow() }
         </span>
-        <p className="user-history-question">{history.question}</p>
         <div className="user-history-note">
           { history.notes ? 
             <Link to={{
@@ -46,11 +51,6 @@ const SearchHistory = ({ history }) => {
     //       })}
     //     </div>
     //   </td>
-    //   {/* Add ability to click the question and have the bot response results listed below 
-    //       expand the row to fit the results, add UI for expanding ability, Create modal for 
-    //       adding a note and replace the create note with a button to make the modal appear.
-    //       Add moment.js to convert timestamp to readable time
-    //   */}
     //   <td className="table-createdat-data">{moment(new Date(history.time)).fromNow()}</td>
     //   <td className="table-note-data">
     //     { history.notes ? 
