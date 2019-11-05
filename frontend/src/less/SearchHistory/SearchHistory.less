@@ -1,27 +1,56 @@
 
 .user-history-table-data {
-  border-bottom: 1px solid lightgrey;
   padding: 3%;
+  display: flex;
 
+  &:nth-child(even){
+    background-color: white;
+  }
   .user-history{
     display: flex;
     flex-wrap: wrap;
     text-align: center;
+    width: 91%;
 
-    .user-history-timestamp{
-      width: 30%;
-    }
     .user-history-question{
-      width: 43%;
+      width: 26%;
+    }
+    .user-history-timestamp{
+      width: 50%;
     }
     .user-history-note{
-      width: 27%;
+      width: 21%;
+    }
+    .user-history-results {
+      display: none;
+    }
+  }
+
+  .expand-btn {
+    .fas {
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(1.5);
+        color: #D2D2DD;
+      }
     }
   }
 }
 
 .expanded {
-  height: 30%;
+  .user-history .user-history-results {
+    display: block;
+    width: 100%;
+    margin-top: 3%;
 
+    h2 {
+      font-size: 1.9rem;
+    }
+
+    .result{
+      width: 100%;
+    }
+  }
 }
 

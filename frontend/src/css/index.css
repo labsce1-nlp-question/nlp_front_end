@@ -151,6 +151,7 @@ h5 {
   display: flex;
 }
 .side-nav {
+  position: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -318,67 +319,80 @@ h5 {
 }
 .user-history-wrapper {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 65%;
-  margin: 4% auto;
+  margin: 4% 0px 0px 26%;
   font-size: 1.6rem;
 }
-.user-history-wrapper .user-history-table {
+.user-history-wrapper .show-more-btn {
+  background: inherit;
+  border: 1px solid #0c3c78;
+  border-radius: 3px;
+  margin: 2% 9% 1% 0px;
+  padding: 5px;
+  color: #0c3c78;
+}
+.user-history-table {
   width: 70%;
   margin: 0 auto 0 12%;
 }
-.user-history-wrapper .user-history-table .user-history-table-caption {
+.user-history-table .user-history-table-caption {
   font-size: 3rem;
   text-align: center;
   margin-bottom: 5%;
+  padding-right: 3%;
 }
-.user-history-wrapper .user-history-table .user-history-table-headers {
+.user-history-table .user-history-table-headers {
   display: flex;
   justify-content: space-around;
   font-size: 2rem;
   border-bottom: 1px solid lightgrey;
-  padding-bottom: 2%;
+  padding: 0 8% 2% 0;
   font-weight: bold;
 }
-.user-history-wrapper .user-history-table .user-history-table-data-wrapper .user-history-table-data {
-  border-bottom: 1px solid lightgrey;
+.user-history-table-data {
   padding: 3%;
+  display: flex;
 }
-.user-history-wrapper .user-history-table .user-history-table-data-wrapper .user-history-table-data .user-history {
+.user-history-table-data:nth-child(even) {
+  background-color: white;
+}
+.user-history-table-data .user-history {
   display: flex;
   flex-wrap: wrap;
   text-align: center;
+  width: 91%;
 }
-.user-history-wrapper .user-history-table .user-history-table-data-wrapper .user-history-table-data .user-history .user-history-timestamp {
-  width: 30%;
+.user-history-table-data .user-history .user-history-question {
+  width: 26%;
 }
-.user-history-wrapper .user-history-table .user-history-table-data-wrapper .user-history-table-data .user-history .user-history-question {
-  width: 43%;
+.user-history-table-data .user-history .user-history-timestamp {
+  width: 50%;
 }
-.user-history-wrapper .user-history-table .user-history-table-data-wrapper .user-history-table-data .user-history .user-history-note {
-  width: 27%;
+.user-history-table-data .user-history .user-history-note {
+  width: 21%;
 }
-.table-data .table-question-data {
-  width: 30%;
-}
-.table-data .table-question-data .table-question-results {
+.user-history-table-data .user-history .user-history-results {
   display: none;
 }
-.expanded {
-  height: 30%;
+.user-history-table-data .expand-btn .fas {
+  cursor: pointer;
 }
-.expanded td {
-  vertical-align: top;
-  padding-top: 3%;
+.user-history-table-data .expand-btn .fas:hover {
+  transform: scale(1.5);
+  color: #D2D2DD;
 }
-.expanded .table-question-data .table-question-results {
+.expanded .user-history .user-history-results {
   display: block;
-  width: 320px;
-  overflow-wrap: break-word;
-  margin: auto;
-}
-.expanded .table-question-data .table-question-results .result {
   width: 100%;
-  margin: 0;
+  margin-top: 3%;
+}
+.expanded .user-history .user-history-results h2 {
+  font-size: 1.9rem;
+}
+.expanded .user-history .user-history-results .result {
+  width: 100%;
 }
 .note-view-wrapper {
   font-size: 1.6rem;

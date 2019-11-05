@@ -58,26 +58,16 @@ const UserSearchHistoryView = ({ signOut }) => {
     getUserHistory();
   }, [signOut, limit]);
 
-  const SetHistoryLimit = e => {
-    console.log(e.target.value);
-  }
+  const ShowMoreData = () => setLimit(limit+10);
 
   return(
     <section className="user-history-wrapper">
-      <form className="limit-select" onSubmit={e => SetHistoryLimit(e)}>
-        <select name="limit">
-          <option value="10">10</option>
-          <option value="20">20</option>
-          <option value="50">50</option>
-          <option value="100">100</option>
-        </select>
-      </form>
-
       { userHistory.length > 0 ?
         <UserSearchHistoryTable caption="Search History" headers={tableHeaders} userHistory={userHistory}/>
         :
         <h2>No search history yet. Ask a question!</h2>
       }
+      <button className="show-more-btn" onClick={() => ShowMoreData()}>show more</button>
     </section>
   )
 }

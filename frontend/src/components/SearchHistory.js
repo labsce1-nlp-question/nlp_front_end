@@ -20,7 +20,10 @@ const SearchHistory = ({ history }) => {
   //       adding a note and replace the create note with a button to make the modal appear.
   //       Add moment.js to convert timestamp to readable time
   //   */}
-    <div className={`user-history-table-data ${isExpanded}`} onClick={() => toggleExpand()}>
+    <div className={`user-history-table-data ${isExpanded}`}>
+      <span className="expand-btn" onClick={() => toggleExpand()}>
+        { showResults ? <i class="fas fa-chevron-up"></i> : <i class="fas fa-chevron-down"></i>}
+      </span>
       <div className="user-history">
         <p className="user-history-question">{history.question}</p>
         <span className="user-history-timestamp">
@@ -36,6 +39,14 @@ const SearchHistory = ({ history }) => {
             </Link> 
             : "Create Note"
           }
+        </div>
+        <div className="user-history-results">
+          <h2>Bot Response:</h2>
+          {showResults ? history.bot_response.match.map(result => {
+            return(
+              <QuestionResult result={result} key={result.id} showDesc={false}/>
+            );
+          }) : null}
         </div>
       </div>
     </div>
