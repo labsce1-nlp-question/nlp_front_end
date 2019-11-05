@@ -333,6 +333,11 @@ h5 {
   padding: 5px;
   color: #0c3c78;
 }
+.user-history-wrapper .show-more-btn:hover {
+  background-color: #0c3c78;
+  color: white;
+  border: none;
+}
 .user-history-table {
   width: 70%;
   margin: 0 auto 0 12%;

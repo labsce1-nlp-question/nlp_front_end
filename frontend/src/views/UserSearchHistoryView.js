@@ -67,7 +67,7 @@ const UserSearchHistoryView = ({ signOut }) => {
         :
         <h2>No search history yet. Ask a question!</h2>
       }
-      <button className="show-more-btn" onClick={() => ShowMoreData()}>show more</button>
+      <button className="show-more-btn" onClick={() => ShowMoreData()}>Show More</button>
     </section>
   )
 }
