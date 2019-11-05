@@ -297,7 +297,7 @@ h5 {
 .main-page-wrapper {
   display: flex;
   font-size: 1.7rem;
-  margin: 7% 0 0 4%;
+  margin: 4% 0px 0px 22%;
   width: 75%;
 }
 .main-page-wrapper .search-wrapper {
@@ -332,6 +332,7 @@ h5 {
   margin: 2% 9% 1% 0px;
   padding: 5px;
   color: #0c3c78;
+  cursor: pointer;
 }
 .user-history-wrapper .show-more-btn:hover {
   background-color: #0c3c78;
@@ -435,7 +436,7 @@ h5 {
   display: flex;
   flex-direction: column;
   width: 70%;
-  margin: 4% auto;
+  margin: 4% 0px 0px 22%;
   font-size: 1.6rem;
 }
 .notes-view-wrapper h2 {

@@ -50,31 +50,6 @@ const SearchHistory = ({ history }) => {
         </div>
       </div>
     </div>
-    // <tr className={`table-data ${isExpanded}`} onClick={e => toggleExpand(e)}>
-    //   <td className="table-question-data">
-    //     {history.question}
-    //     <div className="table-question-results">
-    //       <h3>Results:</h3>
-    //       {history.bot_response.match.map(result => {
-    //         return(
-    //           <QuestionResult result={result} key={result.id} showDesc={false}/>
-    //         );
-    //       })}
-    //     </div>
-    //   </td>
-    //   <td className="table-createdat-data">{moment(new Date(history.time)).fromNow()}</td>
-    //   <td className="table-note-data">
-    //     { history.notes ? 
-    //       <Link to={{
-    //         pathname: `/note/${history.id}`,
-    //         state: { note: history } 
-    //       }}>
-    //         View Note
-    //       </Link> 
-    //       : "Create Note"
-    //     }
-    //   </td>
-    // </tr>
   );
 };
 
