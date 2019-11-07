@@ -3,14 +3,22 @@
   padding: 3%;
   display: flex;
 
+  &:hover {
+    border: 1px solid #3ab5e5;
+  }
+
   &:nth-child(even){
     background-color: white;
   }
+
   .user-history{
     display: flex;
     flex-wrap: wrap;
     text-align: center;
     width: 91%;
+    height: 29px;
+    transition: height .3s ease-in-out;
+    overflow: hidden;
 
     .user-history-question{
       width: 26%;
@@ -20,37 +28,67 @@
     }
     .user-history-note{
       width: 21%;
+
+      .user-history-note-btn {
+        cursor: pointer;
+        border: none;
+        background: inherit;
+        width: 30px;
+        height: 28px;
+        background-color: #1a61b0;
+        color: white;
+        padding: 8px 8px 6px;
+        border-radius: 4px;
+        overflow: hidden;
+        transition: width 0.3s ease-in-out;
+        display: flex;
+        margin-left: 35%;
+
+        &:hover {
+          width: 107px;
+          span {
+            display: block;
+            margin-left: 5px;
+          }
+        }
+
+        span {
+          display: none;
+          white-space: nowrap;
+          margin-left: 10px;
+        }
+
+      }
     }
     .user-history-results {
-      display: none;
+      width: 100%;
+      margin-top: 3%;
+  
+      h2 {
+        font-size: 1.9rem;
+      }
+  
+      .result{
+        width: 100%;
+      }
     }
   }
 
   .expand-btn {
+    width: 14px;
     .fas {
       cursor: pointer;
 
       &:hover {
         transform: scale(1.5);
-        color: #D2D2DD;
       }
     }
   }
 }
 
 .expanded {
-  .user-history .user-history-results {
-    display: block;
-    width: 100%;
-    margin-top: 3%;
-
-    h2 {
-      font-size: 1.9rem;
-    }
-
-    .result{
-      width: 100%;
-    }
+  .user-history {
+    height: 362px;
   }
 }
 

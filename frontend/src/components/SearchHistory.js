@@ -22,7 +22,7 @@ const SearchHistory = ({ history }) => {
   //   */}
     <div className={`user-history-table-data ${isExpanded}`}>
       <span className="expand-btn" onClick={() => toggleExpand()}>
-        { showResults ? <i class="fas fa-chevron-up"></i> : <i class="fas fa-chevron-down"></i>}
+        { showResults ? <i className="fas fa-chevron-down"/> : <i className="fas fa-chevron-right"/>}
       </span>
       <div className="user-history">
         <p className="user-history-question">{history.question}</p>
@@ -30,25 +30,34 @@ const SearchHistory = ({ history }) => {
           { moment(new Date(history.time)).fromNow() }
         </span>
         <div className="user-history-note">
-          { history.notes ? 
+          { history.notes ?
             <Link to={{
               pathname: `/note/${history.id}`,
               state: { note: history } 
             }}>
-              View Note
-            </Link> 
-            : "Create Note"
+              {/* Turn into button, when this button is hovered over, expand its width to reveal the text View note/Create Note */}
+              <button className="user-history-note-btn">
+                <i className="fas fa-sticky-note"/>
+                <span>View Note</span>
+              </button>
+            </Link>
+            : <button className="user-history-note-btn">
+                <i className="fas fa-pen"/> 
+                <span>Create Note</span>
+              </button>
           }
         </div>
         <div className="user-history-results">
           <h2>Bot Response:</h2>
-          {showResults ? history.bot_response.match.map(result => {
+          {history.bot_response.match.map(result => {
             return(
               <QuestionResult result={result} key={result.id} showDesc={false}/>
             );
-          }) : null}
+          })}
         </div>
       </div>
+      {/* Set up Delete button, as well as ability to select multiple and delete those as well. Possibly delete all? */}
+      {/* <button>Delete</button> */}
     </div>
   );
 };

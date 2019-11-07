@@ -337,7 +337,6 @@ h5 {
 .user-history-wrapper .show-more-btn:hover {
   background-color: #0c3c78;
   color: white;
-  border: none;
 }
 .user-history-table {
   width: 70%;
@@ -361,6 +360,9 @@ h5 {
   padding: 3%;
   display: flex;
 }
+.user-history-table-data:hover {
+  border: 1px solid #3ab5e5;
+}
 .user-history-table-data:nth-child(even) {
   background-color: white;
 }
@@ -369,6 +371,9 @@ h5 {
   flex-wrap: wrap;
   text-align: center;
   width: 91%;
+  height: 29px;
+  transition: height 0.3s ease-in-out;
+  overflow: hidden;
 }
 .user-history-table-data .user-history .user-history-question {
   width: 26%;
@@ -379,26 +384,54 @@ h5 {
 .user-history-table-data .user-history .user-history-note {
   width: 21%;
 }
-.user-history-table-data .user-history .user-history-results {
+.user-history-table-data .user-history .user-history-note .user-history-note-btn {
+  cursor: pointer;
+  border: none;
+  background: inherit;
+  width: 30px;
+  height: 28px;
+  background-color: #1a61b0;
+  color: white;
+  padding: 8px 8px 6px;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: width 0.3s ease-in-out;
+  display: flex;
+  margin-left: 35%;
+}
+.user-history-table-data .user-history .user-history-note .user-history-note-btn:hover {
+  width: 107px;
+}
+.user-history-table-data .user-history .user-history-note .user-history-note-btn:hover span {
+  display: block;
+  margin-left: 5px;
+}
+.user-history-table-data .user-history .user-history-note .user-history-note-btn span {
   display: none;
+  white-space: nowrap;
+  margin-left: 10px;
+}
+.user-history-table-data .user-history .user-history-results {
+  width: 100%;
+  margin-top: 3%;
+}
+.user-history-table-data .user-history .user-history-results h2 {
+  font-size: 1.9rem;
+}
+.user-history-table-data .user-history .user-history-results .result {
+  width: 100%;
+}
+.user-history-table-data .expand-btn {
+  width: 14px;
 }
 .user-history-table-data .expand-btn .fas {
   cursor: pointer;
 }
 .user-history-table-data .expand-btn .fas:hover {
   transform: scale(1.5);
-  color: #D2D2DD;
 }
-.expanded .user-history .user-history-results {
-  display: block;
-  width: 100%;
-  margin-top: 3%;
-}
-.expanded .user-history .user-history-results h2 {
-  font-size: 1.9rem;
-}
-.expanded .user-history .user-history-results .result {
-  width: 100%;
+.expanded .user-history {
+  height: 362px;
 }
 .note-view-wrapper {
   font-size: 1.6rem;
