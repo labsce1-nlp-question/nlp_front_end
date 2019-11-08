@@ -4,7 +4,7 @@ import moment from "moment";
 
 import QuestionResult from "./QuestionResult";
 
-const SearchHistory = ({ history }) => {
+const SearchHistoryRow = ({ history, toggleModal }) => {
   const [ showResults, setShowResults ] = useState(false);
   const [ isExpanded, setisExpanded ] = useState("not-expanded");
 
@@ -40,7 +40,7 @@ const SearchHistory = ({ history }) => {
                 <span>View Note</span>
               </Link>
             </button>
-            : <button className="user-history-note-btn">
+            : <button className="user-history-note-btn" onClick={e => toggleModal(e)}>
                 <i className="fas fa-pen"/> 
                 <span>Create Note</span>
               </button>
@@ -64,4 +64,4 @@ const SearchHistory = ({ history }) => {
   );
 };
 
-export default SearchHistory;
+export default SearchHistoryRow;

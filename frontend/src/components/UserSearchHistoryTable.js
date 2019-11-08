@@ -1,7 +1,7 @@
 import React from 'react';
-import SearchHistory from './SearchHistory.js';
+import SearchHistoryRow from './SearchHistoryRow.js';
 
-const UserSearchHistoryTable = ({ caption, headers, userHistory })=> {
+const UserSearchHistoryTable = ({ caption, headers, userHistory, toggleModal })=> {
   return(
     <div className="user-history-table">
       <h2 className="user-history-table-caption">{caption}</h2>
@@ -15,7 +15,7 @@ const UserSearchHistoryTable = ({ caption, headers, userHistory })=> {
       <div className="user-history-table-data-wrapper">
         {userHistory.map(history => {
           return(
-            <SearchHistory history={history} key={history.id}/>
+            <SearchHistoryRow key={history.id} history={history} toggleModal={toggleModal}/>
           )
         })}
       </div>

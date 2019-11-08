@@ -1,38 +1,25 @@
-import React,{ useState, useEffect } from 'react';
-import Axios from '../helpers/axiosConfig.js';
+import React from 'react';
+import { useFetchData } from '../helpers/hooks/useFetchData.js';
 
 import NoteCard from '../components/NoteCard.js';
 
-const NotesView  = ({ signOut })=> {
-  const [notes, setNotes] = useState([]);
-
-  useEffect(() => {
-    const getUserNotes = () => {
-      Axios()
-        .get('/history/notes')
-        .then(res => setNotes(res.data))
-        .catch(err => {
-          //if token has expired logout the user
-          if(err.response.status === 401){
-            alert(err.response.data.message);
-            signOut();
-          }
-          console.log(err.response)
-        });
-    };
-    getUserNotes();
-  },[signOut]);
+const NotesView  = () => {
+  const [notes, fetching] = useFetchData('/history/notes');
 
   return(
     <section className="notes-view-wrapper">
-      <h2>Notes</h2>
-      <div className="notes-wrapper">
-        {notes.length > 0 ? 
-          notes.map(note => {
-            return <NoteCard note={note} key={note.id}/>;
-          })
-        : <p>No notes yet!</p>}
-      </div>
+      {fetching ? <div>Loading...</div> 
+        : <>
+            <h2>Notes</h2>
+            <div className="notes-wrapper">
+              {notes.length > 0 ? 
+                notes.map(note => {
+                  return <NoteCard note={note} key={note.id}/>;
+                })
+              : <p>No notes yet!</p>}
+            </div>
+          </> 
+      }
     </section>
   );
 };

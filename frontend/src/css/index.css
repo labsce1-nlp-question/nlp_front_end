@@ -549,3 +549,20 @@ h5 {
   display: flex;
   justify-content: space-between;
 }
+.create-note-modal-wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  font-size: 1.6rem;
+}
+.create-note-modal-wrapper .create-note-modal {
+  border: 1px solid;
+  width: 35%;
+  height: 50%;
+}
