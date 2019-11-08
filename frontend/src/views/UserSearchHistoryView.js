@@ -41,6 +41,7 @@ const UserSearchHistoryView = ({ signOut, toggleModal }) => {
   const tableHeaders = ["Question", "Searched"];
 
   const ShowMoreData = () => setLimit(limit+10);
+  
   return(
     <section className="user-history-wrapper">
       { fetching ? <div>Loading...</div> 

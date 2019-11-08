@@ -40,7 +40,7 @@ const SearchHistoryRow = ({ history, toggleModal }) => {
                 <span>View Note</span>
               </Link>
             </button>
-            : <button className="user-history-note-btn" onClick={e => toggleModal(e)}>
+            : <button className="user-history-note-btn" onClick={() => toggleModal()}>
                 <i className="fas fa-pen"/> 
                 <span>Create Note</span>
               </button>

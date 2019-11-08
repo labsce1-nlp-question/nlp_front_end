@@ -6,7 +6,7 @@ const CreateNoteModal = () => {
       <div className="create-note-modal">
         <h2>Create Note</h2>
         <label>
-          Title
+          Title:
           <input type="text" />
         </label>
       </div>

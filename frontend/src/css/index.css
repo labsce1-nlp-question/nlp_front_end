@@ -308,13 +308,13 @@ h5 {
 .search-form input {
   width: 50%;
   height: 45px;
-  border-radius: 2px;
+  border-radius: 3px;
   border: 1px solid lightgrey;
   font-size: 1.8rem;
   padding: 1%;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
 }
-.search-form input:hover {
+.search-form:hover {
   border-color: #55596d;
 }
 .user-history-wrapper {
@@ -562,7 +562,26 @@ h5 {
   font-size: 1.6rem;
 }
 .create-note-modal-wrapper .create-note-modal {
-  border: 1px solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 35%;
   height: 50%;
+  background-color: #D2D2DD;
+  border-radius: 5px;
+}
+.create-note-modal-wrapper .create-note-modal h2 {
+  font-size: 3rem;
+}
+.create-note-modal-wrapper .create-note-modal label {
+  font-size: 2rem;
+}
+.create-note-modal-wrapper .create-note-modal label input {
+  width: 100%;
+  height: 40px;
+  border-radius: 3px;
+  border: 1px solid lightgrey;
+  font-size: 1.8rem;
+  padding: 3%;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
 }

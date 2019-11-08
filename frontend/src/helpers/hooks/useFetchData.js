@@ -9,6 +9,7 @@ export const useFetchData = (url, singOut, limit) => {
   
   useEffect(() => {
     setFetching(true);
+    console.log("Running useEffect custom hook");
     Axios()
       .get(`${URL}`)
       .then(res => {

@@ -13,8 +13,7 @@ import CreateNoteModal from './components/CreateNoteModal.js';
 function App(props) {
   const [showModal, setShowModal] = useState(false);
 
-  const toggleModal = e => {
-    e.preventDefault();
+  const toggleModal = () => {
     setShowModal(!showModal)
   };
 
