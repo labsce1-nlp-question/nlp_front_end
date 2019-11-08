@@ -363,6 +363,9 @@ h5 {
 .user-history-table-data:hover {
   border: 1px solid #3ab5e5;
 }
+.user-history-table-data:hover .user-history .user-history-note .user-history-del-btn {
+  display: flex;
+}
 .user-history-table-data:nth-child(even) {
   background-color: white;
 }
@@ -385,22 +388,23 @@ h5 {
   width: 13%;
 }
 .user-history-table-data .user-history .user-history-note {
-  width: 20%;
+  width: 24%;
+  display: flex;
+  justify-content: space-between;
 }
 .user-history-table-data .user-history .user-history-note .user-history-note-btn {
   cursor: pointer;
   border: none;
-  background: inherit;
+  border-radius: 4px;
   width: 30px;
   height: 28px;
   background-color: #1a61b0;
   color: white;
   padding: 8px 8px 6px;
-  border-radius: 4px;
+  margin-left: 20%;
   overflow: hidden;
   transition: width 0.3s ease-in-out;
   display: flex;
-  margin-left: 35%;
 }
 .user-history-table-data .user-history .user-history-note .user-history-note-btn span {
   display: none;
@@ -412,6 +416,38 @@ h5 {
   background-color: #2179DC;
 }
 .user-history-table-data .user-history .user-history-note .user-history-note-btn:hover span {
+  display: block;
+  margin-left: 5px;
+}
+.user-history-table-data .user-history .user-history-note .user-history-note-btn a {
+  display: flex;
+  text-decoration: none;
+  color: inherit;
+}
+.user-history-table-data .user-history .user-history-note .user-history-del-btn {
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  width: 30px;
+  height: 28px;
+  background-color: red;
+  color: white;
+  padding: 8px 8px 6px;
+  margin-left: 0;
+  overflow: hidden;
+  transition: width 0.3s ease-in-out;
+  display: none;
+}
+.user-history-table-data .user-history .user-history-note .user-history-del-btn span {
+  display: none;
+  white-space: nowrap;
+  margin-left: 10px;
+}
+.user-history-table-data .user-history .user-history-note .user-history-del-btn:hover {
+  width: 117px;
+  background-color: #F9393D;
+}
+.user-history-table-data .user-history .user-history-note .user-history-del-btn:hover span {
   display: block;
   margin-left: 5px;
 }

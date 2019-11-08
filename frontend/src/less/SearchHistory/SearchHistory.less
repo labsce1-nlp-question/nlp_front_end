@@ -5,6 +5,9 @@
 
   &:hover {
     border: 1px solid #3ab5e5;
+    .user-history .user-history-note .user-history-del-btn {
+      display: flex;
+    }
   }
 
   &:nth-child(even){
@@ -29,41 +32,28 @@
     .user-history-timestamp{
       width: 13%;
     }
-    .user-history-note{
-      width: 20%;
+    .user-history-note {
+      width: 24%;
+      display: flex;
+      justify-content: space-between;
 
       .user-history-note-btn {
-        cursor: pointer;
-        border: none;
-        background: inherit;
-        width: 30px;
-        height: 28px;
-        background-color: #1a61b0;
-        color: white;
-        padding: 8px 8px 6px;
-        border-radius: 4px;
-        overflow: hidden;
-        transition: width 0.3s ease-in-out;
+        .buttonWithAnim();
         display: flex;
-        margin-left: 35%;
         
-        span {
-          display: none;
-          white-space: nowrap;
-          margin-left: 10px;
-        }
-        
-        &:hover {
-          width: 107px;
-          background-color: #2179DC;
-
-          span {
-            display: block;
-            margin-left: 5px;
-          }
+        a {
+          display: flex;
+          text-decoration: none;  
+          color: inherit;
         }
       }
+      
+      .user-history-del-btn {
+        .buttonWithAnim(@margin-left:0; @hover-width: 117px; @background-color:red; @hover-color:#F9393D;);
+        display: none;
+      }
     }
+
     .user-history-results {
       width: 100%;
       margin-top: 3%;

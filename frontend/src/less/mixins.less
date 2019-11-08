@@ -1,0 +1,30 @@
+
+.buttonWithAnim(@width: 30px; @height: 28px; @hover-width: 107px; @background-color: #1a61b0; @color: white; @hover-color: #2179DC; @margin-left: 20%) {
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  width: @width;
+  height: @height;
+  background-color: @background-color;
+  color: @color;
+  padding: 8px 8px 6px;
+  margin-left: @margin-left;
+  overflow: hidden;
+  transition: width 0.3s ease-in-out;
+  
+  span {
+    display: none;
+    white-space: nowrap;
+    margin-left: 10px;
+  }
+
+  &:hover {
+    width: @hover-width;
+    background-color: @hover-color;
+
+    span {
+      display: block;
+      margin-left: 5px;
+    }
+  }
+}

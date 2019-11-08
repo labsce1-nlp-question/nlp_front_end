@@ -31,21 +31,25 @@ const SearchHistory = ({ history }) => {
         </span>
         <div className="user-history-note">
           { history.notes ?
-            <Link to={{
-              pathname: `/note/${history.id}`,
-              state: { note: history } 
-            }}>
-              {/* Turn into button, when this button is hovered over, expand its width to reveal the text View note/Create Note */}
-              <button className="user-history-note-btn">
+            <button className="user-history-note-btn">
+              <Link to={{
+                pathname: `/note/${history.id}`,
+                state: { note: history } 
+              }}>
                 <i className="fas fa-sticky-note"/>
                 <span>View Note</span>
-              </button>
-            </Link>
+              </Link>
+            </button>
             : <button className="user-history-note-btn">
                 <i className="fas fa-pen"/> 
                 <span>Create Note</span>
               </button>
           }
+          {/* Set up Delete button, as well as ability to select multiple and delete those as well. Possibly delete all? */}
+          <button className="user-history-del-btn">
+            <i className="fas fa-trash"/>
+            <span>Delete History</span>
+          </button>
         </div>
         <div className="user-history-results">
           <h2>Bot Response:</h2>
@@ -56,8 +60,6 @@ const SearchHistory = ({ history }) => {
           })}
         </div>
       </div>
-      {/* Set up Delete button, as well as ability to select multiple and delete those as well. Possibly delete all? */}
-      {/* <button>Delete</button> */}
     </div>
   );
 };
