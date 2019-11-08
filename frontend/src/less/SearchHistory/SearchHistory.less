@@ -15,19 +15,22 @@
     display: flex;
     flex-wrap: wrap;
     text-align: center;
-    width: 91%;
+    align-items: center;
+    width: 100%;
     height: 29px;
     transition: height .3s ease-in-out;
     overflow: hidden;
 
     .user-history-question{
-      width: 26%;
+      width: 63%;
+      text-align: left;
+      padding-left: 4%;
     }
     .user-history-timestamp{
-      width: 50%;
+      width: 13%;
     }
     .user-history-note{
-      width: 21%;
+      width: 20%;
 
       .user-history-note-btn {
         cursor: pointer;
@@ -43,21 +46,22 @@
         transition: width 0.3s ease-in-out;
         display: flex;
         margin-left: 35%;
-
-        &:hover {
-          width: 107px;
-          span {
-            display: block;
-            margin-left: 5px;
-          }
-        }
-
+        
         span {
           display: none;
           white-space: nowrap;
           margin-left: 10px;
         }
+        
+        &:hover {
+          width: 107px;
+          background-color: #2179DC;
 
+          span {
+            display: block;
+            margin-left: 5px;
+          }
+        }
       }
     }
     .user-history-results {
@@ -76,6 +80,8 @@
 
   .expand-btn {
     width: 14px;
+    padding-top: 5px;
+
     .fas {
       cursor: pointer;
 

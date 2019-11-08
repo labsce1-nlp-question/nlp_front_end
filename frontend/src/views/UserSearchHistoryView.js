@@ -37,7 +37,7 @@ import UserSearchHistoryTable from '../components/UserSearchHistoryTable.js';
 const UserSearchHistoryView = ({ signOut }) => {
   const [ userHistory, setUserHistory ] = useState([]);
   const [ limit, setLimit ] = useState(10);
-  const tableHeaders = ["Question", "Searched", "Note"];
+  const tableHeaders = ["Question", "Searched"];
 
   //fetch data from back end, dependent on signOut function prop from parent
   //this useEffect only runs the first time the component renders

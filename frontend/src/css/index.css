@@ -350,10 +350,10 @@ h5 {
 }
 .user-history-table .user-history-table-headers {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   font-size: 2rem;
   border-bottom: 1px solid lightgrey;
-  padding: 0 8% 2% 0;
+  padding: 0px 26% 2% 9%;
   font-weight: bold;
 }
 .user-history-table-data {
@@ -370,19 +370,22 @@ h5 {
   display: flex;
   flex-wrap: wrap;
   text-align: center;
-  width: 91%;
+  align-items: center;
+  width: 100%;
   height: 29px;
   transition: height 0.3s ease-in-out;
   overflow: hidden;
 }
 .user-history-table-data .user-history .user-history-question {
-  width: 26%;
+  width: 63%;
+  text-align: left;
+  padding-left: 4%;
 }
 .user-history-table-data .user-history .user-history-timestamp {
-  width: 50%;
+  width: 13%;
 }
 .user-history-table-data .user-history .user-history-note {
-  width: 21%;
+  width: 20%;
 }
 .user-history-table-data .user-history .user-history-note .user-history-note-btn {
   cursor: pointer;
@@ -399,17 +402,18 @@ h5 {
   display: flex;
   margin-left: 35%;
 }
-.user-history-table-data .user-history .user-history-note .user-history-note-btn:hover {
-  width: 107px;
-}
-.user-history-table-data .user-history .user-history-note .user-history-note-btn:hover span {
-  display: block;
-  margin-left: 5px;
-}
 .user-history-table-data .user-history .user-history-note .user-history-note-btn span {
   display: none;
   white-space: nowrap;
   margin-left: 10px;
+}
+.user-history-table-data .user-history .user-history-note .user-history-note-btn:hover {
+  width: 107px;
+  background-color: #2179DC;
+}
+.user-history-table-data .user-history .user-history-note .user-history-note-btn:hover span {
+  display: block;
+  margin-left: 5px;
 }
 .user-history-table-data .user-history .user-history-results {
   width: 100%;
@@ -423,6 +427,7 @@ h5 {
 }
 .user-history-table-data .expand-btn {
   width: 14px;
+  padding-top: 5px;
 }
 .user-history-table-data .expand-btn .fas {
   cursor: pointer;
