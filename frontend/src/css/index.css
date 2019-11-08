@@ -327,15 +327,15 @@ h5 {
 }
 .user-history-wrapper .show-more-btn {
   background: inherit;
-  border: 1px solid #0c3c78;
+  border: 1px solid #1a61b0;
   border-radius: 3px;
   margin: 2% 9% 1% 0px;
   padding: 5px;
-  color: #0c3c78;
+  color: #1a61b0;
   cursor: pointer;
 }
 .user-history-wrapper .show-more-btn:hover {
-  background-color: #0c3c78;
+  background-color: #1a61b0;
   color: white;
 }
 .user-history-table {
@@ -390,7 +390,6 @@ h5 {
 .user-history-table-data .user-history .user-history-note {
   width: 24%;
   display: flex;
-  justify-content: space-between;
 }
 .user-history-table-data .user-history .user-history-note .user-history-note-btn {
   cursor: pointer;
@@ -433,7 +432,7 @@ h5 {
   background-color: red;
   color: white;
   padding: 8px 8px 6px;
-  margin-left: 0;
+  margin-left: 4%;
   overflow: hidden;
   transition: width 0.3s ease-in-out;
   display: none;
