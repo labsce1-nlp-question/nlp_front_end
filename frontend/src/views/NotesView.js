@@ -1,14 +1,20 @@
-import React from 'react';
-import { useFetchData } from '../helpers/hooks/useFetchData.js';
+import React, { useEffect } from 'react';
 
+
+import { getUserNotes } from '../store/actions/index.js';
 import NoteCard from '../components/NoteCard.js';
 
-const NotesView  = () => {
-  const [notes, fetching] = useFetchData('/history/notes');
+const NotesView  = ({ signOut, state, dispatch }) => {
+  const { notes, fetchingData } = state;
+
+  useEffect(() => {
+    console.log("running useEffect user notes")
+    getUserNotes(dispatch, signOut);
+  }, [signOut, dispatch]);
 
   return(
     <section className="notes-view-wrapper">
-      {fetching ? <div>Loading...</div> 
+      {fetchingData ? <div>Loading...</div> 
         : <>
             <h2>Notes</h2>
             <div className="notes-wrapper">

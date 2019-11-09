@@ -150,6 +150,17 @@ h5 {
 .App {
   display: flex;
 }
+.loading-spinner {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+}
 .side-nav {
   position: fixed;
   display: flex;
@@ -405,6 +416,9 @@ h5 {
   transition: width 0.3s ease-in-out;
   display: flex;
 }
+.user-history-table-data .user-history .user-history-note .user-history-note-btn:hover {
+  background-color: #2179DC;
+}
 .user-history-table-data .user-history .user-history-note .user-history-note-btn span {
   display: none;
   white-space: nowrap;
@@ -412,7 +426,6 @@ h5 {
 }
 .user-history-table-data .user-history .user-history-note .user-history-note-btn:hover {
   width: 107px;
-  background-color: #2179DC;
 }
 .user-history-table-data .user-history .user-history-note .user-history-note-btn:hover span {
   display: block;
@@ -437,6 +450,9 @@ h5 {
   transition: width 0.3s ease-in-out;
   display: none;
 }
+.user-history-table-data .user-history .user-history-note .user-history-del-btn:hover {
+  background-color: #F9393D;
+}
 .user-history-table-data .user-history .user-history-note .user-history-del-btn span {
   display: none;
   white-space: nowrap;
@@ -444,7 +460,6 @@ h5 {
 }
 .user-history-table-data .user-history .user-history-note .user-history-del-btn:hover {
   width: 117px;
-  background-color: #F9393D;
 }
 .user-history-table-data .user-history .user-history-note .user-history-del-btn:hover span {
   display: block;
@@ -550,7 +565,7 @@ h5 {
   justify-content: space-between;
 }
 .create-note-modal-wrapper {
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   right: 0;
@@ -562,21 +577,44 @@ h5 {
   font-size: 1.6rem;
 }
 .create-note-modal-wrapper .create-note-modal {
+  width: 35%;
+  height: auto;
+  background-color: white;
+  border-radius: 3px;
+}
+.create-note-modal-wrapper .create-note-modal .modal-header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 4%;
+  border-bottom: 1px solid lightgrey;
+}
+.create-note-modal-wrapper .create-note-modal .modal-header h2 {
+  font-size: 3rem;
+}
+.create-note-modal-wrapper .create-note-modal .modal-header .close-modal-btn {
+  cursor: pointer;
+  font-size: 2rem;
+  background-color: inherit;
+  border: none;
+  padding: 0;
+}
+.create-note-modal-wrapper .create-note-modal .modal-header .close-modal-btn:hover {
+  transform: scale(1.5);
+}
+.create-note-modal-wrapper .create-note-modal .create-note-modal-form {
+  padding: 4%;
+  font-size: 2rem;
+  line-height: 1.5;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 35%;
-  height: 50%;
-  background-color: #D2D2DD;
-  border-radius: 5px;
 }
-.create-note-modal-wrapper .create-note-modal h2 {
-  font-size: 3rem;
+.create-note-modal-wrapper .create-note-modal .create-note-modal-form label {
+  width: 100%;
+  margin-bottom: 3%;
 }
-.create-note-modal-wrapper .create-note-modal label {
-  font-size: 2rem;
-}
-.create-note-modal-wrapper .create-note-modal label input {
+.create-note-modal-wrapper .create-note-modal .create-note-modal-form .title-input input {
   width: 100%;
   height: 40px;
   border-radius: 3px;
@@ -584,4 +622,21 @@ h5 {
   font-size: 1.8rem;
   padding: 3%;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+.create-note-modal-wrapper .create-note-modal .create-note-modal-form .note-input textarea {
+  resize: vertical;
+  width: 100%;
+}
+.create-note-modal-wrapper .create-note-modal .create-note-modal-form .create-note-btn {
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  width: inherit;
+  height: inherit;
+  background-color: #1a61b0;
+  color: white;
+  padding: 8px 8px 6px;
+}
+.create-note-modal-wrapper .create-note-modal .create-note-modal-form .create-note-btn:hover {
+  background-color: #2179DC;
 }

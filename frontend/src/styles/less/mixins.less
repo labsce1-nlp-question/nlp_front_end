@@ -1,5 +1,5 @@
 
-.buttonWithAnim(@width: 30px; @height: 28px; @hover-width: 107px; @background-color: @blue; @color: white; @hover-color: @hover-blue; @margin-left: 20%) {
+.button(@width: 30px; @height:28px; @background-color: @blue; @color:white; @hover-color: @hover-blue) {
   cursor: pointer;
   border: none;
   border-radius: 4px;
@@ -8,6 +8,14 @@
   background-color: @background-color;
   color: @color;
   padding: 8px 8px 6px;
+
+  &:hover {
+    background-color: @hover-color;
+  }
+}
+
+.buttonWithAnim(@width: 30px; @height: 28px; @hover-width: 107px; @background-color: @blue; @color: white; @hover-color: @hover-blue; @margin-left: 20%) {
+  .button(@width; @height; @background-color; @color; @hover-color;);
   margin-left: @margin-left;
   overflow: hidden;
   transition: width 0.3s ease-in-out;
@@ -20,7 +28,6 @@
 
   &:hover {
     width: @hover-width;
-    background-color: @hover-color;
 
     span {
       display: block;
@@ -30,7 +37,7 @@
 }
 
 .overlay() {
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   right: 0;

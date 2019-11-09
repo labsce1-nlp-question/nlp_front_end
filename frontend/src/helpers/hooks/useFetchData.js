@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import Axios from '../axiosConfig.js';
 
 export const useFetchData = (url, singOut, limit) => { 
-  const [ data, setData ] = useState([]);
-  const [ fetching, setFetching ] = useState(false);
+  const [data, setData] = useState([]);
+  const [fetching, setFetching] = useState(false);
 
   const URL = limit ? `${url}?limit=${limit}` : url;
   

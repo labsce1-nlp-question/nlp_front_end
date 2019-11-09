@@ -2,16 +2,22 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import moment from "moment";
 
-import QuestionResult from "./QuestionResult";
+import { UPDATING_USER_NOTE } from '../store/actions/index.js';
+import QuestionResult from "./QuestionResult.js";
 
-const SearchHistoryRow = ({ history, toggleModal }) => {
-  const [ showResults, setShowResults ] = useState(false);
-  const [ isExpanded, setisExpanded ] = useState("not-expanded");
+const SearchHistoryRow = ({ history, toggleModal, dispatch }) => {
+  const [showResults, setShowResults] = useState(false);
+  const [isExpanded, setisExpanded] = useState("not-expanded");
 
   const toggleExpand = () => {
     setShowResults(!showResults);
     
     return !showResults ? setisExpanded("expanded") : setisExpanded("not-expanded");
+  }
+
+  const createNote = () => {
+    dispatch({ type: UPDATING_USER_NOTE, payload: history });
+    toggleModal();
   }
 
   return(
@@ -40,7 +46,7 @@ const SearchHistoryRow = ({ history, toggleModal }) => {
                 <span>View Note</span>
               </Link>
             </button>
-            : <button className="user-history-note-btn" onClick={() => toggleModal()}>
+            : <button className="user-history-note-btn" onClick={() => createNote()}>
                 <i className="fas fa-pen"/> 
                 <span>Create Note</span>
               </button>

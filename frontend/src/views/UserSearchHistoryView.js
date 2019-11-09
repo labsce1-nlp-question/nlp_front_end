@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
+import { getUserSearchHistory } from '../store/actions/index.js';
 import UserSearchHistoryTable from '../components/UserSearchHistoryTable.js';
-import { useFetchData } from '../helpers/hooks/useFetchData.js';
 
 // ------class component------
 // class UserSearchHistoryView extends React.Component {
@@ -34,20 +34,24 @@ import { useFetchData } from '../helpers/hooks/useFetchData.js';
 
 // ------functional component with hooks------
 
-const UserSearchHistoryView = ({ signOut, toggleModal }) => {
-  // const [ userHistory, setUserHistory ] = useState([]);
-  const [ limit, setLimit ] = useState(10);
-  const [ userHistory, fetching ] = useFetchData('/history', signOut);
+const UserSearchHistoryView = ({ signOut, toggleModal, state, dispatch }) => {
+  const { userHistory, fetchingData } = state;
+  const [limit, setLimit] = useState(10);
   const tableHeaders = ["Question", "Searched"];
 
   const ShowMoreData = () => setLimit(limit+10);
-  
+
+  useEffect(() => {
+    console.log("running useEffect search history")
+    getUserSearchHistory(dispatch, limit, signOut);
+  }, [limit, signOut, dispatch]);
+
   return(
     <section className="user-history-wrapper">
-      { fetching ? <div>Loading...</div> 
-        : userHistory.length > 0 ? 
+      { userHistory.length > 0 ? 
           <>
-            <UserSearchHistoryTable caption="Search History" headers={tableHeaders} userHistory={userHistory} toggleModal={toggleModal}/>
+            {fetchingData ? <div className="loading-spinner">Loading...</div> : null}
+            <UserSearchHistoryTable caption="Search History" headers={tableHeaders} userHistory={state.userHistory} toggleModal={toggleModal} dispatch={dispatch}/>
             <button className="show-more-btn" onClick={() => ShowMoreData()}>Show More</button>
           </>
         : <h2>No search history yet. Ask a question!</h2>
