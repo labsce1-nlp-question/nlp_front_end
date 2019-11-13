@@ -47,7 +47,7 @@ import { useInput } from '../helpers/hooks/useInput.js';
 
 // ------functional component with hooks------
 
-const SearchPage = ({ signOut }) => {
+const SearchPageView = ({ signOut }) => {
   const [question, handleQuestion] = useInput("");
   const [results, setResults] = useState([]);
   const [error, setError] = useState("");
@@ -76,7 +76,7 @@ const SearchPage = ({ signOut }) => {
   return (
     <div className="main-page-wrapper">
       <div className="search-wrapper">
-        <TkSearch sendQuestion={sendQuestion} handleQuestion={handleQuestion}/>
+        <TkSearch question={question} handleQuestion={handleQuestion} sendQuestion={sendQuestion}/>
         {error != "" ? <p>{error}</p> : <QuestionResults results={results}/>}
       </div>
     </div>
@@ -84,4 +84,4 @@ const SearchPage = ({ signOut }) => {
 }
 
 
-export default SearchPage;
+export default SearchPageView;
