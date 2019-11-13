@@ -25,8 +25,6 @@ import React from 'react';
 //   };
 // };
 
-// ------functional component with hooks------
-
 const TkSearch = ({ question, handleQuestion, sendQuestion }) => {
   return(
     <form className="search-form" onSubmit={() => sendQuestion()}>

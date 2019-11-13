@@ -20,7 +20,7 @@ function App(props) {
     setShowModal(!showModal)
   };
 
-  //Turn function into useCallback function due to being run mulitple times in custom hook
+  //Turned function into useCallback function due to being run mulitple times in custom hook
   const signOut = useCallback(() => {
     localStorage.clear();
     props.history.push('/');
@@ -32,7 +32,7 @@ function App(props) {
         <>
           <SideNav history={props.history} signOut={signOut}/>
           {showModal ? <CreateNoteModal toggleModal={toggleModal} signOut={signOut} state={state} dispatch={dispatch}/> : null}
-          <Route exact path = '/' render = {props => <SearchPageView {...props} signOut={signOut} dispatch={dispatch}/>} />
+          <Route exact path = '/' render = {props => <SearchPageView {...props} signOut={signOut}/>} />
           <Route path = '/search-history' render = {props => <UserSearchHistoryView {...props} signOut={signOut} toggleModal={toggleModal} state={state} dispatch={dispatch}/> } />
           <Route path = '/notes' render = {props => <NotesView {...props} signOut={signOut} state={state} dispatch={dispatch}/>} />
           <Route path = '/note/:id' render = {props => <NoteTakingView {...props} signOut={signOut}/>} />
