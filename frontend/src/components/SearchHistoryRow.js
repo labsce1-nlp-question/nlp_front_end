@@ -21,11 +21,6 @@ const SearchHistoryRow = ({ history, toggleModal, dispatch }) => {
   }
 
   return(
-  //   {/* Add ability to click the question and have the bot response results listed below 
-  //       expand the row to fit the results, add UI for expanding ability, Create modal for 
-  //       adding a note and replace the create note with a button to make the modal appear.
-  //       Add moment.js to convert timestamp to readable time
-  //   */}
     <div className={`user-history-table-data ${isExpanded}`}>
       <span className="expand-btn" onClick={() => toggleExpand()}>
         { showResults ? <i className="fas fa-chevron-down"/> : <i className="fas fa-chevron-right"/>}

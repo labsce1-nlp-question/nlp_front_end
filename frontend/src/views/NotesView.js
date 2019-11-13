@@ -14,18 +14,17 @@ const NotesView  = ({ signOut, state, dispatch }) => {
 
   return(
     <section className="notes-view-wrapper">
-      {fetchingData ? <div>Loading...</div> 
-        : <>
-            <h2>Notes</h2>
-            <div className="notes-wrapper">
-              {notes.length > 0 ? 
-                notes.map(note => {
-                  return <NoteCard note={note} key={note.id}/>;
-                })
-              : <p>No notes yet!</p>}
-            </div>
-          </> 
-      }
+      <>
+        {fetchingData ? <div className="loading-spinner">Loading...</div> : null}
+        <h2>Notes</h2>
+        <div className="notes-wrapper">
+          {notes.length > 0 ? 
+            notes.map(note => {
+              return <NoteCard note={note} key={note.id}/>;
+            })
+          : <p>No notes yet!</p>}
+        </div>
+      </> 
     </section>
   );
 };

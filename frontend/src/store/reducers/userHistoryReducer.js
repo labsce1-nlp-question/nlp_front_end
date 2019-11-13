@@ -58,7 +58,6 @@ export const userHistoryReducer = (state, action) => {
       };
     
     case UPDATING_USER_NOTE: 
-      console.log("reducer console log",action.payload)
       return {
         ...state,
         currentNote: action.payload

@@ -1,48 +1,87 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Axios from '../helpers/axiosConfig.js';
 
 import TkSearch from '../components/TkSearch.js';
 import QuestionResults from '../components/QuestionResults.js';
+import { useInput } from '../helpers/hooks/useInput.js';
 
-// import '../styles/MainPage.css';
+// ------class component------
+// class SearchPage extends React.Component {
+//   state = {
+//     results: [],
+//     error: ''
+//   };
 
-class MainPage extends React.Component {
-  state = {
-    results: [],
-    error: ''
-  };
+//   sendQuestion = (e, q) => {
+//     e.preventDefault();
+//     const question = { question: q };
 
-  sendQuestion = (e, q) => {
-    e.preventDefault();
-    const question = { question: q };
+//     Axios()
+//       .post('question', question)
+//       .then(res => {
+//         if(!res.data.message){
+//           this.setState({ results: res.data, error: '' });
+//         } else {
+//           this.setState({ error: res.data.message });
+//         }
+//       })
+//       .catch(err => {
+//         alert(err.response.data.message);
+//         if(err.response.data.message.includes("expired")){ 
+//           this.props.signOut();
+//         }
+//       });
+//   };
+
+//   render(){
+//       return (
+//         <div className="main-page-wrapper">
+//           <div className="search-wrapper">
+//             <TkSearch sendQuestion={this.sendQuestion}/>
+//             {this.state.error ? <p>{this.state.error}</p> : <QuestionResults results={this.state.results}/>}
+//           </div>
+//         </div>
+//       );
+//     }
+// };
+
+// ------functional component with hooks------
+
+const SearchPage = ({ signOut }) => {
+  const [question, handleQuestion] = useInput("");
+  const [results, setResults] = useState([]);
+  const [error, setError] = useState("");
+
+  const sendQuestion = () => {
+    const q = { question };
 
     Axios()
-      .post('question', question)
+      .post('question', q)
       .then(res => {
         if(!res.data.message){
-          this.setState({ results: res.data, error: '' });
+          setResults(res.data);
+          setError("");
         } else {
-          this.setState({ error: res.data.message });
+          setError(res.data.message);
         }
       })
       .catch(err => {
         alert(err.response.data.message);
         if(err.response.data.message.includes("expired")){ 
-          this.props.signOut();
+          signOut();
         }
       });
-  };
+  }
 
-  render(){
-      return (
-        <div className="main-page-wrapper">
-          <div className="search-wrapper">
-            <TkSearch sendQuestion={this.sendQuestion}/>
-            {this.state.error ? <p>{this.state.error}</p> : <QuestionResults results={this.state.results}/>}
-          </div>
-        </div>
-      );
-    }
-};
+  return (
+    <div className="main-page-wrapper">
+      <div className="search-wrapper">
+        <TkSearch sendQuestion={sendQuestion} handleQuestion={handleQuestion}/>
+        {error != "" ? <p>{error}</p> : <QuestionResults results={results}/>}
+      </div>
+    </div>
+  );
+}
 
-export default MainPage;
+
+export default SearchPage;

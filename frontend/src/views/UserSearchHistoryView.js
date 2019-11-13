@@ -34,6 +34,8 @@ import UserSearchHistoryTable from '../components/UserSearchHistoryTable.js';
 
 // ------functional component with hooks------
 
+// Update BE code for getting user history to send back wether their is more data or not. With this message
+// display the show more button or not
 const UserSearchHistoryView = ({ signOut, toggleModal, state, dispatch }) => {
   const { userHistory, fetchingData } = state;
   const [limit, setLimit] = useState(10);
@@ -51,7 +53,7 @@ const UserSearchHistoryView = ({ signOut, toggleModal, state, dispatch }) => {
       { userHistory.length > 0 ? 
           <>
             {fetchingData ? <div className="loading-spinner">Loading...</div> : null}
-            <UserSearchHistoryTable caption="Search History" headers={tableHeaders} userHistory={state.userHistory} toggleModal={toggleModal} dispatch={dispatch}/>
+            <UserSearchHistoryTable caption="Search History" headers={tableHeaders} userHistory={userHistory} toggleModal={toggleModal} dispatch={dispatch}/>
             <button className="show-more-btn" onClick={() => ShowMoreData()}>Show More</button>
           </>
         : <h2>No search history yet. Ask a question!</h2>
