@@ -34,15 +34,13 @@ export const getUserSearchHistory = (dispatch, limit, signOut) => {
 
 export const getUserNote = (note_id, dispatch, signOut) => {
   dispatch({ type: FETCHING_USER_NOTE });
-  Axios()
+  return(
+    Axios()
     .get(`/history/${note_id}`)
-    .then(res => dispatch({ type: SUCCESS_USER_NOTE, payload: res.data })
-      // this.setState({
-      //   question: res.data.question,
-      //   results: res.data.bot_response.match,
-      //   notes: res.data.notes ? res.data.notes : ''
-      // })
-    )
+    .then(res => {
+      dispatch({ type: SUCCESS_USER_NOTE, payload: res.data })
+      return res.data;
+    })
     .catch(err => {
       dispatch({ type: FAILURE_USER_NOTE });
       if(err.response.status === 401){
@@ -50,7 +48,8 @@ export const getUserNote = (note_id, dispatch, signOut) => {
         alert(err.response.data.message);
       }
       console.log(err.response)
-    });
+    })
+  )
 };
 
 export const getUserNotes = (dispatch, signOut) => {
@@ -69,9 +68,10 @@ export const getUserNotes = (dispatch, signOut) => {
     });
 };
 
-export const updateUserNote = (dispatch, currentNote, newNote, signOut) => {
+export const updateUserNote = (dispatch, id, newNote, signOut) => {
+  console.log("update user note: ", newNote)
   Axios()
-    .put(`/history/update-note/${currentNote.id}`, newNote)
+    .put(`/history/update-note/${id}`, newNote)
     .then(res => {
       dispatch({ type: UPDATED_USER_NOTE, payload: res.data });
     })

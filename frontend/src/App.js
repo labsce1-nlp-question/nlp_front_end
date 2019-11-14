@@ -6,7 +6,7 @@ import SearchPageView from './views/SearchPageView.js';
 import LoginPage from './components/LoginPage.js';
 import UserSearchHistoryView from './views/UserSearchHistoryView.js';
 import SlackLogin from './components/SlackLogin.js';
-import NoteTakingView from './views/NoteTakingView.js';
+import NotePageView from './views/NotePageView.js';
 import NotesView from './views/NotesView.js';
 import SideNav from './components/SideNav.js';
 import CreateNoteModal from './components/CreateNoteModal.js';
@@ -35,7 +35,7 @@ function App(props) {
           <Route exact path = '/' render = {props => <SearchPageView {...props} signOut={signOut}/>} />
           <Route path = '/search-history' render = {props => <UserSearchHistoryView {...props} signOut={signOut} toggleModal={toggleModal} state={state} dispatch={dispatch}/> } />
           <Route path = '/notes' render = {props => <NotesView {...props} signOut={signOut} state={state} dispatch={dispatch}/>} />
-          <Route path = '/note/:id' render = {props => <NoteTakingView {...props} signOut={signOut}/>} />
+          <Route path = '/note/:id' render = {props => <NotePageView {...props} signOut={signOut} state={state} dispatch={dispatch}/>} />
         </>
         : <LoginPage />
       }

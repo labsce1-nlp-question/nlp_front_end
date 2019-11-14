@@ -3,8 +3,6 @@ import React from 'react';
 import { useInput } from '../helpers/hooks/useInput.js';
 import { updateUserNote } from '../store/actions/index.js';
 
-import Axios from '../helpers/axiosConfig.js';
-
 const CreateNoteModal = ({ toggleModal, signOut, state, dispatch }) => {
   const [title, handleTitle] = useInput("");
   const [note, handleNote] = useInput("");
@@ -14,7 +12,7 @@ const CreateNoteModal = ({ toggleModal, signOut, state, dispatch }) => {
     e.preventDefault();
     const newNote = { title, notes: note };
 
-    updateUserNote(dispatch, state.currentNote, newNote, signOut);
+    updateUserNote(dispatch, state.currentNote.id, newNote, signOut);
     toggleModal();
     // Axios() 
     //   .put(`/history/update-note/${state.currentNote.id}`, newNote)

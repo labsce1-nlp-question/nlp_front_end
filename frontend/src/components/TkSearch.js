@@ -27,12 +27,12 @@ import React from 'react';
 
 const TkSearch = ({ question, handleQuestion, sendQuestion }) => {
   return(
-    <form className="search-form" onSubmit={() => sendQuestion()}>
+    <form className="search-form" onSubmit={e => sendQuestion(e)}>
       <input 
         type='text' 
         name='search'
         value={question}
-        onChange={handleQuestion}
+        onChange={e => handleQuestion(e.target.value)}
         placeholder='Ask me a question'
       />
     </form>

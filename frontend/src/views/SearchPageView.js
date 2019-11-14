@@ -52,7 +52,8 @@ const SearchPageView = ({ signOut }) => {
   const [results, setResults] = useState([]);
   const [error, setError] = useState("");
 
-  const sendQuestion = () => {
+  const sendQuestion = e => {
+    e.preventDefault();
     const q = { question };
 
     Axios()
@@ -77,7 +78,7 @@ const SearchPageView = ({ signOut }) => {
     <div className="main-page-wrapper">
       <div className="search-wrapper">
         <TkSearch question={question} handleQuestion={handleQuestion} sendQuestion={sendQuestion}/>
-        {error != "" ? <p>{error}</p> : <QuestionResults results={results}/>}
+        {error !== "" ? <p>{error}</p> : <QuestionResults results={results}/>}
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ const NotesView  = ({ signOut, state, dispatch }) => {
   const { notes, fetchingData } = state;
 
   useEffect(() => {
-    console.log("running useEffect user notes")
+    console.log("running useEffect user notes view")
     getUserNotes(dispatch, signOut);
   }, [signOut, dispatch]);
 
@@ -20,7 +20,7 @@ const NotesView  = ({ signOut, state, dispatch }) => {
         <div className="notes-wrapper">
           {notes.length > 0 ? 
             notes.map(note => {
-              return <NoteCard note={note} key={note.id}/>;
+              return <NoteCard note={note} key={note.id} dispatch={dispatch}/>;
             })
           : <p>No notes yet!</p>}
         </div>

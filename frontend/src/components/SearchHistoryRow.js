@@ -33,10 +33,7 @@ const SearchHistoryRow = ({ history, toggleModal, dispatch }) => {
         <div className="user-history-note">
           { history.notes ?
             <button className="user-history-note-btn">
-              <Link to={{
-                pathname: `/note/${history.id}`,
-                state: { note: history } 
-              }}>
+              <Link to={`/note/${history.id}`} onClick={() => dispatch({ type: UPDATING_USER_NOTE, payload: history })}>
                 <i className="fas fa-sticky-note"/>
                 <span>View Note</span>
               </Link>

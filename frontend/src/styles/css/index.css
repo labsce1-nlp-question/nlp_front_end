@@ -386,7 +386,7 @@ h5 {
   text-align: center;
   align-items: center;
   width: 100%;
-  height: 29px;
+  height: 32px;
   transition: height 0.3s ease-in-out;
   overflow: hidden;
 }
@@ -489,8 +489,12 @@ h5 {
   height: 362px;
 }
 .note-view-wrapper {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   font-size: 1.6rem;
-  margin-top: 3%;
+  margin: 4% 0px 0px 17%;
 }
 .note-view-wrapper h1 {
   text-align: center;

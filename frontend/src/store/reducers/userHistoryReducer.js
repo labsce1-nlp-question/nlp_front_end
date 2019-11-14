@@ -89,7 +89,6 @@ export const userHistoryReducer = (state, action) => {
     case UPDATED_USER_NOTE:
       return {
         ...state,
-        currentNote: action.payload,
         userHistory: state.userHistory.map( history => history.id === action.payload.id ? action.payload : history)
       };
       

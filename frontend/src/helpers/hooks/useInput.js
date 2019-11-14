@@ -5,6 +5,5 @@ export const useInput = initialValue => {
   const handleChanges = updateValue => {
     setValue(updateValue);
   }
-
-  return [value, handleChanges];
+  return [value, handleChanges, setValue];
 }

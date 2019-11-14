@@ -2,15 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 
-const NoteCard = ({ note }) => {
+import { UPDATING_USER_NOTE } from '../store/actions/index.js';
+
+const NoteCard = ({ note, dispatch }) => {
   return(
-    <Link 
-      key={note.id} 
-      to={{
-        pathname: `/note/${note.id}`,
-        state: { note } 
-      }}
+    <Link
+      to={`/note/${note.id}`}
       className="note-card"
+      onClick={() => dispatch({ type: UPDATING_USER_NOTE, payload: note })}
     >
       <div className="note">
         <h2>{note.title ? note.title : 'No Title'}</h2>
