@@ -150,6 +150,14 @@ h5 {
 .App {
   display: flex;
 }
+a {
+  text-decoration: none;
+  color: #1a61b0;
+}
+a:hover {
+  text-decoration: underline;
+  color: #0c3c78;
+}
 .loading-spinner {
   position: fixed;
   top: 0;
@@ -285,14 +293,6 @@ h5 {
   border-radius: 5px;
   box-shadow: 0 5px 4px -4px rgba(0, 0, 0, 0.14), 0 0px 4px -4px rgba(0, 0, 0, 0.12), 0 0px 0px 0px rgba(0, 0, 0, 0.2);
   background-color: #D2D2DD;
-}
-.result .result-url {
-  text-decoration: none;
-  color: #1a61b0;
-}
-.result .result-url:hover h2 {
-  text-decoration: underline;
-  color: #0c3c78;
 }
 .result .result-url h2 {
   font-size: 2rem;
@@ -494,35 +494,18 @@ h5 {
   flex-direction: column;
   align-items: center;
   font-size: 1.6rem;
-  margin: 4% 0px 0px 17%;
+  margin: 4% 0px 0px 20%;
 }
-.note-view-wrapper h1 {
+.note-view-wrapper .note-view-header {
   text-align: center;
   font-size: 3rem;
 }
 .note-view-wrapper .note-wrapper {
-  display: flex;
   margin: 2%;
+  width: 100%;
 }
 .note-view-wrapper .note-wrapper h3 {
   font-size: 2rem;
-}
-.note-view-wrapper .note-wrapper .results {
-  width: 50%;
-}
-.note-view-wrapper .note-wrapper .results h3 {
-  margin-left: 3%;
-}
-.note-view-wrapper .note-wrapper .notes {
-  width: 50%;
-}
-.note-view-wrapper .note-wrapper .notes h3 {
-  margin-bottom: 3%;
-}
-.note-view-wrapper .note-wrapper .notes textarea {
-  max-width: 100%;
-  width: 100%;
-  height: 100%;
 }
 .notes-view-wrapper {
   display: flex;
@@ -537,14 +520,16 @@ h5 {
 }
 .notes-view-wrapper .notes-wrapper {
   display: flex;
-  margin: 5%;
+  flex-wrap: wrap;
+  margin: 5% auto;
 }
 .note-card {
-  width: 25%;
+  width: 23%;
   border-radius: 3px;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
   background-color: white;
   padding: 2%;
+  margin: 1%;
   text-decoration: none;
   color: black;
 }
@@ -643,4 +628,93 @@ h5 {
 }
 .create-note-modal-wrapper .create-note-modal .create-note-modal-form .create-note-btn:hover {
   background-color: #2179DC;
+}
+.markdown-preview {
+  line-height: 1.5;
+  word-wrap: break-word;
+  background: white;
+  padding: 1% 5%;
+}
+.markdown-preview h1,
+.markdown-preview h2 {
+  border-bottom: 1px solid lightgrey;
+  padding-bottom: 0.5%;
+}
+.markdown-preview h1 {
+  font-size: 3rem;
+}
+.markdown-preview h2 {
+  font-size: 2.5rem;
+}
+.markdown-preview h1,
+.markdown-preview h2,
+.markdown-preview h3,
+.markdown-preview h4,
+.markdown-preview h5,
+.markdown-preview h6 {
+  margin: 24px 0px 16px 0px;
+  font-weight: bold;
+  line-height: 1.25;
+}
+.markdown-preview blockquote {
+  color: #666;
+  margin: 0;
+  padding-left: 2%;
+  border-left: 0.5rem solid #dfe2e5;
+}
+.markdown-preview pre {
+  border: 1px solid #ccc;
+}
+.markdown-preview code {
+  font-size: 1.5rem;
+  background-color: rgba(27, 31, 35, 0.06);
+  border-radius: 3px;
+  padding: 0.2rem 0.4rem;
+}
+.markdown-preview table {
+  width: 100%;
+  overflow: auto;
+}
+.markdown-preview table th {
+  font-weight: bold;
+}
+.markdown-preview table tr {
+  border-top: 1px solid #c6cbd1;
+  background: #fff;
+}
+.markdown-preview table tr:nth-child(2n) {
+  background: #f6f8fa;
+}
+.markdown-preview table th,
+.markdown-preview table td {
+  padding: 6px 13px;
+  border: 1px solid #dfe2e5;
+}
+.markdown-preview ul,
+.markdown-preview ol {
+  padding-left: 4%;
+}
+.markdown-preview ol {
+  list-style: decimal;
+}
+.markdown-preview li + li {
+  margin-top: 1%;
+}
+.markdown-preview hr {
+  height: 0.25rem;
+  padding: 0;
+  margin: 24px 0;
+  background-color: #e1e4e8;
+  border: 0;
+}
+.markdown-preview blockquote,
+.markdown-preview details,
+.markdown-preview dl,
+.markdown-preview ol,
+.markdown-preview p,
+.markdown-preview pre,
+.markdown-preview table,
+.markdown-preview ul {
+  margin-top: 0;
+  margin-bottom: 16px;
 }

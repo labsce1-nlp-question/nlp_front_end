@@ -14,13 +14,6 @@ const CreateNoteModal = ({ toggleModal, signOut, state, dispatch }) => {
 
     updateUserNote(dispatch, state.currentNote.id, newNote, signOut);
     toggleModal();
-    // Axios() 
-    //   .put(`/history/update-note/${state.currentNote.id}`, newNote)
-    //   .then(res => {
-    //     toggleModal();
-    //     console.log(res.data)
-    //   })
-    //   .catch(err => console.log(err.response));
   }
 
   return(

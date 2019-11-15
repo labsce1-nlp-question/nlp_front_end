@@ -22,6 +22,16 @@ h1, h2, h3, h4, h5 {
 	display: flex;
 }
 
+a {
+	text-decoration: none;
+	color: @blue;
+
+	&:hover {
+		text-decoration: underline;
+		color: @dark-blue;
+	}    
+}
+
 .loading-spinner {
 	.overlay();
 	display: flex;

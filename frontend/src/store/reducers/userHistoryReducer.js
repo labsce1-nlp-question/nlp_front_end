@@ -10,7 +10,6 @@ import {
   FAILURE_USER_NOTES,
   UPDATING_USER_NOTE,
   UPDATED_USER_NOTE,
-  FAILURE_UPDATING_USER_NOTE,
 } from '../actions/index.js';
 
 export const userHistoryState = {

@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 
-
 import { getUserNotes } from '../store/actions/index.js';
 import NoteCard from '../components/NoteCard.js';
 
+//Make changes to backend to sort bassed on time updated note created
 const NotesView  = ({ signOut, state, dispatch }) => {
   const { notes, fetchingData } = state;
 

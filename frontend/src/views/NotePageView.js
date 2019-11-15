@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 
-import Note from "../components/Note.js";
-import QuestionResults from "../components/QuestionResults";
+import MarkdownEditor from "../components/MarkdownEditor/MarkdownEditor.js";
 import { getUserNote, updateUserNote } from '../store/actions/index.js';
 import { useInput } from "../helpers/hooks/useInput.js";
 
@@ -81,20 +80,18 @@ const NotePageView = ({ state, dispatch, signOut, match }) => {
   const { currentNote, fetchingData } = state;
   const [note, handleNote, setNote] = useInput("");
 
-  const updateNote = e => {
-    const newNote = { title: currentNote.title, notes: e.target.value };
+  const updateNote = value => {
+    const newNote = { title: currentNote.title, notes: value };
 
-    handleNote(e.target.value);
+    handleNote(value);
     updateUserNote(dispatch, currentNote.id, newNote, signOut);
   };
 
   useEffect(() => {
     console.log("running useEffect user note page")
     if(currentNote.notes){
-      console.log("Getting data from store")
       setNote(currentNote.notes);
     } else {
-      console.log("fetching data")
       getUserNote(match.params.id, dispatch, signOut);
     }
   },[signOut, dispatch, match.params.id, currentNote.notes, setNote]);
@@ -102,17 +99,14 @@ const NotePageView = ({ state, dispatch, signOut, match }) => {
   return(
     <div className="note-view-wrapper">
       {fetchingData ? <div className="loading-spinner">Loading...</div> : null}
-      <h1>
+      <h1 className="note-view-header">
         Question:
         <br/>
         {currentNote.question}
       </h1>
       <div className="note-wrapper">
-        <div className="results">
-          <h3>Question Results:</h3>
-          {currentNote.bot_response ? <QuestionResults results={currentNote.bot_response.match}/> : null}
-        </div>
-        <Note note={note} updateNote={updateNote}/>
+        <h3>Note</h3>
+        <MarkdownEditor note={note} updateNote={updateNote} />
       </div>
     </div>
   );
