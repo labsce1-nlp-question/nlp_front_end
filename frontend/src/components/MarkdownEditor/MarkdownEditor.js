@@ -3,7 +3,7 @@ import ReactMarkdown from "react-markdown";
 
 import CodeBlock from "./CodeBlock.js";
 
-const MarkdownEditor = ({ note, updateNote }) => {
+const MarkdownEditor = ({ initalValue, onChange }) => {
   const [isPreview, setIsPreview] = useState(false);
   return (
     <section className="markdown-editor">
@@ -15,15 +15,15 @@ const MarkdownEditor = ({ note, updateNote }) => {
       {isPreview ? (
         <ReactMarkdown
           className="markdown-preview"
-          source={note}
+          source={initalValue}
           escapeHtml={false}
           renderers={{ code: CodeBlock }}
         />
       ) : (
         <>
           <textarea
-            value={note}
-            onChange={e => updateNote(e.target.value)}
+            value={initalValue}
+            onChange={e => onChange(e.target.value)}
             rows="20"
             cols="80"
           />

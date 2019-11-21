@@ -100,13 +100,11 @@ const NotePageView = ({ state, dispatch, signOut, match }) => {
     <div className="note-view-wrapper">
       {fetchingData ? <div className="loading-spinner">Loading...</div> : null}
       <h1 className="note-view-header">
-        Question:
-        <br/>
-        {currentNote.question}
+        Note
       </h1>
       <div className="note-wrapper">
-        <h3>Note</h3>
-        <MarkdownEditor note={note} updateNote={updateNote} />
+        <h3>Question: {currentNote.question}</h3>
+        <MarkdownEditor initalValue={note} onChange={updateNote} />
       </div>
     </div>
   );
