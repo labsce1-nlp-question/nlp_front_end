@@ -1,4 +1,4 @@
-export const Buttons = [
+export const EditorButtons = [
   {
     buttonClassName: "bold",
     buttonText: "B",
@@ -36,5 +36,26 @@ export const Buttons = [
     buttonText: "o-list",
     markdownType: "other",
     markdown: "1. "
+  },
+  {
+    buttonClassName: "link",
+    buttonText: "link",
+    markdownType: "text",
+    prefix: "[",
+    suffix: "](http://)" 
+  },
+  {
+    buttonClassName: "image",
+    buttonText: "image",
+    markdownType: "text",
+    prefix: "![",
+    suffix: "](http://)" 
+  },
+  {
+    buttonClassName: "youtube",
+    buttonText: "youtube",
+    markdownType: "text",
+    prefix: "[@youtube](",
+    suffix: ")" 
   }
 ];
