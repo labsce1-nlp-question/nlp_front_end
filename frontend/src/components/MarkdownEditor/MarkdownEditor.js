@@ -14,31 +14,54 @@ const MarkdownEditor = ({ initalValue, onChange }) => {
   const [isPreview, setIsPreview] = useState(false);
   const textAreaRef = useRef(null);
 
-  const handleEnterKeyPress = e => {
+  //event handler for when a key is pressed down
+  const handleKeyDown = e => {
     const { selectionStart, selectionEnd } = e.target;
 
     if (e.key === "Enter") {
+      //grab the text lines that lead up to where enter was pressed
       let rows = initalValue.substr(0, selectionEnd).split("\n");
+      let newVal;
 
+      //regex expression for checking if the previous line contains markdown for a List
       if (listRegEx.test(rows[rows.length - 1])) {
+        //regex expression for checking if the previous line contains markdown for a empty List
         if (emptyListRegEx.test(rows[rows.length - 1])) {
+          //if the list item is empty delete the list from this line and go one line down
           rows[rows.length - 1] = "";
+          newVal = rows.join("\n") + initalValue.slice(selectionEnd);
+  
+          onChange(newVal);
+          textAreaRef.current.value = newVal;
+          //places our textarea text cursor one line down from where the empty list item was
+          textAreaRef.current.setSelectionRange(selectionStart - 3, selectionEnd - 3);
         } else {
           e.preventDefault();
+          //regex to grab the pervious line so we can increment properly
           const line = listRegEx.exec(rows[rows.length - 1]);
+          //checks if bullet is numbered or not
           const bullet = unorderedListRegEx.test(line[2])
             ? line[2]
             : parseInt(line[3], 10) + 1 + line[4];
 
           rows[rows.length] = `${bullet}${line[1]}${line[5]}`;
+          newVal = rows.join("\n") + initalValue.slice(selectionEnd);
+  
+          onChange(newVal);
+          textAreaRef.current.value = newVal;
+          textAreaRef.current.setSelectionRange(selectionStart + 4, selectionEnd + 4);
         }
-        let newVal = rows.join("\n") + initalValue.slice(selectionEnd);
-        onChange(newVal);
-        textAreaRef.current.value = newVal;
-        textAreaRef.current.setSelectionRange(selectionStart + 4, selectionEnd + 4);
       }
+    } else if(e.key === "Tab"){
+      e.preventDefault();
+
+      const newVal = initalValue.substring(0, selectionStart) + "    " + initalValue.substring(selectionEnd);
+
+      onChange(newVal);
+      textAreaRef.current.value = newVal;
+      textAreaRef.current.setSelectionRange(selectionStart + 4, selectionEnd + 4);
     }
-  };
+  }
 
   return (
     <section className="markdown-editor">
@@ -62,7 +85,8 @@ const MarkdownEditor = ({ initalValue, onChange }) => {
             ref={textAreaRef}
             value={initalValue}
             onChange={e => onChange(e.target.value)}
-            onKeyPress={e => handleEnterKeyPress(e)}
+            onKeyPress={e => handleKeyDown(e)}
+            onKeyDown={e => handleKeyDown(e)}
             rows="20"
             cols="80"
           />
