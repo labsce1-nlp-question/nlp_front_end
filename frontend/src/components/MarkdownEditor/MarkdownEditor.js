@@ -10,8 +10,8 @@ const listRegEx = /^(\s*)([*+-] \[[x ]\]\s|[*+-]\s|(\d+)([.)]))(\s*)/,
   emptyListRegEx = /^(\s*)([*+-] \[[x ]\]|[*+-]|(\d+)[.)])(\s*)$/,
   unorderedListRegEx =  /[*+-]\s/;
 
-const MarkdownEditor = ({ initalValue, onChange }) => {
-  const [isPreview, setIsPreview] = useState(false);
+const MarkdownEditor = ({ initalValue, onChange, initalPreview = false }) => {
+  const [isPreview, setIsPreview] = useState(initalPreview);
   const textAreaRef = useRef(null);
 
   //event handler for when a key is pressed down
@@ -66,7 +66,9 @@ const MarkdownEditor = ({ initalValue, onChange }) => {
   return (
     <section className="markdown-editor">
       <div className="markdown-editor-menu">
-        {EditorButtons.map((button, index) => <EditorMarkdownTextButton key={index} textAreaId="text-area" textAreaValue={initalValue} onChange={onChange} buttonConfig={button}/>)}
+        {EditorButtons.map((button, index) => 
+          <EditorMarkdownTextButton key={index} textAreaId="text-area" textAreaValue={initalValue} onChange={onChange} buttonConfig={button}/>
+        )}
         <button onClick={() => setIsPreview(!isPreview)}>
           {isPreview ? "Edit" : "Preview"}
         </button>
@@ -85,7 +87,6 @@ const MarkdownEditor = ({ initalValue, onChange }) => {
             ref={textAreaRef}
             value={initalValue}
             onChange={e => onChange(e.target.value)}
-            onKeyPress={e => handleKeyDown(e)}
             onKeyDown={e => handleKeyDown(e)}
             rows="20"
             cols="80"

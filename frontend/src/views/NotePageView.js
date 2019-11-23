@@ -104,7 +104,7 @@ const NotePageView = ({ state, dispatch, signOut, match }) => {
       </h1>
       <div className="note-wrapper">
         <h3>Question: {currentNote.question}</h3>
-        <MarkdownEditor initalValue={note} onChange={updateNote} />
+        <MarkdownEditor initalValue={note} onChange={updateNote} initalPreview={true}/>
       </div>
     </div>
   );
