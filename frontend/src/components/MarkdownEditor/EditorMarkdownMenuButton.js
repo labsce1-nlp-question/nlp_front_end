@@ -2,7 +2,7 @@ import React from "react";
 
 import { insertMarkdown } from "../../helpers/insertMarkdown.js";
 
-const EditorMarkdownTextButton = ({textAreaId, textAreaValue, onChange, buttonConfig}) => {
+const EditorMarkdownMenuButton = ({textAreaId, textAreaValue, onChange, buttonConfig}) => {
   const { markdown, buttonClassName, markdownType, buttonText, prefix, suffix } = buttonConfig;
 
   const addMarkdown = () => {
@@ -15,4 +15,4 @@ const EditorMarkdownTextButton = ({textAreaId, textAreaValue, onChange, buttonCo
   );
 };
 
-export default EditorMarkdownTextButton;
+export default EditorMarkdownMenuButton;
