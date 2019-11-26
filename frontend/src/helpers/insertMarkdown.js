@@ -1,6 +1,4 @@
 export const insertMarkdown = (textAreaObject, textValue, type, markdown, prefix, suffix) => {
-  // const textAreaObject = document.getElementById(textAreaObjectreaId);
-
   switch(type) {
     case "text":
       if (textAreaObject.selectionEnd !== textAreaObject.selectionStart) {

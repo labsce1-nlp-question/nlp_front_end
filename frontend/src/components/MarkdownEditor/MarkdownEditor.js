@@ -3,7 +3,7 @@ import ReactMarkdown from "react-markdown";
 
 import CodeBlock from "./CodeBlock.js";
 import YoutubeLink from "./YoutubeLink.js";
-import EditorMarkdownMenu from "./EditorMarkdownMenu.js";
+import MarkdownEditorMenu from "./MarkdownEditorMenu.js";
 
 const listRegEx = /^(\s*)([*+-] \[[x ]\]\s|[*+-]\s|(\d+)([.)]))(\s*)/,
   emptyListRegEx = /^(\s*)([*+-] \[[x ]\]|[*+-]|(\d+)[.)])(\s*)$/,
@@ -64,7 +64,7 @@ const MarkdownEditor = ({ initalValue, onChange, initalPreview = false }) => {
 
   return (
     <section className="markdown-editor">
-      <EditorMarkdownMenu textAreaRef={textAreaRef} initalValue={initalValue} onChange={onChange} isPreview={isPreview} setIsPreview={setIsPreview} />
+      <MarkdownEditorMenu textAreaRef={textAreaRef} initalValue={initalValue} onChange={onChange} isPreview={isPreview} setIsPreview={setIsPreview} />
       {isPreview ? (
         <ReactMarkdown
           className="markdown-preview"
