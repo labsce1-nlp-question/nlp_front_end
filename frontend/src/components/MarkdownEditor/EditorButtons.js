@@ -19,7 +19,7 @@ export const EditorButtons = [
     buttonClassName: "headers",
     buttonText: "H",
     markdownType: "other",
-    markdown: "# "
+    markdown: "#"
   },
   {
     buttonClassName: "quote",

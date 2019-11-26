@@ -1,25 +1,25 @@
-export const insertMarkdown = (textAreaId, textValue, type, markdown, prefix, suffix) => {
-  const texta = document.getElementById(textAreaId);
+export const insertMarkdown = (textAreaObject, textValue, type, markdown, prefix, suffix) => {
+  // const textAreaObject = document.getElementById(textAreaObjectreaId);
 
   switch(type) {
     case "text":
-      if (texta.selectionEnd !== texta.selectionStart) {
+      if (textAreaObject.selectionEnd !== textAreaObject.selectionStart) {
         return (
-          textValue.slice(0, texta.selectionStart) + prefix + 
-          textValue.slice(texta.selectionStart, texta.selectionEnd) + suffix + 
-          textValue.slice(texta.selectionEnd)
+          textValue.slice(0, textAreaObject.selectionStart) + prefix + 
+          textValue.slice(textAreaObject.selectionStart, textAreaObject.selectionEnd) + suffix + 
+          textValue.slice(textAreaObject.selectionEnd)
         );
       } else {
-        return textValue.slice(0, texta.selectionStart) + prefix + suffix + textValue.slice(texta.selectionEnd);
+        return textValue.slice(0, textAreaObject.selectionStart) + prefix + suffix + textValue.slice(textAreaObject.selectionEnd);
       }
 
     case "other":
-      let rows = textValue.substr(0,texta.selectionEnd).split("\n");
+      let rows = textValue.substr(0,textAreaObject.selectionEnd).split("\n");
       let row = rows.length-1;
 
       rows[row] = markdown + rows[row];
   
-      return rows.join('\n') + textValue.slice(texta.selectionEnd);
+      return rows.join('\n') + textValue.slice(textAreaObject.selectionEnd);
 
     default:
       return null;
