@@ -617,6 +617,7 @@ a:hover {
 .create-note-modal-wrapper .create-note-modal .create-note-modal-form .note-input textarea {
   resize: vertical;
   width: 100%;
+  height: 50vh;
 }
 .create-note-modal-wrapper .create-note-modal .create-note-modal-form .create-note-btn {
   cursor: pointer;
