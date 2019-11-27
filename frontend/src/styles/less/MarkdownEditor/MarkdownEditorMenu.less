@@ -5,8 +5,13 @@
   border-right: 1px solid lightgrey;
   background-color: white;
   padding: 10px;
+  opacity: .6;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
-  
+
+  &:hover {
+    opacity: .8;
+  }
+
   .markdown-editor-buttons {
     display: flex;
   }
@@ -21,9 +26,19 @@
     }
   }
 
+  .fa, .fas, .fab {
+    font-size: 1.9rem;
+  }
+
+  .seperator-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
   .seperator {
     color: transparent;
     border-left: 1px solid lightgrey;
     margin-left: 5px;
+    height: 24px;
   }
 }

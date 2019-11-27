@@ -3,59 +3,68 @@ import React from 'react';
 export const EditorButtons = [
   {
     buttonClassName: "bold",
-    buttonText: "B",
+    buttonText: <i class="fas fa-bold"></i>,
+    buttonTitle: "Bold",
     markdownType: "text",
     prefix: "**",
     suffix: "**"
   },
   {
     buttonClassName: "italic",
-    buttonText: "I",
+    buttonText: <i class="fas fa-italic"></i>,
+    buttonTitle: "Italic",
     markdownType: "text",
     prefix: "*",
     suffix: "*"
   },
   {
     buttonClassName: "headers",
-    buttonText: "H",
+    buttonText: <i class="fas fa-heading"></i>,
+    buttonTitle: "Header",
     markdownType: "other",
     markdown: "#"
   },
   {
     buttonClassName: "quote",
-    buttonText: '"',
+    buttonText: <i class="fas fa-quote-left"></i>,
+    buttonTitle: "Quote Block",
     markdownType: "other",
     markdown: "> "
   },
   {
     buttonClassName: "ul",
-    buttonText: "u-list",
+    buttonText: <i class="fas fa-list-ul"></i>,
+    buttonTitle: "Generic List",
     markdownType: "other",
     markdown: "* "
   },
   {
     buttonClassName: "ol",
-    buttonText: "o-list",
+    buttonText: <i class="fas fa-list-ol"></i>,
+    buttonTitle: "Numbered List",
     markdownType: "other",
     markdown: "1. "
   },
   {
     buttonClassName: "link",
-    buttonText: "link",
+    buttonText: <i class="fas fa-link"></i>,
+    buttonTitle: "Create Link",
     markdownType: "text",
     prefix: "[",
     suffix: "](http://)" 
   },
   {
     buttonClassName: "image",
-    buttonText: "image",
+    buttonText: <i class="fas fa-image"></i>,
+    buttonTitle: "Insert Image",
     markdownType: "text",
     prefix: "![",
     suffix: "](http://)" 
   },
   {
     buttonClassName: "youtube",
-    buttonText: "youtube",
+    buttonText: <i class="fab fa-youtube"></i>,
+    buttonTitle: "Insert Youtube Video",
     markdownType: "text",
     prefix: "[@youtube](",
     suffix: ")" 

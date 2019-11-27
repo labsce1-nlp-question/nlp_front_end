@@ -648,7 +648,11 @@ a:hover {
   border-right: 1px solid lightgrey;
   background-color: white;
   padding: 10px;
+  opacity: 0.6;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+.markdown-editor-menu:hover {
+  opacity: 0.8;
 }
 .markdown-editor-menu .markdown-editor-buttons {
   display: flex;
@@ -661,10 +665,20 @@ a:hover {
 .markdown-editor-menu button:hover {
   border-color: lightgrey;
 }
+.markdown-editor-menu .fa,
+.markdown-editor-menu .fas,
+.markdown-editor-menu .fab {
+  font-size: 1.9rem;
+}
+.markdown-editor-menu .seperator-wrapper {
+  display: flex;
+  align-items: center;
+}
 .markdown-editor-menu .seperator {
   color: transparent;
   border-left: 1px solid lightgrey;
   margin-left: 5px;
+  height: 24px;
 }
 .markdown-preview {
   line-height: 1.5;
