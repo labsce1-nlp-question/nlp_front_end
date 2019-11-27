@@ -32,6 +32,22 @@ export const EditorButtons = [
     markdown: "> "
   },
   {
+    buttonClassName: "codeBlock",
+    buttonText: <i className="fas fa-code"></i>,
+    buttonTitle: "Code Block",
+    markdownType: "text",
+    prefix: "```",
+    suffix: "```"
+  },
+  {
+    buttonClassName: "strikethrough",
+    buttonText: <i className="fas fa-strikethrough"></i>,
+    buttonTitle: "Strikethrough",
+    markdownType: "text",
+    prefix: "~~",
+    suffix: "~~"
+  },
+  {
     buttonClassName: "ul",
     buttonText: <i className="fas fa-list-ul"></i>,
     buttonTitle: "Generic List",
