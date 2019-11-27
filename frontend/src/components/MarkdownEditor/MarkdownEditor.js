@@ -4,6 +4,7 @@ import ReactMarkdown from "react-markdown";
 import CodeBlock from "./CodeBlock.js";
 import YoutubeLink from "./YoutubeLink.js";
 import MarkdownEditorMenu from "./MarkdownEditorMenu.js";
+import Heading from "./Heading.js";
 
 const listRegEx = /^(\s*)([*+-] \[[x ]\]\s|[*+-]\s|(\d+)([.)]))(\s*)/,
   emptyListRegEx = /^(\s*)([*+-] \[[x ]\]|[*+-]|(\d+)[.)])(\s*)$/,
@@ -70,7 +71,11 @@ const MarkdownEditor = ({ initalValue, onChange, initalPreview = false }) => {
           className="markdown-preview"
           source={initalValue}
           escapeHtml={false}
-          renderers={{ code: CodeBlock, link: YoutubeLink }}
+          renderers={{
+            code: CodeBlock, 
+            link: YoutubeLink, 
+            heading: Heading 
+          }}
         />
       ) : (
         <>

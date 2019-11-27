@@ -10,7 +10,7 @@ const YoutubeLink = ({ children, href }) => {
     } else {
       const value = children[0].props.value ? children[0].props.value : "";
 
-      return <a href={href}>{value}</a>
+      return <a href={href.toLowerCase()}>{value}</a>
     }
   } else {
     return <a href={href}>{""}</a>

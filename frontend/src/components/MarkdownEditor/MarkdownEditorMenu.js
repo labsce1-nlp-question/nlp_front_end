@@ -24,13 +24,13 @@ const MarkdownEditorMenu = ({ textAreaRef, initalValue, onChange, isPreview, set
       }
       <div className="markdown-editor-options">
         <button onClick={() => setIsPreview(!isPreview)} title={isPreview ? "Toggle Edit" : "Toggle Preview"}>
-          {isPreview ? <i class="fas fa-edit"></i> : <i class="far fa-eye"></i>}
+          {isPreview ? <i className="fas fa-edit"></i> : <i className="far fa-eye"></i>}
         </button>
-        <button title="Toggle Side by Side"><i class="fas fa-columns"></i></button>
-        <button title="Toggle Fullscreen"><i class="fas fa-expand-arrows-alt"></i></button>
+        <button title="Toggle Side by Side"><i className="fas fa-columns"></i></button>
+        <button title="Toggle Fullscreen"><i className="fas fa-expand-arrows-alt"></i></button>
       </div>
       <span className="seperator">|</span>
-      <button title="Markdown Guide"><i class="far fa-question-circle"></i></button>
+      <button title="Markdown Guide"><i className="far fa-question-circle"></i></button>
     </div>
   );
 };

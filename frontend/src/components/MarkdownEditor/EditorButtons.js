@@ -3,7 +3,7 @@ import React from 'react';
 export const EditorButtons = [
   {
     buttonClassName: "bold",
-    buttonText: <i class="fas fa-bold"></i>,
+    buttonText: <i className="fas fa-bold"></i>,
     buttonTitle: "Bold",
     markdownType: "text",
     prefix: "**",
@@ -11,7 +11,7 @@ export const EditorButtons = [
   },
   {
     buttonClassName: "italic",
-    buttonText: <i class="fas fa-italic"></i>,
+    buttonText: <i className="fas fa-italic"></i>,
     buttonTitle: "Italic",
     markdownType: "text",
     prefix: "*",
@@ -19,35 +19,35 @@ export const EditorButtons = [
   },
   {
     buttonClassName: "headers",
-    buttonText: <i class="fas fa-heading"></i>,
+    buttonText: <i className="fas fa-heading"></i>,
     buttonTitle: "Header",
     markdownType: "other",
     markdown: "#"
   },
   {
     buttonClassName: "quote",
-    buttonText: <i class="fas fa-quote-left"></i>,
+    buttonText: <i className="fas fa-quote-left"></i>,
     buttonTitle: "Quote Block",
     markdownType: "other",
     markdown: "> "
   },
   {
     buttonClassName: "ul",
-    buttonText: <i class="fas fa-list-ul"></i>,
+    buttonText: <i className="fas fa-list-ul"></i>,
     buttonTitle: "Generic List",
     markdownType: "other",
     markdown: "* "
   },
   {
     buttonClassName: "ol",
-    buttonText: <i class="fas fa-list-ol"></i>,
+    buttonText: <i className="fas fa-list-ol"></i>,
     buttonTitle: "Numbered List",
     markdownType: "other",
     markdown: "1. "
   },
   {
     buttonClassName: "link",
-    buttonText: <i class="fas fa-link"></i>,
+    buttonText: <i className="fas fa-link"></i>,
     buttonTitle: "Create Link",
     markdownType: "text",
     prefix: "[",
@@ -55,7 +55,7 @@ export const EditorButtons = [
   },
   {
     buttonClassName: "image",
-    buttonText: <i class="fas fa-image"></i>,
+    buttonText: <i className="fas fa-image"></i>,
     buttonTitle: "Insert Image",
     markdownType: "text",
     prefix: "![",
@@ -63,7 +63,7 @@ export const EditorButtons = [
   },
   {
     buttonClassName: "youtube",
-    buttonText: <i class="fab fa-youtube"></i>,
+    buttonText: <i className="fab fa-youtube"></i>,
     buttonTitle: "Insert Youtube Video",
     markdownType: "text",
     prefix: "[@youtube](",
