@@ -667,7 +667,8 @@ a:hover {
 }
 .markdown-editor-menu .fa,
 .markdown-editor-menu .fas,
-.markdown-editor-menu .fab {
+.markdown-editor-menu .fab,
+.markdown-editor-menu .far {
   font-size: 1.9rem;
 }
 .markdown-editor-menu .seperator-wrapper {
