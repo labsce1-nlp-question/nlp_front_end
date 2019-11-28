@@ -3,7 +3,7 @@ import React from "react";
 import MarkdownEditorMenuButton from "./MarkdownEditorMenuButton.js";
 import { EditorButtons } from "./EditorButtons.js";
 
-const MarkdownEditorMenu = ({ textAreaRef, initalValue, onChange, view, toggleView, toggleSidebySide }) => {
+const MarkdownEditorMenu = ({ textAreaRef, initalValue, onChange, view, toggleView }) => {
   const { isPreview, isFullScreen, isSidebySide } = view;
   return (
     <div className="markdown-editor-menu">
@@ -27,7 +27,7 @@ const MarkdownEditorMenu = ({ textAreaRef, initalValue, onChange, view, toggleVi
         <button onClick={() =>toggleView({...view, isPreview: !isPreview })} title={isPreview ? "Toggle Edit" : "Toggle Preview"}>
           {isPreview ? <i className="fas fa-edit"></i> : <i className="far fa-eye"></i>}
         </button>
-        <button onClick={() =>toggleSidebySide()} title="Toggle Side by Side"><i className="fas fa-columns"></i></button>
+        <button onClick={() =>toggleView({...view, isSidebySide: !isSidebySide, isFullScreen: isSidebySide ? false : true})} title="Toggle Side by Side"><i className="fas fa-columns"></i></button>
         <button onClick={() =>toggleView({...view, isFullScreen: !isFullScreen, isSidebySide: false })} title="Toggle Fullscreen"><i className="fas fa-expand-arrows-alt"></i></button>
       </div>
       <span className="seperator">|</span>

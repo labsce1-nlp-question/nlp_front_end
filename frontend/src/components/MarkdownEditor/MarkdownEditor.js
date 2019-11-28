@@ -67,13 +67,6 @@ const MarkdownEditor = ({ initalValue, onChange, initalPreview = false }) => {
       textAreaRef.current.setSelectionRange(selectionStart + 4, selectionEnd + 4);
     }
   }
-
-  const toggleSidebySide = () => {
-    const { isSidebySide } = view;
-
-    const setFullscreen = isSidebySide ? false : true;
-    toggleView({...view, isSidebySide: !isSidebySide, isFullScreen: setFullscreen});
-  }
   //================TODO================
   //implement Side By Side toggle and fullscreen toggle buttons
   const { isPreview, isSidebySide, isFullScreen } = view;
@@ -85,7 +78,6 @@ const MarkdownEditor = ({ initalValue, onChange, initalPreview = false }) => {
         onChange={onChange} 
         view={view} 
         toggleView={toggleView}
-        toggleSidebySide={toggleSidebySide}
       />
       {isSidebySide 
         ? <SideBySideView initalValue={initalValue} textAreaRef={textAreaRef} onChange={onChange} handleKeyDown={handleKeyDown}/> 
