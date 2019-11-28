@@ -800,3 +800,9 @@ a:hover {
   height: 95vh;
   border-radius: 0;
 }
+.sbs-wrapper {
+  display: flex;
+}
+.sbs-wrapper textarea {
+  width: 64%;
+}

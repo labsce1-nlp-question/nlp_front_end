@@ -9,8 +9,8 @@ const MarkdownEditorMenuButton = ({textAreaRef, textAreaValue, onChange, buttonC
     //current text area reference object from useRef 
     const texta = textAreaRef.current;
     //store values to be set after the text area as re-rendered
-    const start = prefix ? texta.selectionStart+prefix.length : texta.selectionStart + markdown.length, 
-      end = prefix ? texta.selectionEnd+prefix.length : texta.selectionEnd + markdown.length,
+    const start = prefix ? texta.selectionStart + prefix.length : texta.selectionStart + markdown.length, 
+      end = prefix ? texta.selectionEnd + prefix.length : texta.selectionEnd + markdown.length,
       scrollTop = texta.scrollTop;
 
     //insert desired markdown based on teh button pressed

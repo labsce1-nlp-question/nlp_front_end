@@ -27,7 +27,7 @@ const MarkdownEditor = ({ initalValue, onChange, initalPreview = false }) => {
       //grab the text lines that lead up to where enter was pressed
       let rows = initalValue.substr(0, selectionEnd).split("\n");
       let newVal;
-
+  
       //regex expression for checking if the previous line contains markdown for a List
       if (listRegEx.test(rows[rows.length - 1])) {
         //regex expression for checking if the previous line contains markdown for a empty List
@@ -56,7 +56,7 @@ const MarkdownEditor = ({ initalValue, onChange, initalPreview = false }) => {
           textAreaRef.current.value = newVal;
           textAreaRef.current.setSelectionRange(selectionStart + 4, selectionEnd + 4);
         }
-      }
+      } 
     } else if(e.key === "Tab"){
       e.preventDefault();
 
@@ -79,20 +79,26 @@ const MarkdownEditor = ({ initalValue, onChange, initalPreview = false }) => {
         view={view} 
         toggleView={toggleView}
       />
-      {isSidebySide 
-        ? <SideBySideView initalValue={initalValue} textAreaRef={textAreaRef} onChange={onChange} handleKeyDown={handleKeyDown}/> 
-        : isPreview 
-        ? <ReactMarkdown
+      {isSidebySide ? (
+        <SideBySideView
+          initalValue={initalValue}
+          textAreaRef={textAreaRef}
+          onChange={onChange}
+          handleKeyDown={handleKeyDown}
+        />
+      ) : isPreview ? (
+        <ReactMarkdown
           className="markdown-preview"
           source={initalValue}
           escapeHtml={false}
           renderers={{
-            code: CodeBlock, 
-            link: YoutubeLink, 
-            heading: Heading 
+            code: CodeBlock,
+            link: YoutubeLink,
+            heading: Heading
           }}
         />
-        : <>
+      ) : (
+        <>
           <textarea
             id="text-area"
             ref={textAreaRef}
@@ -103,7 +109,7 @@ const MarkdownEditor = ({ initalValue, onChange, initalPreview = false }) => {
             cols="80"
           />
         </>
-      }
+      )}
     </section>
   );
 };
