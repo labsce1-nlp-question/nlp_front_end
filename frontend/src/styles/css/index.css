@@ -632,6 +632,17 @@ a:hover {
 .create-note-modal-wrapper .create-note-modal .create-note-modal-form .create-note-btn:hover {
   background-color: #2179DC;
 }
+.markdown-editor.fullscreen {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+.markdown-editor.fullscreen textarea {
+  height: 95vh;
+  border-radius: 0;
+}
 .markdown-editor textarea {
   resize: none;
   max-width: 100%;
@@ -684,6 +695,9 @@ a:hover {
   border-left: 1px solid lightgrey;
   margin-left: 5px;
   height: 30px;
+}
+.fullscreen .markdown-editor-menu {
+  border-radius: 0;
 }
 .markdown-preview {
   height: 75vh;
@@ -781,4 +795,8 @@ a:hover {
 .markdown-preview ul {
   margin-top: 0;
   margin-bottom: 16px;
+}
+.fullscreen .markdown-preview {
+  height: 95vh;
+  border-radius: 0;
 }

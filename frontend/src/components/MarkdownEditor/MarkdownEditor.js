@@ -11,7 +11,14 @@ const listRegEx = /^(\s*)([*+-] \[[x ]\]\s|[*+-]\s|(\d+)([.)]))(\s*)/,
   unorderedListRegEx =  /[*+-]\s/;
 
 const MarkdownEditor = ({ initalValue, onChange, initalPreview = false }) => {
-  const [isPreview, setIsPreview] = useState(initalPreview);
+  // const [isPreview, setIsPreview] = useState(initalPreview);
+  // const [isSidebySide, toggleIsSidebySide] = useState(false);
+  // const [isFullScreen, toggleIsFullscreen] = useState(false);
+  const [view, toggleView] = useState({
+    isPreview: initalPreview,
+    isSidebySide: false,
+    isFullScreen: false
+  });
   const textAreaRef = useRef(null);
 
   //event handler for when a key is pressed down
@@ -62,10 +69,18 @@ const MarkdownEditor = ({ initalValue, onChange, initalPreview = false }) => {
       textAreaRef.current.setSelectionRange(selectionStart + 4, selectionEnd + 4);
     }
   }
-
+  //================TODO================
+  //implement Side By Side toggle and fullscreen toggle buttons
+  const { isPreview, isFullScreen } = view;
   return (
-    <section className="markdown-editor">
-      <MarkdownEditorMenu textAreaRef={textAreaRef} initalValue={initalValue} onChange={onChange} isPreview={isPreview} setIsPreview={setIsPreview} />
+    <section className={`markdown-editor${isFullScreen ? " fullscreen" : ""}`}>
+      <MarkdownEditorMenu
+        textAreaRef={textAreaRef} 
+        initalValue={initalValue} 
+        onChange={onChange} 
+        view={view} 
+        toggleView={toggleView}
+      />
       {isPreview ? (
         <ReactMarkdown
           className="markdown-preview"

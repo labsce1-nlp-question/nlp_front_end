@@ -3,7 +3,8 @@ import React from "react";
 import MarkdownEditorMenuButton from "./MarkdownEditorMenuButton.js";
 import { EditorButtons } from "./EditorButtons.js";
 
-const MarkdownEditorMenu = ({ textAreaRef, initalValue, onChange, isPreview, setIsPreview }) => {
+const MarkdownEditorMenu = ({ textAreaRef, initalValue, onChange, view, toggleView }) => {
+  const { isPreview, isFullScreen, isSidebySide } = view;
   return (
     <div className="markdown-editor-menu">
       {isPreview 
@@ -23,11 +24,11 @@ const MarkdownEditorMenu = ({ textAreaRef, initalValue, onChange, isPreview, set
           </>
       }
       <div className="markdown-editor-options">
-        <button onClick={() => setIsPreview(!isPreview)} title={isPreview ? "Toggle Edit" : "Toggle Preview"}>
+        <button onClick={() =>toggleView({...view, isPreview: !isPreview })} title={isPreview ? "Toggle Edit" : "Toggle Preview"}>
           {isPreview ? <i className="fas fa-edit"></i> : <i className="far fa-eye"></i>}
         </button>
         <button title="Toggle Side by Side"><i className="fas fa-columns"></i></button>
-        <button title="Toggle Fullscreen"><i className="fas fa-expand-arrows-alt"></i></button>
+        <button onClick={() =>toggleView({...view, isFullScreen: !isFullScreen })} title="Toggle Fullscreen"><i className="fas fa-expand-arrows-alt"></i></button>
       </div>
       <span className="seperator">|</span>
       <button title="Markdown Guide"><i className="far fa-question-circle"></i></button>
