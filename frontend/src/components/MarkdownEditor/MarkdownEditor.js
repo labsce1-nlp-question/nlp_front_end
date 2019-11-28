@@ -5,15 +5,13 @@ import CodeBlock from "./CodeBlock.js";
 import YoutubeLink from "./YoutubeLink.js";
 import MarkdownEditorMenu from "./MarkdownEditorMenu.js";
 import Heading from "./Heading.js";
+import SideBySideView from "./SideBySideView.js";
 
 const listRegEx = /^(\s*)([*+-] \[[x ]\]\s|[*+-]\s|(\d+)([.)]))(\s*)/,
   emptyListRegEx = /^(\s*)([*+-] \[[x ]\]|[*+-]|(\d+)[.)])(\s*)$/,
   unorderedListRegEx =  /[*+-]\s/;
 
 const MarkdownEditor = ({ initalValue, onChange, initalPreview = false }) => {
-  // const [isPreview, setIsPreview] = useState(initalPreview);
-  // const [isSidebySide, toggleIsSidebySide] = useState(false);
-  // const [isFullScreen, toggleIsFullscreen] = useState(false);
   const [view, toggleView] = useState({
     isPreview: initalPreview,
     isSidebySide: false,
@@ -69,9 +67,16 @@ const MarkdownEditor = ({ initalValue, onChange, initalPreview = false }) => {
       textAreaRef.current.setSelectionRange(selectionStart + 4, selectionEnd + 4);
     }
   }
+
+  const toggleSidebySide = () => {
+    const { isSidebySide } = view;
+
+    const setFullscreen = isSidebySide ? false : true;
+    toggleView({...view, isSidebySide: !isSidebySide, isFullScreen: setFullscreen});
+  }
   //================TODO================
   //implement Side By Side toggle and fullscreen toggle buttons
-  const { isPreview, isFullScreen } = view;
+  const { isPreview, isSidebySide, isFullScreen } = view;
   return (
     <section className={`markdown-editor${isFullScreen ? " fullscreen" : ""}`}>
       <MarkdownEditorMenu
@@ -80,9 +85,12 @@ const MarkdownEditor = ({ initalValue, onChange, initalPreview = false }) => {
         onChange={onChange} 
         view={view} 
         toggleView={toggleView}
+        toggleSidebySide={toggleSidebySide}
       />
-      {isPreview ? (
-        <ReactMarkdown
+      {isSidebySide 
+        ? <SideBySideView initalValue={initalValue} textAreaRef={textAreaRef} onChange={onChange} handleKeyDown={handleKeyDown}/> 
+        : isPreview 
+        ? <ReactMarkdown
           className="markdown-preview"
           source={initalValue}
           escapeHtml={false}
@@ -92,8 +100,7 @@ const MarkdownEditor = ({ initalValue, onChange, initalPreview = false }) => {
             heading: Heading 
           }}
         />
-      ) : (
-        <>
+        : <>
           <textarea
             id="text-area"
             ref={textAreaRef}
@@ -104,7 +111,7 @@ const MarkdownEditor = ({ initalValue, onChange, initalPreview = false }) => {
             cols="80"
           />
         </>
-      )}
+      }
     </section>
   );
 };
