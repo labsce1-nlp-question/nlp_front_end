@@ -6,6 +6,7 @@ import YoutubeLink from "./YoutubeLink.js";
 import MarkdownEditorMenu from "./MarkdownEditorMenu.js";
 import Heading from "./Heading.js";
 import SideBySideView from "./SideBySideView.js";
+import MarkdownGuide from "./MarkdownGuide.js";
 
 const listRegEx = /^(\s*)([*+-] \[[x ]\]\s|[*+-]\s|(\d+)([.)]))(\s*)/,
   emptyListRegEx = /^(\s*)([*+-] \[[x ]\]|[*+-]|(\d+)[.)])(\s*)$/,
@@ -15,7 +16,8 @@ const MarkdownEditor = ({ initalValue, onChange, initalPreview = false }) => {
   const [view, toggleView] = useState({
     isPreview: initalPreview,
     isSidebySide: false,
-    isFullScreen: false
+    isFullScreen: false,
+    isMarkdownGuide: false
   });
   const textAreaRef = useRef(null);
 
@@ -69,9 +71,10 @@ const MarkdownEditor = ({ initalValue, onChange, initalPreview = false }) => {
   }
   //================TODO================
   //implement Side By Side toggle and fullscreen toggle buttons
-  const { isPreview, isSidebySide, isFullScreen } = view;
+  const { isPreview, isSidebySide, isFullScreen, isMarkdownGuide } = view;
   return (
     <section className={`markdown-editor${isFullScreen ? " fullscreen" : ""}`}>
+      {isMarkdownGuide ? <MarkdownGuide /> : null}
       <MarkdownEditorMenu
         textAreaRef={textAreaRef} 
         initalValue={initalValue} 
