@@ -1,3 +1,64 @@
 .markdown-guide-wrapper{
   .overlay();
+  
+  .guide {
+    background-color: white;
+    width: 50%;
+    height: 90vh;
+    padding: 2%;
+    border-radius: 3px;
+    font-size: 1.5rem;
+    overflow: auto;
+
+    header {
+      display: flex;
+
+      button {
+        cursor: pointer;
+        font-size: 2rem;
+        background-color: inherit;
+        border: none;
+        padding: 0;
+
+        &:hover{
+          transform: scale(1.5);
+        }
+      }
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin: 0 auto;
+    }
+
+    h4 {
+      margin-top:20px;
+      margin-bottom:5px;
+      font-size: 1.8rem;
+    }
+    
+    h4 small{
+      font-style:italic;
+      font-size: smaller;
+    }
+    
+    strong {
+      font-weight: bold;
+    }
+  
+    em {
+      font-style: italic;
+    }
+  
+    pre {
+      display: block;
+      padding: 9.5px;
+      line-height: 1.42857143;
+      color: #333;
+      background-color: #f5f5f5;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+  }
 }

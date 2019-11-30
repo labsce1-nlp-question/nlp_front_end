@@ -160,10 +160,12 @@ a:hover {
 }
 .loading-spinner {
   position: fixed;
+  background-color: rgba(0, 0, 0, 0.4);
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
+  z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -556,15 +558,16 @@ a:hover {
   justify-content: space-between;
 }
 .create-note-modal-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: fixed;
+  background-color: rgba(0, 0, 0, 0.4);
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
   font-size: 1.6rem;
 }
 .create-note-modal-wrapper .create-note-modal {
@@ -633,11 +636,16 @@ a:hover {
   background-color: #2179DC;
 }
 .markdown-editor.fullscreen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: fixed;
+  background-color: rgba(0, 0, 0, 0.4);
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
+  z-index: 1;
 }
 .markdown-editor.fullscreen textarea {
   height: 95vh;
@@ -807,9 +815,65 @@ a:hover {
   width: 64%;
 }
 .markdown-guide-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: fixed;
+  background-color: rgba(0, 0, 0, 0.4);
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
+  z-index: 1;
+}
+.markdown-guide-wrapper .guide {
+  background-color: white;
+  width: 50%;
+  height: 90vh;
+  padding: 2%;
+  border-radius: 3px;
+  font-size: 1.5rem;
+  overflow: auto;
+}
+.markdown-guide-wrapper .guide header {
+  display: flex;
+}
+.markdown-guide-wrapper .guide header button {
+  cursor: pointer;
+  font-size: 2rem;
+  background-color: inherit;
+  border: none;
+  padding: 0;
+}
+.markdown-guide-wrapper .guide header button:hover {
+  transform: scale(1.5);
+}
+.markdown-guide-wrapper .guide h1 {
+  font-size: 3rem;
+  margin: 0 auto;
+}
+.markdown-guide-wrapper .guide h4 {
+  margin-top: 20px;
+  margin-bottom: 5px;
+  font-size: 1.8rem;
+}
+.markdown-guide-wrapper .guide h4 small {
+  font-style: italic;
+  font-size: smaller;
+}
+.markdown-guide-wrapper .guide strong {
+  font-weight: bold;
+}
+.markdown-guide-wrapper .guide em {
+  font-style: italic;
+}
+.markdown-guide-wrapper .guide pre {
+  display: block;
+  padding: 9.5px;
+  line-height: 1.42857143;
+  color: #333;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: monospace;
 }

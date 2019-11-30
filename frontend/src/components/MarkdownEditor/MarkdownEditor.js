@@ -74,7 +74,7 @@ const MarkdownEditor = ({ initalValue, onChange, initalPreview = false }) => {
   const { isPreview, isSidebySide, isFullScreen, isMarkdownGuide } = view;
   return (
     <section className={`markdown-editor${isFullScreen ? " fullscreen" : ""}`}>
-      {isMarkdownGuide ? <MarkdownGuide /> : null}
+      {isMarkdownGuide ? <MarkdownGuide view={view} toggleView={toggleView}/> : null}
       <MarkdownEditorMenu
         textAreaRef={textAreaRef} 
         initalValue={initalValue} 
