@@ -7,7 +7,7 @@ const MarkdownGuide = ({ view, toggleView }) => {
       <div className="guide">
         <header>
           <h1>Markdown Guide</h1>
-          <button onClick={() => toggleView({...view, isMarkdownGuide: !isMarkdownGuide})}>X</button>
+          <button onClick={(e) => toggleView(e, {...view, isMarkdownGuide: !isMarkdownGuide})}>X</button>
         </header>
         <h4>Emphasis</h4>
         <pre>
@@ -39,7 +39,7 @@ const MarkdownGuide = ({ view, toggleView }) => {
           > This is a quote.<br/>
           > It can span multiple lines!
         </pre>
-        <h4>Images &nbsp; <small>Need to upload an image? <a href="https://imgur.com/" target="_blank">Imgur</a> is fast and easy.</small></h4>
+        <h4>Images &nbsp; <small>Need to upload an image? <a href="https://imgur.com/" target="_blank" rel="noopener noreferrer">Imgur</a> is fast and easy.</small></h4>
         <pre>![](http://www.example.com/image.jpg)</pre>
         <h4>Tables</h4>
         <pre>

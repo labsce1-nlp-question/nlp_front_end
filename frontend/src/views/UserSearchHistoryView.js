@@ -54,7 +54,7 @@ const UserSearchHistoryView = ({ signOut, toggleModal, state, dispatch }) => {
           <>
             {fetchingData ? <div className="loading-spinner">Loading...</div> : null}
             <UserSearchHistoryTable caption="Search History" headers={tableHeaders} userHistory={userHistory} toggleModal={toggleModal} dispatch={dispatch}/>
-            <button className="show-more-btn" onClick={() => ShowMoreData()}>Show More</button>
+            { userHistory.length > 10 ? <button className="show-more-btn" onClick={() => ShowMoreData()}>Show More</button> : null}
           </>
         : <h2>No search history yet. Ask a question!</h2>
       }

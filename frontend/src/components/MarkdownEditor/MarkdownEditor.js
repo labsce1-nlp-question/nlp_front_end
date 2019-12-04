@@ -13,7 +13,7 @@ const listRegEx = /^(\s*)([*+-] \[[x ]\]\s|[*+-]\s|(\d+)([.)]))(\s*)/,
   unorderedListRegEx =  /[*+-]\s/;
 
 const MarkdownEditor = ({ initalValue, onChange, initalPreview = false }) => {
-  const [view, toggleView] = useState({
+  const [view, setView] = useState({
     isPreview: initalPreview,
     isSidebySide: false,
     isFullScreen: false,
@@ -68,6 +68,12 @@ const MarkdownEditor = ({ initalValue, onChange, initalPreview = false }) => {
       textAreaRef.current.value = newVal;
       textAreaRef.current.setSelectionRange(selectionStart + 4, selectionEnd + 4);
     }
+  }
+
+  const toggleView = (e, view) => {
+    e.preventDefault();
+
+    setView(view);
   }
   //================TODO================
   //implement Side By Side toggle and fullscreen toggle buttons

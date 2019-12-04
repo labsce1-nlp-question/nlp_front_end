@@ -5,7 +5,8 @@ import { insertMarkdown } from "../../helpers/insertMarkdown.js";
 const MarkdownEditorMenuButton = ({textAreaRef, textAreaValue, onChange, buttonConfig}) => {
   const { markdown, buttonClassName, buttonTitle, markdownType, buttonText, prefix, suffix } = buttonConfig;
 
-  const addMarkdown = () => {
+  const addMarkdown = e => {
+    e.preventDefault();
     //current text area reference object from useRef 
     const texta = textAreaRef.current;
     //store values to be set after the text area as re-rendered
@@ -27,7 +28,7 @@ const MarkdownEditorMenuButton = ({textAreaRef, textAreaValue, onChange, buttonC
   };
 
   return(
-    <button className={`${buttonClassName}-btn`} title={buttonTitle} onClick={() =>addMarkdown()}>{buttonText}</button>
+    <button className={`${buttonClassName}-btn`} title={buttonTitle} onClick={(e) =>addMarkdown(e)}>{buttonText}</button>
   );
 };
 
