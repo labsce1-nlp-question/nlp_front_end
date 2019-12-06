@@ -16,6 +16,9 @@ export const FETCHING_USER_NOTE = "FETCHING_USER_NOTE";
 export const SUCCESS_USER_NOTE = "SUCCESS_USER_NOTE"; 
 export const FAILURE_USER_NOTE = "FAILURE_USER_NOTE";
 
+export const DELETED_USER_HISTORY = "DELETED_USER_HISTORY";
+export const FAILURE_DELETING_USER_HISTORY = "FAILURE_DELETING_USER_HISTORY";
+
 export const getUserSearchHistory = (dispatch, limit, signOut) => {
   dispatch({ type: FETCHING_USER_HISTORY });
   Axios()
@@ -84,3 +87,19 @@ export const updateUserNote = (dispatch, id, newNote, signOut) => {
       console.log(err.response)
     })
 };
+
+export const deleteUserHistory = (dispatch, id, signOut) => {
+  Axios()
+    .delete(`/history/${id}`)
+    .then(res => {
+      dispatch({ type: DELETED_USER_HISTORY, payload: res.data })
+    })
+    .catch(err => {
+      dispatch({ type: FAILURE_DELETING_USER_HISTORY });
+      if(err.response.status === 401){
+        alert(err.response.data.message);
+        signOut();
+      }
+      console.log(err.response)
+    })
+}

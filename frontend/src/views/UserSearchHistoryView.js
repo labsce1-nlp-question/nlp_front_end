@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { getUserSearchHistory } from '../store/actions/index.js';
+import { getUserSearchHistory, deleteUserHistory } from '../store/actions/index.js';
 import UserSearchHistoryTable from '../components/UserSearchHistoryTable.js';
 
 // ------class component------
@@ -43,6 +43,10 @@ const UserSearchHistoryView = ({ signOut, toggleModal, state, dispatch }) => {
 
   const ShowMoreData = () => setLimit(limit+10);
 
+  const deleteHistory = history_id => {
+    deleteUserHistory(dispatch, history_id, signOut);
+  }
+
   useEffect(() => {
     console.log("running useEffect search history")
     getUserSearchHistory(dispatch, limit, signOut);
@@ -53,8 +57,15 @@ const UserSearchHistoryView = ({ signOut, toggleModal, state, dispatch }) => {
       { userHistory.length > 0 ? 
           <>
             {fetchingData ? <div className="loading-spinner">Loading...</div> : null}
-            <UserSearchHistoryTable caption="Search History" headers={tableHeaders} userHistory={userHistory} toggleModal={toggleModal} dispatch={dispatch}/>
-            { userHistory.length > 10 ? <button className="show-more-btn" onClick={() => ShowMoreData()}>Show More</button> : null}
+            <UserSearchHistoryTable 
+              caption="Search History" 
+              headers={tableHeaders} 
+              userHistory={userHistory} 
+              toggleModal={toggleModal} 
+              dispatch={dispatch} 
+              deleteHistory={deleteHistory}
+            />
+            { userHistory.length >= 10 ? <button className="show-more-btn" onClick={() => ShowMoreData()}>Show More</button> : null}
           </>
         : <h2>No search history yet. Ask a question!</h2>
       }

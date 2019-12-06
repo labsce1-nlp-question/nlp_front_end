@@ -2,28 +2,36 @@
   margin: 3% 0px;
   padding: 2%;
   width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   
   &:hover {
     border-radius: 5px;
     box-shadow: 0 5px 4px -4px rgba(0, 0, 0, 0.14), 0 0px 4px -4px rgba(0, 0, 0, 0.12), 0 0px 0px 0px rgba(0, 0, 0, 0.2);
     background-color: @grey;
+    text-decoration: none;
   }
 
-  .result-url {
-    
-    h2 {
-      font-size: 2rem;
-      
-    }
+  h2 {
+    font-size: 2rem;
+  }
 
-    div {
-      margin-top: 5px;
-      font-size: 1.4rem;
+  div {
+    margin-top: 5px;
+    font-size: 1.4rem;
+  }
+  
+  h2, div {
+    &:hover {
+      text-decoration: underline;
     }
   }
 
   p {
+    color: black;
     margin-top: 1%;
     opacity: .96;
   }
+
 }

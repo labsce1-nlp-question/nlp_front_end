@@ -149,6 +149,7 @@ h5 {
 }
 .App {
   display: flex;
+  height: 100vh;
 }
 a {
   text-decoration: none;
@@ -156,7 +157,6 @@ a {
 }
 a:hover {
   text-decoration: underline;
-  color: #0c3c78;
 }
 .loading-spinner {
   position: fixed;
@@ -172,16 +172,14 @@ a:hover {
   font-size: 3rem;
 }
 .side-nav {
-  position: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   padding: 30px 50px;
   background: #bb1333;
-  width: 320px;
+  min-width: 320px;
   font-size: 1.6rem;
-  height: 100vh;
 }
 @media (max-width: 991px) {
   .side-nav {
@@ -290,28 +288,60 @@ a:hover {
   margin: 3% 0px;
   padding: 2%;
   width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 .result:hover {
   border-radius: 5px;
   box-shadow: 0 5px 4px -4px rgba(0, 0, 0, 0.14), 0 0px 4px -4px rgba(0, 0, 0, 0.12), 0 0px 0px 0px rgba(0, 0, 0, 0.2);
   background-color: #D2D2DD;
+  text-decoration: none;
 }
-.result .result-url h2 {
+.result h2 {
   font-size: 2rem;
 }
-.result .result-url div {
+.result div {
   margin-top: 5px;
   font-size: 1.4rem;
 }
+.result h2:hover,
+.result div:hover {
+  text-decoration: underline;
+}
 .result p {
+  color: black;
   margin-top: 1%;
   opacity: 0.96;
+}
+.question-results-wrapper .create-note-wrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 1%;
+}
+.question-results-wrapper .create-note-wrapper .user-history-note-btn {
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  width: inherit;
+  height: 28px;
+  background-color: #1a61b0;
+  color: white;
+  padding: 8px 8px 6px;
+  margin-left: 10px;
+}
+.question-results-wrapper .create-note-wrapper .user-history-note-btn:hover {
+  background-color: #2179DC;
+}
+.question-results-wrapper .create-note-wrapper .user-history-note-btn span {
+  margin-left: 5px;
 }
 .main-page-wrapper {
   display: flex;
   font-size: 1.7rem;
-  margin: 4% 0px 0px 22%;
-  width: 75%;
+  margin: 4% 0px 0px 2%;
+  width: 100%;
+  overflow-y: auto;
 }
 .main-page-wrapper .search-wrapper {
   display: flex;
@@ -333,51 +363,54 @@ a:hover {
 .user-history-wrapper {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 65%;
-  margin: 4% 0px 0px 26%;
+  width: 100%;
   font-size: 1.6rem;
+  overflow-y: auto;
 }
 .user-history-wrapper .show-more-btn {
   background: inherit;
   border: 1px solid #1a61b0;
   border-radius: 3px;
-  margin: 2% 9% 1% 0px;
   padding: 5px;
   color: #1a61b0;
+  width: 80px;
   cursor: pointer;
+  margin: 2% auto 2% 40%;
 }
 .user-history-wrapper .show-more-btn:hover {
   background-color: #1a61b0;
   color: white;
 }
 .user-history-table {
-  width: 70%;
-  margin: 0 auto 0 12%;
+  width: 56%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto 0 15%;
 }
 .user-history-table .user-history-table-caption {
   font-size: 3rem;
-  text-align: center;
-  margin-bottom: 5%;
-  padding-right: 3%;
+  margin: 5%;
 }
 .user-history-table .user-history-table-headers {
   display: flex;
   justify-content: space-between;
-  font-size: 2rem;
+  width: 100%;
+  padding: 0px 36% 2% 7%;
   border-bottom: 1px solid lightgrey;
-  padding: 0px 26% 2% 9%;
+  font-size: 2rem;
   font-weight: bold;
 }
 .user-history-table-data {
   padding: 3%;
   display: flex;
+  border: 1px solid transparent;
 }
 .user-history-table-data:hover {
   border: 1px solid #3ab5e5;
 }
 .user-history-table-data:hover .user-history .user-history-note .user-history-del-btn {
-  display: flex;
+  opacity: 1;
 }
 .user-history-table-data:nth-child(even) {
   background-color: white;
@@ -388,12 +421,12 @@ a:hover {
   text-align: center;
   align-items: center;
   width: 100%;
-  height: 32px;
+  height: 28px;
   transition: height 0.3s ease-in-out;
   overflow: hidden;
 }
 .user-history-table-data .user-history .user-history-question {
-  width: 63%;
+  width: 52%;
   text-align: left;
   padding-left: 4%;
 }
@@ -401,36 +434,25 @@ a:hover {
   width: 13%;
 }
 .user-history-table-data .user-history .user-history-note {
-  width: 24%;
+  width: 33%;
   display: flex;
+  justify-content: flex-end;
 }
 .user-history-table-data .user-history .user-history-note .user-history-note-btn {
   cursor: pointer;
   border: none;
   border-radius: 4px;
-  width: 30px;
+  width: 107px;
   height: 28px;
   background-color: #1a61b0;
   color: white;
   padding: 8px 8px 6px;
-  margin-left: 20%;
-  overflow: hidden;
-  transition: width 0.3s ease-in-out;
   display: flex;
 }
 .user-history-table-data .user-history .user-history-note .user-history-note-btn:hover {
   background-color: #2179DC;
 }
 .user-history-table-data .user-history .user-history-note .user-history-note-btn span {
-  display: none;
-  white-space: nowrap;
-  margin-left: 10px;
-}
-.user-history-table-data .user-history .user-history-note .user-history-note-btn:hover {
-  width: 107px;
-}
-.user-history-table-data .user-history .user-history-note .user-history-note-btn:hover span {
-  display: block;
   margin-left: 5px;
 }
 .user-history-table-data .user-history .user-history-note .user-history-note-btn a {
@@ -442,29 +464,19 @@ a:hover {
   cursor: pointer;
   border: none;
   border-radius: 4px;
-  width: 30px;
+  width: inherit;
   height: 28px;
   background-color: red;
   color: white;
   padding: 8px 8px 6px;
-  margin-left: 4%;
-  overflow: hidden;
-  transition: width 0.3s ease-in-out;
-  display: none;
+  display: flex;
+  margin-left: 10px;
+  opacity: 0;
 }
 .user-history-table-data .user-history .user-history-note .user-history-del-btn:hover {
   background-color: #F9393D;
 }
 .user-history-table-data .user-history .user-history-note .user-history-del-btn span {
-  display: none;
-  white-space: nowrap;
-  margin-left: 10px;
-}
-.user-history-table-data .user-history .user-history-note .user-history-del-btn:hover {
-  width: 117px;
-}
-.user-history-table-data .user-history .user-history-note .user-history-del-btn:hover span {
-  display: block;
   margin-left: 5px;
 }
 .user-history-table-data .user-history .user-history-results {
@@ -476,6 +488,7 @@ a:hover {
 }
 .user-history-table-data .user-history .user-history-results .result {
   width: 100%;
+  align-items: center;
 }
 .user-history-table-data .expand-btn {
   width: 14px;
@@ -491,47 +504,67 @@ a:hover {
   height: 362px;
 }
 .note-view-wrapper {
-  width: 75%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: 1.6rem;
-  margin: 4% 0px 0px 20%;
 }
 .note-view-wrapper .note-view-header {
-  text-align: center;
+  margin: 2% 0px;
   font-size: 3rem;
 }
 .note-view-wrapper .note-wrapper {
-  margin: 2%;
-  width: 100%;
+  width: 80%;
 }
-.note-view-wrapper .note-wrapper h3 {
-  font-size: 2rem;
+.note-view-wrapper .note-wrapper label {
+  font-size: 2.2rem;
+  line-height: 1.5;
+}
+.note-view-wrapper .note-wrapper .title-input {
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+  margin-bottom: 2%;
+}
+.note-view-wrapper .note-wrapper .title-input input {
+  width: 100%;
+  height: 35px;
+  border-radius: 3px;
+  border: 1px solid lightgrey;
+  font-size: 1.8rem;
+  padding: 1%;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
 }
 .notes-view-wrapper {
   display: flex;
   flex-direction: column;
-  width: 70%;
-  margin: 4% 0px 0px 22%;
+  width: 100%;
+  margin-left: 4%;
   font-size: 1.6rem;
+  overflow-y: auto;
 }
 .notes-view-wrapper h2 {
   font-size: 3rem;
   text-align: center;
 }
+.notes-view-wrapper .notes-view-header {
+  width: 87%;
+  margin-top: 2%;
+}
 .notes-view-wrapper .notes-wrapper {
   display: flex;
   flex-wrap: wrap;
   margin: 5% auto;
+  width: 100%;
 }
 .note-card {
-  width: 23%;
+  width: 306px;
   border-radius: 3px;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
   background-color: white;
-  padding: 2%;
-  margin: 1%;
+  padding: 26px;
+  margin: 13px;
   text-decoration: none;
   color: black;
 }
@@ -655,7 +688,7 @@ a:hover {
   resize: none;
   max-width: 100%;
   width: 100%;
-  height: 75vh;
+  height: 70vh;
   border: 1px solid lightgrey;
   border-radius: 3px;
   padding: 1%;
@@ -708,8 +741,9 @@ a:hover {
   border-radius: 0;
 }
 .markdown-preview {
-  height: 75vh;
+  height: 70vh;
   line-height: 1.5;
+  font-size: 1.6rem;
   word-wrap: break-word;
   background: white;
   padding: 1% 3%;

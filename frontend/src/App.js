@@ -32,7 +32,7 @@ function App(props) {
         <>
           <SideNav history={props.history} signOut={signOut}/>
           {showModal ? <CreateNoteModal toggleModal={toggleModal} signOut={signOut} state={state} dispatch={dispatch}/> : null}
-          <Route exact path = '/' render = {props => <SearchPageView {...props} signOut={signOut}/>} />
+          <Route exact path = '/' render = {props => <SearchPageView {...props} signOut={signOut} dispatch={dispatch} toggleModal={toggleModal}/>} />
           <Route path = '/search-history' render = {props => <UserSearchHistoryView {...props} signOut={signOut} toggleModal={toggleModal} state={state} dispatch={dispatch}/> } />
           <Route path = '/notes' render = {props => <NotesView {...props} signOut={signOut} state={state} dispatch={dispatch}/>} />
           <Route path = '/note/:id' render = {props => <NotePageView {...props} signOut={signOut} state={state} dispatch={dispatch}/>} />

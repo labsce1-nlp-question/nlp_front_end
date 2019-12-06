@@ -5,7 +5,8 @@ import moment from "moment";
 import { UPDATING_USER_NOTE } from '../store/actions/index.js';
 import QuestionResult from "./QuestionResult.js";
 
-const SearchHistoryRow = ({ history, toggleModal, dispatch }) => {
+const SearchHistoryRow = ({ history, toggleModal, dispatch, deleteHistory }) => {
+  const {id, question, time, bot_response } = history;
   const [showResults, setShowResults] = useState(false);
   const [isExpanded, setisExpanded] = useState("not-expanded");
 
@@ -26,14 +27,14 @@ const SearchHistoryRow = ({ history, toggleModal, dispatch }) => {
         { showResults ? <i className="fas fa-chevron-down"/> : <i className="fas fa-chevron-right"/>}
       </span>
       <div className="user-history">
-        <p className="user-history-question">{history.question}</p>
+        <p className="user-history-question">{question}</p>
         <span className="user-history-timestamp">
-          { moment(new Date(history.time)).fromNow() }
+          { moment(new Date(time)).fromNow() }
         </span>
         <div className="user-history-note">
           { history.notes ?
             <button className="user-history-note-btn">
-              <Link to={`/note/${history.id}`} onClick={() => dispatch({ type: UPDATING_USER_NOTE, payload: history })}>
+              <Link to={`/note/${id}`} onClick={() => dispatch({ type: UPDATING_USER_NOTE, payload: history })}>
                 <i className="fas fa-sticky-note"/>
                 <span>View Note</span>
               </Link>
@@ -44,14 +45,14 @@ const SearchHistoryRow = ({ history, toggleModal, dispatch }) => {
               </button>
           }
           {/* Set up Delete button, as well as ability to select multiple and delete those as well. Possibly delete all? */}
-          <button className="user-history-del-btn">
+          <button className="user-history-del-btn" onClick={() => deleteHistory(id)}>
             <i className="fas fa-trash"/>
-            <span>Delete History</span>
+            <span>Delete</span>
           </button>
         </div>
         <div className="user-history-results">
           <h2>Bot Response:</h2>
-          {history.bot_response.match.map(result => {
+          {bot_response.match.map(result => {
             return(
               <QuestionResult result={result} key={result.id} showDesc={false}/>
             );

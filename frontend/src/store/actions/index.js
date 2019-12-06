@@ -26,6 +26,13 @@ import {
   // USER NOTES ACTION CREATORS
   getUserNotes,
   updateUserNote,
+
+  // DELETE USER HISTORY ACTIONS
+  DELETED_USER_HISTORY,
+  FAILURE_DELETING_USER_HISTORY,
+
+  // DELETE USER HISTORY ACTION CREATORS
+  deleteUserHistory
 } from './UserHistoryActions.js';
 
 export {
@@ -56,4 +63,11 @@ export {
   // USER NOTES ACTION CREATORS
   getUserNotes,
   updateUserNote,
+
+  // DELETE USER HISTORY ACTIONS
+  DELETED_USER_HISTORY,
+  FAILURE_DELETING_USER_HISTORY,
+
+  // DELETE USER HISTORY ACTION CREATORS
+  deleteUserHistory
 };

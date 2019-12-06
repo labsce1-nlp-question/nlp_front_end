@@ -16,7 +16,7 @@ const NotesView  = ({ signOut, state, dispatch }) => {
     <section className="notes-view-wrapper">
       <>
         {fetchingData ? <div className="loading-spinner">Loading...</div> : null}
-        <h2>Notes</h2>
+        <h2 className="note-view-header">Notes</h2>
         <div className="notes-wrapper">
           {notes.length > 0 ? 
             notes.map(note => {

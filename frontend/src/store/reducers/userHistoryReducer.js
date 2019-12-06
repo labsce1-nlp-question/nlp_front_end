@@ -10,6 +10,7 @@ import {
   FAILURE_USER_NOTES,
   UPDATING_USER_NOTE,
   UPDATED_USER_NOTE,
+  DELETED_USER_HISTORY,
 } from '../actions/index.js';
 
 export const userHistoryState = {
@@ -79,7 +80,7 @@ export const userHistoryReducer = (state, action) => {
         fetchingData: false
       };
     
-    case UPDATING_USER_NOTE: 
+    case UPDATING_USER_NOTE:
       return {
         ...state,
         currentNote: action.payload
@@ -90,7 +91,13 @@ export const userHistoryReducer = (state, action) => {
         ...state,
         userHistory: state.userHistory.map( history => history.id === action.payload.id ? action.payload : history)
       };
-      
+    
+    case DELETED_USER_HISTORY:
+      return {
+        ...state,
+        userHistory: action.payload.updated_history
+      }
+    
     default:
       return state;
   }

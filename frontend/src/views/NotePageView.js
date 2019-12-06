@@ -66,7 +66,7 @@ import { useInput } from "../helpers/hooks/useInput.js";
 //         </h1>
 //         <div className="note-wrapper">
 //           <div className="results">
-//             <h3>Question Results:</h3>
+//             <h2>Question Results:</h2>
 //             <QuestionResults results={this.state.results}/>
 //           </div>
 //           <Note notes={this.state.notes} inputHandler={this.inputHandler}/>
@@ -78,33 +78,46 @@ import { useInput } from "../helpers/hooks/useInput.js";
 
 const NotePageView = ({ state, dispatch, signOut, match }) => {
   const { currentNote, fetchingData } = state;
-  const [note, handleNote, setNote] = useInput("");
+  const [note, handleNote, setNote] = useInput({
+    notes: "",
+    title: ""
+  });
 
   const updateNote = value => {
-    const newNote = { title: currentNote.title, notes: value };
+    const newNote = {...note, notes: value };
 
-    handleNote(value);
+    handleNote(newNote);
     updateUserNote(dispatch, currentNote.id, newNote, signOut);
   };
+
+  const updateTitle = value => {
+    handleNote({...note, title: value});
+    updateUserNote(dispatch, currentNote.id, note, signOut);
+  }
 
   useEffect(() => {
     console.log("running useEffect user note page")
     if(currentNote.notes){
-      setNote(currentNote.notes);
+      const notes = currentNote.notes, 
+        title = currentNote.title ? currentNote.title : "No Title";
+
+      setNote({notes, title});
     } else {
       getUserNote(match.params.id, dispatch, signOut);
     }
-  },[signOut, dispatch, match.params.id, currentNote.notes, setNote]);
+  },[signOut, dispatch, match.params.id, currentNote.notes, currentNote.title, setNote]);
 
   return(
     <div className="note-view-wrapper">
       {fetchingData ? <div className="loading-spinner">Loading...</div> : null}
-      <h1 className="note-view-header">
-        Note
-      </h1>
+      <h1 className="note-view-header">Question: {currentNote.question}</h1>
       <div className="note-wrapper">
-        <h3>Question: {currentNote.question}</h3>
-        <MarkdownEditor initalValue={note} onChange={updateNote} initalPreview={true}/>
+        <label className="title-input">
+          Title
+          <input type="text" value={note.title} onChange={e => updateTitle(e.target.value)}/>
+        </label>
+        <label className="note-input">Note</label>
+        <MarkdownEditor initalValue={note.notes} onChange={updateNote} initalPreview={true}/>
       </div>
     </div>
   );

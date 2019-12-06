@@ -1,21 +1,28 @@
 .note-view-wrapper {
-  width: 75%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: 1.6rem;
-  margin: 4% 0px 0px 20%;
-
+  
   .note-view-header {
-    text-align: center;
+    margin: 2% 0px;
     font-size: 3rem;
   }
-
   .note-wrapper {
-    margin: 2%;
-    width: 100%;
-    h3 {
-      font-size: 2rem;
+    width: 80%;
+    
+    label {
+      font-size: 2.2rem;
+      line-height: 1.5;
+    }
+
+    .title-input {
+      display: flex;
+      flex-direction: column;
+      width: 35%;
+      margin-bottom: 2%;
+      .inputField(@width: 100%; @height: 35px; @padding: 1%;);
     }
   }
 }
