@@ -853,8 +853,26 @@ a:hover {
   display: flex;
   width: 100%;
 }
-.sbs-wrapper textarea {
-  width: 64%;
+.sbs-wrapper .width-adjust-bar {
+  cursor: col-resize;
+  position: relative;
+  min-width: 8px;
+  background-color: darkgray;
+}
+.sbs-wrapper .width-adjust-bar::before {
+  left: 0;
+}
+.sbs-wrapper .width-adjust-bar::after,
+.sbs-wrapper .width-adjust-bar::before {
+  content: "";
+  border-left: 1px solid #333;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-100%);
+  right: 0;
+  display: inline-block;
+  height: 20px;
+  margin: 0 2px;
 }
 .markdown-guide-wrapper {
   display: flex;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactMarkdown from "react-markdown";
 import { ScrollSync, ScrollSyncPane } from "react-scroll-sync";
 
@@ -7,14 +7,19 @@ import YoutubeLink from "./YoutubeLink.js";
 import Heading from "./Heading.js";
 
 const SideBySideView = ({ initalValue, textAreaRef, onChange, handleKeyDown }) => {
-  const texta = textAreaRef.current;
+  const [twidth, setTwidth] = useState(1229);
+  const [isDrag, setisDrag] = useState(false);
+ 
   const adjustWidth = (e) => {
-    console.log(textAreaRef, texta)
-    console.log(`Textarea width: \ndrag width: ${e.clientX}`)
+    e.preventDefault();
+    if(isDrag) {
+      const widthDif = twidth + (e.clientX - textAreaRef.current.clientWidth);
+      setTwidth(widthDif);
+    }
   }
   return(
     <ScrollSync>
-      <div className="sbs-wrapper">
+      <div className="sbs-wrapper" onMouseUp={(e) => setisDrag(false)} onMouseMove={(e) => adjustWidth(e)}>
         <ScrollSyncPane>
           <textarea
             id="text-area"
@@ -22,11 +27,12 @@ const SideBySideView = ({ initalValue, textAreaRef, onChange, handleKeyDown }) =
             value={initalValue}
             onChange={e => onChange(e.target.value)}
             onKeyDown={e => handleKeyDown(e)}
+            style={{width: `${twidth}px`}}
             rows="20"
             cols="80"
           />
         </ScrollSyncPane>
-        <span className="width-adjust-bar" style={{width:"15px"}} onDrag={(e) => adjustWidth(e)}>|</span>
+        <span className="width-adjust-bar" onMouseDown={() => setisDrag(true)}/>
         <ScrollSyncPane>
           <ReactMarkdown
             className="markdown-preview"
