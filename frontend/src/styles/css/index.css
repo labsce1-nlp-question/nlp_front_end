@@ -339,7 +339,7 @@ a:hover {
 .main-page-wrapper {
   display: flex;
   font-size: 1.7rem;
-  margin: 4% 0px 0px 2%;
+  margin: 4% 0px 0px 4%;
   width: 100%;
   overflow-y: auto;
 }
@@ -375,36 +375,40 @@ a:hover {
   color: #1a61b0;
   width: 80px;
   cursor: pointer;
-  margin: 2% auto 2% 40%;
+  margin: 2% auto 2% 45%;
 }
 .user-history-wrapper .show-more-btn:hover {
   background-color: #1a61b0;
   color: white;
 }
 .user-history-table {
-  width: 56%;
+  width: 88%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 auto 0 15%;
+  margin: 0 6% 0;
 }
 .user-history-table .user-history-table-caption {
   font-size: 3rem;
-  margin: 5%;
+  margin: 4%;
 }
 .user-history-table .user-history-table-headers {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  padding: 0px 36% 2% 7%;
+  padding: 0px 38.2% 2% 5%;
   border-bottom: 1px solid lightgrey;
   font-size: 2rem;
   font-weight: bold;
 }
+.user-history-table .user-history-table-data-wrapper {
+  width: 100%;
+}
 .user-history-table-data {
-  padding: 3%;
+  padding: 2%;
   display: flex;
   border: 1px solid transparent;
+  cursor: pointer;
 }
 .user-history-table-data:hover {
   border: 1px solid #3ab5e5;
@@ -540,13 +544,13 @@ a:hover {
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-left: 4%;
   font-size: 1.6rem;
   overflow-y: auto;
 }
 .notes-view-wrapper h2 {
   font-size: 3rem;
   text-align: center;
+  margin-top: 4%;
 }
 .notes-view-wrapper .notes-view-header {
   width: 87%;
@@ -555,8 +559,8 @@ a:hover {
 .notes-view-wrapper .notes-wrapper {
   display: flex;
   flex-wrap: wrap;
-  margin: 5% auto;
-  width: 100%;
+  margin: 5% 6% 0;
+  width: 88%;
 }
 .note-card {
   width: 306px;
@@ -679,6 +683,7 @@ a:hover {
   right: 0;
   left: 0;
   z-index: 1;
+  flex-direction: column;
 }
 .markdown-editor.fullscreen textarea {
   height: 95vh;
@@ -739,6 +744,7 @@ a:hover {
 }
 .fullscreen .markdown-editor-menu {
   border-radius: 0;
+  width: 100%;
 }
 .markdown-preview {
   height: 70vh;
@@ -839,11 +845,13 @@ a:hover {
   margin-bottom: 16px;
 }
 .fullscreen .markdown-preview {
+  width: 100%;
   height: 95vh;
   border-radius: 0;
 }
 .sbs-wrapper {
   display: flex;
+  width: 100%;
 }
 .sbs-wrapper textarea {
   width: 64%;

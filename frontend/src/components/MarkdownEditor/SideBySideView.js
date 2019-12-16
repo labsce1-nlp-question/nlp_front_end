@@ -7,6 +7,11 @@ import YoutubeLink from "./YoutubeLink.js";
 import Heading from "./Heading.js";
 
 const SideBySideView = ({ initalValue, textAreaRef, onChange, handleKeyDown }) => {
+  const texta = textAreaRef.current;
+  const adjustWidth = (e) => {
+    console.log(textAreaRef, texta)
+    console.log(`Textarea width: \ndrag width: ${e.clientX}`)
+  }
   return(
     <ScrollSync>
       <div className="sbs-wrapper">
@@ -21,6 +26,7 @@ const SideBySideView = ({ initalValue, textAreaRef, onChange, handleKeyDown }) =
             cols="80"
           />
         </ScrollSyncPane>
+        <span className="width-adjust-bar" style={{width:"15px"}} onDrag={(e) => adjustWidth(e)}>|</span>
         <ScrollSyncPane>
           <ReactMarkdown
             className="markdown-preview"

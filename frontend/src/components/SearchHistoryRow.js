@@ -10,7 +10,9 @@ const SearchHistoryRow = ({ history, toggleModal, dispatch, deleteHistory }) => 
   const [showResults, setShowResults] = useState(false);
   const [isExpanded, setisExpanded] = useState("not-expanded");
 
-  const toggleExpand = () => {
+  const toggleExpand = (e) => {
+    if(e.target.localName === "button" || (e.target.parentElement.localName === "button")) return;
+    
     setShowResults(!showResults);
     
     return !showResults ? setisExpanded("expanded") : setisExpanded("not-expanded");
@@ -22,8 +24,8 @@ const SearchHistoryRow = ({ history, toggleModal, dispatch, deleteHistory }) => 
   }
 
   return(
-    <div className={`user-history-table-data ${isExpanded}`}>
-      <span className="expand-btn" onClick={() => toggleExpand()}>
+    <div className={`user-history-table-data ${isExpanded}`} onClick={(e) => toggleExpand(e)}>
+      <span className="expand-btn" >
         { showResults ? <i className="fas fa-chevron-down"/> : <i className="fas fa-chevron-right"/>}
       </span>
       <div className="user-history">
