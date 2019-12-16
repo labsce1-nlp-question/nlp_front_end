@@ -6,13 +6,15 @@ const QuestionResults = ({ data, createNote }) => {
     <>
       {data.results.length > 0 ?
         <div className="question-results-wrapper">
-          <div className="create-note-wrapper">
-            <p>Want to save these results? Create a note!</p>
-            <button className="user-history-note-btn" onClick={() => createNote(data.history)}>
-              <i className="fas fa-pen"/> 
-              <span>Create Note</span>
-            </button>
-          </div>
+          {createNote ? 
+            <div className="create-note-wrapper">
+              <p>Want to save these results? Create a note!</p>
+                <button className="user-history-note-btn" onClick={() => createNote(data.history)}>
+                  <i className="fas fa-pen"/> 
+                  <span>Create Note</span>
+                </button> 
+            </div>
+          : null}
           <ul className="question-results">
             {data.results.map( result => {
               //check if the results description is over 300 characters long, slice it to keep descriptions in a consistent length range

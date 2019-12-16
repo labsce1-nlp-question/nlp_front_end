@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 
 import MarkdownEditor from "../components/MarkdownEditor/MarkdownEditor.js";
+import QuestionResults from "../components/QuestionResults.js";
 import { getUserNote, updateUserNote } from '../store/actions/index.js';
 import { useInput } from "../helpers/hooks/useInput.js";
 
@@ -80,9 +81,9 @@ const NotePageView = ({ state, dispatch, signOut, match }) => {
   const { currentNote, fetchingData } = state;
   const [note, handleNote, setNote] = useInput({
     notes: "",
-    title: ""
+    title: "",
+    isShowResults: false
   });
-
   const updateNote = value => {
     const newNote = {...note, notes: value };
 
@@ -106,7 +107,6 @@ const NotePageView = ({ state, dispatch, signOut, match }) => {
       getUserNote(match.params.id, dispatch, signOut);
     }
   },[signOut, dispatch, match.params.id, currentNote.notes, currentNote.title, setNote]);
-
   return(
     <div className="note-view-wrapper">
       {fetchingData ? <div className="loading-spinner">Loading...</div> : null}
@@ -116,8 +116,20 @@ const NotePageView = ({ state, dispatch, signOut, match }) => {
           Title
           <input type="text" value={note.title} onChange={e => updateTitle(e.target.value)}/>
         </label>
+        <button className="show-results-btn" onClick={() => setNote({...note, isShowResults: true})}>Question Results</button>
         <label className="note-input">Note</label>
         <MarkdownEditor initalValue={note.notes} onChange={updateNote} initalPreview={true}/>
+        {note.isShowResults ?  
+          <div className="results-modal-wrapper">
+            <div className="results-modal">
+              <div className="modal-header">
+                <h2>Results</h2>
+                <button className="close-modal-btn" onClick={() => setNote({...note, isShowResults: false})}>X</button>
+              </div>
+              <QuestionResults data={{results: currentNote.bot_response.match}}/>
+            </div>
+          </div> 
+          : null}
       </div>
     </div>
   );
