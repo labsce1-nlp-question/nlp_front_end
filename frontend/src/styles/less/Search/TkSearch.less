@@ -1,6 +1,12 @@
 .search-form {
   .inputField(@width: 50%; @height: 45px; @padding: 1%;);
 
+  @media @mobile {
+    input {
+      width: 100%;
+    }
+  }
+
   &:hover {
     border-color: #55596d
     ;

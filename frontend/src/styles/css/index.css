@@ -188,10 +188,12 @@ a:hover {
 }
 @media (max-width: 767px) {
   .side-nav {
+    position: absolute;
     padding: 6px;
     height: 8%;
     overflow-y: hidden;
     transition: height 0.2s ease-in-out;
+    z-index: 1;
   }
 }
 .side-nav .logo-wrapper {
@@ -233,7 +235,7 @@ a:hover {
     border: none;
     background: none;
     color: white;
-    font-size: 1.8rem;
+    font-size: 2.5rem;
   }
 }
 .side-nav .menu-list {
@@ -371,6 +373,18 @@ a:hover {
   flex-direction: column;
   align-items: flex-start;
 }
+@media (max-width: 767px) {
+  .result {
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 -5px 7px -2px rgba(0, 0, 0, 0.14), 0 2px 2px 1px rgba(0, 0, 0, 0.12), 0 0px 2px 0px rgba(0, 0, 0, 0.2);
+    border: 1px solid lightgrey;
+    text-decoration: none;
+    padding: 3%;
+    line-height: 1.2;
+    font-size: 1.5rem;
+  }
+}
 .result:hover {
   border-radius: 5px;
   box-shadow: 0 5px 4px -4px rgba(0, 0, 0, 0.14), 0 0px 4px -4px rgba(0, 0, 0, 0.12), 0 0px 0px 0px rgba(0, 0, 0, 0.2);
@@ -383,6 +397,12 @@ a:hover {
 .result div {
   margin-top: 5px;
   font-size: 1.4rem;
+}
+@media (max-width: 767px) {
+  .result div {
+    width: 100%;
+    overflow-wrap: break-word;
+  }
 }
 .result h2:hover,
 .result div:hover {
@@ -398,6 +418,11 @@ a:hover {
   align-items: center;
   margin-top: 1%;
 }
+@media (max-width: 767px) {
+  .question-results-wrapper .create-note-wrapper {
+    margin-top: 2%;
+  }
+}
 .question-results-wrapper .create-note-wrapper .user-history-note-btn {
   cursor: pointer;
   border: none;
@@ -412,6 +437,11 @@ a:hover {
 .question-results-wrapper .create-note-wrapper .user-history-note-btn:hover {
   background-color: #2179DC;
 }
+@media (max-width: 767px) {
+  .question-results-wrapper .create-note-wrapper .user-history-note-btn {
+    width: 142px;
+  }
+}
 .question-results-wrapper .create-note-wrapper .user-history-note-btn span {
   margin-left: 5px;
 }
@@ -421,6 +451,12 @@ a:hover {
   margin: 4% 0px 0px 4%;
   width: 100%;
   overflow-y: auto;
+}
+@media (max-width: 767px) {
+  .main-page-wrapper {
+    width: inherit;
+    margin: 18% 4% 0px 4%;
+  }
 }
 .main-page-wrapper .search-wrapper {
   display: flex;
@@ -435,6 +471,11 @@ a:hover {
   font-size: 1.8rem;
   padding: 1%;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+@media (max-width: 767px) {
+  .search-form input {
+    width: 100%;
+  }
 }
 .search-form:hover {
   border-color: #55596d;
