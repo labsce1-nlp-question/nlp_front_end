@@ -11,7 +11,6 @@ import NotesView from './views/NotesView.js';
 import SideNav from './components/SideNav.js';
 import CreateNoteModal from './components/CreateNoteModal.js';
 
-//Look into how to check prevstate in useEffects in user search history componet/notes component to reduce number of api calls
 function App(props) {
   const [state, dispatch] = useReducer(userHistoryReducer, userHistoryState);
   const [showModal, setShowModal] = useState(false);
