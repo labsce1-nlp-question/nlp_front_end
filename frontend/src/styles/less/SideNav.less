@@ -7,13 +7,12 @@
   background: @main-color;
   min-width: 320px;
   font-size: 1.6rem;
-
-  @media @tablet{
-    padding: 25px 30px;
-  }
   
-  @media @mobile{
-    padding: 20px 30px;
+  @media @mobile {
+    padding: 6px;
+    height: 8%;
+    overflow-y: hidden;
+    transition: height .2s ease-in-out;
   }
 
   .logo-wrapper {
@@ -22,17 +21,43 @@
     flex-direction: column;
     color: white;
 
+    @media @mobile {
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+    }
+
     .logo {
       cursor: pointer;
+
+      @media @mobile {
+        width: 40%;
+      }
     }
 
     h1 {
       margin: 15px 0px 0px 5px;
       font-size: 2rem;
+
+      @media @mobile {
+        margin: 0 0 2px;
+      }
     }
   }
 
-  ul {
+  .mobile-nav-btn {
+    display: none;
+
+    @media @mobile {
+      display: block;
+      border: none;
+      background: none;
+      color: white;
+      font-size: 1.8rem;
+    }
+  }
+
+  .menu-list {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -40,6 +65,11 @@
     margin-bottom: 35%;
     font-size: 2.6rem;
     color: white;
+
+    @media @mobile {
+      width: 100%;
+      margin-bottom: 0;
+    }
 
     a {
       text-decoration: none;
@@ -71,4 +101,9 @@
       font-size: 2rem;
     }
   }
+}
+
+.side-nav.expand {
+  position: absolute;
+  height: 100%;
 }

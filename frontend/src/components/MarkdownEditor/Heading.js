@@ -6,6 +6,7 @@ const Heading = props => {
   const removeWhiteSpace = string => {
     return string.toLowerCase().replace(/\s/gi, "-");
   }
+  //Traverse the react element object for a value key
   const traverseObject = object => {
     if(object !== null && typeof object === "object") {
       if(object.props.value){
@@ -19,7 +20,7 @@ const Heading = props => {
   }
 
   const childVal = traverseObject(children[0]); 
-  
+
   switch(level){
     case 1: 
       return <h1 id={removeWhiteSpace(childVal)}>{children}</h1>

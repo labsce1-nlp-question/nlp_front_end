@@ -151,6 +151,11 @@ h5 {
   display: flex;
   height: 100vh;
 }
+@media (max-width: 991px) {
+  .App {
+    flex-direction: column;
+  }
+}
 a {
   text-decoration: none;
   color: #1a61b0;
@@ -181,14 +186,12 @@ a:hover {
   min-width: 320px;
   font-size: 1.6rem;
 }
-@media (max-width: 991px) {
-  .side-nav {
-    padding: 25px 30px;
-  }
-}
 @media (max-width: 767px) {
   .side-nav {
-    padding: 20px 30px;
+    padding: 6px;
+    height: 8%;
+    overflow-y: hidden;
+    transition: height 0.2s ease-in-out;
   }
 }
 .side-nav .logo-wrapper {
@@ -197,14 +200,43 @@ a:hover {
   flex-direction: column;
   color: white;
 }
+@media (max-width: 767px) {
+  .side-nav .logo-wrapper {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
 .side-nav .logo-wrapper .logo {
   cursor: pointer;
+}
+@media (max-width: 767px) {
+  .side-nav .logo-wrapper .logo {
+    width: 40%;
+  }
 }
 .side-nav .logo-wrapper h1 {
   margin: 15px 0px 0px 5px;
   font-size: 2rem;
 }
-.side-nav ul {
+@media (max-width: 767px) {
+  .side-nav .logo-wrapper h1 {
+    margin: 0 0 2px;
+  }
+}
+.side-nav .mobile-nav-btn {
+  display: none;
+}
+@media (max-width: 767px) {
+  .side-nav .mobile-nav-btn {
+    display: block;
+    border: none;
+    background: none;
+    color: white;
+    font-size: 1.8rem;
+  }
+}
+.side-nav .menu-list {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -213,17 +245,23 @@ a:hover {
   font-size: 2.6rem;
   color: white;
 }
-.side-nav ul a {
+@media (max-width: 767px) {
+  .side-nav .menu-list {
+    width: 100%;
+    margin-bottom: 0;
+  }
+}
+.side-nav .menu-list a {
   text-decoration: none;
   color: white;
   height: 26px;
   margin: 15% auto;
 }
-.side-nav ul a:hover {
+.side-nav .menu-list a:hover {
   font-weight: bold;
   font-size: 3rem;
 }
-.side-nav ul a li {
+.side-nav .menu-list a li {
   text-align: center;
 }
 .side-nav .sign-out-button {
@@ -237,6 +275,10 @@ a:hover {
 .side-nav .sign-out-button:hover {
   font-weight: bold;
   font-size: 2rem;
+}
+.side-nav.expand {
+  position: absolute;
+  height: 100%;
 }
 .login-page-wrapper {
   height: 100vh;
