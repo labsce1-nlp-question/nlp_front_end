@@ -16,6 +16,14 @@
 
   .markdown-editor-buttons {
     display: flex;
+
+    @media @mobile {
+      flex-wrap: wrap;
+
+      .side-by-side-btn {
+        display: none;
+      }
+    }
   }
 
   button {
@@ -28,6 +36,10 @@
     
     &:hover {
       border-color: lightgrey;
+    }
+
+    @media @mobile {
+      width: 31px;
     }
   }
 
