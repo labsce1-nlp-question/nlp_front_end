@@ -28,7 +28,7 @@ const MarkdownEditorMenuButton = ({textAreaRef, textAreaValue, onChange, buttonC
   };
 
   return(
-    <button className={`${buttonClassName}-btn`} title={buttonTitle} onClick={(e) =>addMarkdown(e)}>{buttonText}</button>
+    <button className={`${buttonClassName}-btn`} title={buttonTitle} onClick={(e) => addMarkdown(e)}>{buttonText}</button>
   );
 };
 

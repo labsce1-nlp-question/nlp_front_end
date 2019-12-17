@@ -653,58 +653,19 @@ a:hover {
   display: flex;
   justify-content: space-between;
 }
-.create-note-modal-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  background-color: rgba(0, 0, 0, 0.4);
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  z-index: 1;
-  font-size: 1.6rem;
-}
-.create-note-modal-wrapper .create-note-modal {
-  width: 35%;
-  height: auto;
-  background-color: white;
-  border-radius: 3px;
-}
-.create-note-modal-wrapper .create-note-modal .modal-header {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  padding: 4%;
-  border-bottom: 1px solid lightgrey;
-}
-.create-note-modal-wrapper .create-note-modal .modal-header h2 {
-  font-size: 3rem;
-}
-.create-note-modal-wrapper .create-note-modal .modal-header .close-modal-btn {
-  cursor: pointer;
-  font-size: 2rem;
-  background-color: inherit;
-  border: none;
-  padding: 0;
-}
-.create-note-modal-wrapper .create-note-modal .modal-header .close-modal-btn:hover {
-  transform: scale(1.5);
-}
-.create-note-modal-wrapper .create-note-modal .create-note-modal-form {
-  padding: 4%;
+.create-note-modal-form {
+  padding: 4% 4% 2%;
   font-size: 2rem;
   line-height: 1.5;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.create-note-modal-wrapper .create-note-modal .create-note-modal-form label {
+.create-note-modal-form label {
   width: 100%;
   margin-bottom: 3%;
 }
-.create-note-modal-wrapper .create-note-modal .create-note-modal-form .title-input input {
+.create-note-modal-form .title-input input {
   width: 100%;
   height: 40px;
   border-radius: 3px;
@@ -713,12 +674,14 @@ a:hover {
   padding: 3%;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
 }
-.create-note-modal-wrapper .create-note-modal .create-note-modal-form .note-input textarea {
-  resize: vertical;
-  width: 100%;
+.create-note-modal-form .note-input {
+  margin-bottom: 0;
+}
+.create-note-modal-form .markdown-editor textarea,
+.create-note-modal-form .markdown-editor .markdown-preview {
   height: 50vh;
 }
-.create-note-modal-wrapper .create-note-modal .create-note-modal-form .create-note-btn {
+.create-note-modal-form .create-note-btn {
   cursor: pointer;
   border: none;
   border-radius: 4px;
@@ -727,8 +690,9 @@ a:hover {
   background-color: #1a61b0;
   color: white;
   padding: 8px 8px 6px;
+  margin-top: 2%;
 }
-.create-note-modal-wrapper .create-note-modal .create-note-modal-form .create-note-btn:hover {
+.create-note-modal-form .create-note-btn:hover {
   background-color: #2179DC;
 }
 .markdown-editor.fullscreen {

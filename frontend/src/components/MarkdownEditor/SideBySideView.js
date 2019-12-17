@@ -9,7 +9,7 @@ import Heading from "./Heading.js";
 const SideBySideView = ({ initalValue, textAreaRef, onChange, handleKeyDown }) => {
   const [twidth, setTwidth] = useState(1229);
   const [isDrag, setisDrag] = useState(false);
- 
+  
   const adjustWidth = (e) => {
     e.preventDefault();
     if(isDrag) {

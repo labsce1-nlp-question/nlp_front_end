@@ -1,65 +1,31 @@
-.create-note-modal-wrapper {
-  .overlay();
-  font-size: 1.6rem;
+.create-note-modal-form {
+  padding: 4% 4% 2%;
+  font-size: 2rem;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-  .create-note-modal {
-    width: 35%;
-    height: auto;
-    background-color: white;
-    border-radius: 3px;
+  label {
+    width: 100%;
+    margin-bottom: 3%;
+  }
 
-    .modal-header {
-      display: flex;
-      width: 100%;
-      justify-content: space-between;
-      padding: 4%;
-      border-bottom: 1px solid lightgrey;
+  .title-input {
+    .inputField(@width:100%; @height:40px; @padding:3%);
+    
+  }
 
-      h2 {
-        font-size: 3rem;
-      }
-      .close-modal-btn {
-        cursor: pointer;
-        font-size: 2rem;
-        background-color: inherit;
-        border: none;
-        padding: 0;
+  .note-input {
+    margin-bottom: 0;
+  }
 
-        &:hover{
-          transform: scale(1.5);
-        }
-      }
-    }
+  .markdown-editor textarea, .markdown-editor .markdown-preview {
+    height: 50vh;
+  }
 
-    .create-note-modal-form {
-      padding: 4%;
-      font-size: 2rem;
-      line-height: 1.5;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
-      label {
-        width: 100%;
-        margin-bottom: 3%;
-      }
-  
-      .title-input {
-        .inputField(@width:100%; @height:40px; @padding:3%);
-        
-      }
-  
-      .note-input {
-        textarea{
-          resize: vertical;
-          width: 100%;
-          height: 50vh;
-        }
-      }
-
-      .create-note-btn {
-        .button(@width: inherit; @height: inherit);
-      }
-    }
+  .create-note-btn {
+    .button(@width: inherit; @height: inherit);
+    margin-top: 2%;
   }
 }
