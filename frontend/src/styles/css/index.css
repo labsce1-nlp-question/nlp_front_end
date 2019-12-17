@@ -284,6 +284,43 @@ a:hover {
 .login-page-wrapper footer img {
   opacity: 0.15;
 }
+.modal-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.4);
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+}
+.modal-wrapper .modal {
+  width: 50%;
+  background-color: white;
+  border-radius: 3px;
+}
+.modal-wrapper .modal .modal-header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 4%;
+  border-bottom: 1px solid lightgrey;
+}
+.modal-wrapper .modal .modal-header h2 {
+  font-size: 3rem;
+}
+.modal-wrapper .modal .modal-header .close-modal-btn {
+  cursor: pointer;
+  font-size: 2rem;
+  background-color: inherit;
+  border: none;
+  padding: 0;
+}
+.modal-wrapper .modal .modal-header .close-modal-btn:hover {
+  transform: scale(1.5);
+}
 .result {
   margin: 3% 0px;
   padding: 2%;
@@ -556,48 +593,11 @@ a:hover {
   background-color: #D2D2DD;
   border-radius: 3px;
 }
-.note-view-wrapper .note-wrapper .results-modal-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  background-color: rgba(0, 0, 0, 0.4);
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  z-index: 1;
-}
-.note-view-wrapper .note-wrapper .results-modal-wrapper .results-modal {
-  width: 50%;
-  background-color: white;
-  border-radius: 3px;
-}
-.note-view-wrapper .note-wrapper .results-modal-wrapper .results-modal .question-results-wrapper {
+.note-view-wrapper .note-wrapper .question-results-wrapper {
   padding: 0 2%;
 }
-.note-view-wrapper .note-wrapper .results-modal-wrapper .results-modal .question-results-wrapper .question-results .result {
+.note-view-wrapper .note-wrapper .question-results-wrapper .question-results .result {
   width: 100%;
-}
-.note-view-wrapper .note-wrapper .results-modal-wrapper .results-modal .modal-header {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  padding: 4%;
-  border-bottom: 1px solid lightgrey;
-}
-.note-view-wrapper .note-wrapper .results-modal-wrapper .results-modal .modal-header h2 {
-  font-size: 3rem;
-}
-.note-view-wrapper .note-wrapper .results-modal-wrapper .results-modal .modal-header .close-modal-btn {
-  cursor: pointer;
-  font-size: 2rem;
-  background-color: inherit;
-  border: none;
-  padding: 0;
-}
-.note-view-wrapper .note-wrapper .results-modal-wrapper .results-modal .modal-header .close-modal-btn:hover {
-  transform: scale(1.5);
 }
 .notes-view-wrapper {
   display: flex;

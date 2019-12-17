@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 
 import MarkdownEditor from "../components/MarkdownEditor/MarkdownEditor.js";
+import Modal from "../components/Modal.js";
 import QuestionResults from "../components/QuestionResults.js";
 import { getUserNote, updateUserNote } from '../store/actions/index.js';
 import { useInput } from "../helpers/hooks/useInput.js";
@@ -77,7 +78,7 @@ import { useInput } from "../helpers/hooks/useInput.js";
 //   };
 // };
 
-const NotePageView = ({ state, dispatch, signOut, match }) => {
+const NotePageView = ({ state, dispatch, signOut, match, toggleModal }) => {
   const { currentNote, fetchingData } = state;
   const [note, handleNote, setNote] = useInput({
     notes: "",
@@ -119,17 +120,9 @@ const NotePageView = ({ state, dispatch, signOut, match }) => {
         <button className="show-results-btn" onClick={() => setNote({...note, isShowResults: true})}>Question Results</button>
         <label className="note-input">Note</label>
         <MarkdownEditor initalValue={note.notes} onChange={updateNote} initalPreview={true}/>
-        {note.isShowResults ?  
-          <div className="results-modal-wrapper">
-            <div className="results-modal">
-              <div className="modal-header">
-                <h2>Results</h2>
-                <button className="close-modal-btn" onClick={() => setNote({...note, isShowResults: false})}>X</button>
-              </div>
-              <QuestionResults data={{results: currentNote.bot_response.match}}/>
-            </div>
-          </div> 
-          : null}
+        <Modal showModal={note.isShowResults} toggleModal={() => setNote({...note, isShowResults: false})} headerVal="Results">
+          {currentNote.bot_response ? <QuestionResults data={{results: currentNote.bot_response.match}}/> : null}
+        </Modal>
       </div>
     </div>
   );
