@@ -189,8 +189,9 @@ a:hover {
 @media (max-width: 767px) {
   .side-nav {
     position: absolute;
+    width: 100%;
     padding: 6px;
-    height: 8%;
+    height: 47px;
     overflow-y: hidden;
     transition: height 0.2s ease-in-out;
     z-index: 1;
@@ -214,7 +215,7 @@ a:hover {
 }
 @media (max-width: 767px) {
   .side-nav .logo-wrapper .logo {
-    width: 40%;
+    width: 123px;
   }
 }
 .side-nav .logo-wrapper h1 {
@@ -224,6 +225,7 @@ a:hover {
 @media (max-width: 767px) {
   .side-nav .logo-wrapper h1 {
     margin: 0 0 2px;
+    font-size: 1.8rem;
   }
 }
 .side-nav .mobile-nav-btn {
@@ -421,6 +423,10 @@ a:hover {
 @media (max-width: 767px) {
   .question-results-wrapper .create-note-wrapper {
     margin-top: 2%;
+    justify-content: space-between;
+  }
+  .question-results-wrapper .create-note-wrapper p {
+    width: 63%;
   }
 }
 .question-results-wrapper .create-note-wrapper .user-history-note-btn {
@@ -439,7 +445,8 @@ a:hover {
 }
 @media (max-width: 767px) {
   .question-results-wrapper .create-note-wrapper .user-history-note-btn {
-    width: 142px;
+    width: 100px;
+    padding: 0;
   }
 }
 .question-results-wrapper .create-note-wrapper .user-history-note-btn span {
