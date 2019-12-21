@@ -1,9 +1,14 @@
 .user-history-wrapper {
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 100%;
   font-size: 1.6rem;
   overflow-y: auto;
+
+  @media @mobile {
+    margin-top: 13%;
+  }
   
   .show-more-btn {
     background: inherit;
@@ -13,7 +18,7 @@
     color: @blue;
     width: 80px;
     cursor: pointer;
-    margin: 2% auto 2% 45%;
+    margin: 2%;
 
     &:hover {
       background-color: @blue;
