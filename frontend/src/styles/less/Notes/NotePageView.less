@@ -4,6 +4,17 @@
   flex-direction: column;
   align-items: center;
   font-size: 1.6rem;
+
+  @media @mobile {
+    margin-top: 13%;
+
+    .markdown-editor .markdown-preview {
+      height: 52vh;
+    }
+    .markdown-editor textarea {
+      height: 47vh;
+    }
+  }
   
   .note-view-header {
     margin: 2% 0px;
@@ -15,6 +26,10 @@
     justify-content: space-between;
     align-items: center;
     width: 80%;
+    
+    @media @mobile {
+      width: 87%;
+    }
     
     label {
       font-size: 2.2rem;
@@ -28,6 +43,10 @@
       width: 35%;
       margin-bottom: 1%;
       .inputField(@width: 100%; @height: 40px; @padding: 2%;);
+
+      @media @mobile {
+        width: 100%;
+      }
     }
 
     .show-results-btn {
@@ -35,6 +54,10 @@
       border: none;
       font-size: 2rem;
       color: @blue;
+
+      @media @mobile {
+        padding: 4% 0;
+      }
 
       &:hover {
         color: @hover-blue;

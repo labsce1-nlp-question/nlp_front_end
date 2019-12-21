@@ -692,6 +692,17 @@ a:hover {
   align-items: center;
   font-size: 1.6rem;
 }
+@media (max-width: 767px) {
+  .note-view-wrapper {
+    margin-top: 13%;
+  }
+  .note-view-wrapper .markdown-editor .markdown-preview {
+    height: 52vh;
+  }
+  .note-view-wrapper .markdown-editor textarea {
+    height: 47vh;
+  }
+}
 .note-view-wrapper .note-view-header {
   margin: 2% 0px;
   font-size: 3rem;
@@ -702,6 +713,11 @@ a:hover {
   justify-content: space-between;
   align-items: center;
   width: 80%;
+}
+@media (max-width: 767px) {
+  .note-view-wrapper .note-wrapper {
+    width: 87%;
+  }
 }
 .note-view-wrapper .note-wrapper label {
   font-size: 2.2rem;
@@ -723,11 +739,21 @@ a:hover {
   padding: 2%;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
 }
+@media (max-width: 767px) {
+  .note-view-wrapper .note-wrapper .title-input {
+    width: 100%;
+  }
+}
 .note-view-wrapper .note-wrapper .show-results-btn {
   cursor: pointer;
   border: none;
   font-size: 2rem;
   color: #1a61b0;
+}
+@media (max-width: 767px) {
+  .note-view-wrapper .note-wrapper .show-results-btn {
+    padding: 4% 0;
+  }
 }
 .note-view-wrapper .note-wrapper .show-results-btn:hover {
   color: #2179DC;
