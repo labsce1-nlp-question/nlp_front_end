@@ -747,6 +747,11 @@ a:hover {
   font-size: 1.6rem;
   overflow-y: auto;
 }
+@media (max-width: 767px) {
+  .notes-view-wrapper {
+    margin-top: 13%;
+  }
+}
 .notes-view-wrapper h2 {
   font-size: 3rem;
   text-align: center;
