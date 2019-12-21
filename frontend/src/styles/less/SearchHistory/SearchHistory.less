@@ -23,7 +23,7 @@
     text-align: center;
     align-items: center;
     width: 100%;
-    height: 28px;
+    height: 38px;
     transition: height .3s ease-in-out;
     overflow: hidden;
 
@@ -32,15 +32,20 @@
       text-align: left;
       padding-left: 2%;
 
+      
+      @media @labtop {
+        width: 69%;
+        margin-top: 1%;
+      }
+
       @media @mobile {
         width: 55%;
-        margin-top: 1%;
       }
     }
     .user-history-timestamp{
       width: 13%;
       
-      @media @mobile {
+      @media @labtop {
         width: initial;
       }
     }
@@ -50,9 +55,18 @@
       display: flex;
       justify-content: flex-end;
 
+      
+      @media @labtop {
+        width: 67%;
+        margin-top: 8%;
+      }
+      
       @media @mobile {
-        width: 86%;
-        margin-top: 4%;
+        width: 80%;
+      }
+
+      @media (max-width: 320px){
+        width: 92%;
       }
 
       .user-history-note-btn {
@@ -76,7 +90,7 @@
         margin-left: 10px;
         opacity: 0;
 
-        @media @mobile {
+        @media @labtop {
           opacity: 1;
         }
 
@@ -121,7 +135,11 @@
 
 .expanded {
   .user-history {
-    height: 380px;
+    height: 480px;
+
+    @media @mobile {
+      height: 380px;
+    }
   }
 }
 

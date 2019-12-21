@@ -8,7 +8,7 @@
   min-width: 320px;
   font-size: 1.6rem;
   
-  @media @mobile {
+  @media @tablet {
     position: absolute;
     width: 100%;
     padding: 6px;
@@ -24,7 +24,7 @@
     flex-direction: column;
     color: white;
 
-    @media @mobile {
+    @media @tablet {
       flex-direction: row;
       justify-content: space-between;
       width: 100%;
@@ -33,7 +33,7 @@
     .logo {
       cursor: pointer;
 
-      @media @mobile {
+      @media @tablet {
         width: 123px;
       }
     }
@@ -42,9 +42,14 @@
       margin: 15px 0px 0px 5px;
       font-size: 2rem;
 
-      @media @mobile {
+      @media @tablet {
         margin: 0 0 2px;
         font-size: 1.8rem;
+        width: 27%;
+      }
+
+      @media @mobile {
+        width: initial;
       }
     }
   }
@@ -52,7 +57,7 @@
   .mobile-nav-btn {
     display: none;
 
-    @media @mobile {
+    @media @tablet {
       display: block;
       border: none;
       background: none;
@@ -71,7 +76,6 @@
     color: white;
 
     @media @mobile {
-      width: 100%;
       margin-bottom: 0;
     }
 

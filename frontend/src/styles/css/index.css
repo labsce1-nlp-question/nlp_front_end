@@ -186,7 +186,7 @@ a:hover {
   min-width: 320px;
   font-size: 1.6rem;
 }
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .side-nav {
     position: absolute;
     width: 100%;
@@ -203,7 +203,7 @@ a:hover {
   flex-direction: column;
   color: white;
 }
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .side-nav .logo-wrapper {
     flex-direction: row;
     justify-content: space-between;
@@ -213,7 +213,7 @@ a:hover {
 .side-nav .logo-wrapper .logo {
   cursor: pointer;
 }
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .side-nav .logo-wrapper .logo {
     width: 123px;
   }
@@ -222,16 +222,22 @@ a:hover {
   margin: 15px 0px 0px 5px;
   font-size: 2rem;
 }
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .side-nav .logo-wrapper h1 {
     margin: 0 0 2px;
     font-size: 1.8rem;
+    width: 27%;
+  }
+}
+@media (max-width: 767px) {
+  .side-nav .logo-wrapper h1 {
+    width: initial;
   }
 }
 .side-nav .mobile-nav-btn {
   display: none;
 }
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .side-nav .mobile-nav-btn {
     display: block;
     border: none;
@@ -251,7 +257,6 @@ a:hover {
 }
 @media (max-width: 767px) {
   .side-nav .menu-list {
-    width: 100%;
     margin-bottom: 0;
   }
 }
@@ -356,7 +361,12 @@ a:hover {
   background-color: white;
   border-radius: 3px;
 }
-@media (max-width: 767px) {
+@media (max-width: 1024px) {
+  .modal-wrapper .modal {
+    width: 70%;
+  }
+}
+@media (max-width: 991px) {
   .modal-wrapper .modal {
     width: 95%;
   }
@@ -389,7 +399,7 @@ a:hover {
   flex-direction: column;
   align-items: flex-start;
 }
-@media (max-width: 767px) {
+@media (max-width: 1024px) {
   .result {
     width: 100%;
     border-radius: 5px;
@@ -414,7 +424,7 @@ a:hover {
   margin-top: 5px;
   font-size: 1.4rem;
 }
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .result div {
     width: 100%;
     overflow-wrap: break-word;
@@ -473,19 +483,24 @@ a:hover {
   width: 100%;
   overflow-y: auto;
 }
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .main-page-wrapper {
     width: inherit;
-    margin: 18% 4% 0px 4%;
+    margin: 10% 0 0 4%;
+  }
+}
+@media (max-width: 767px) {
+  .main-page-wrapper {
+    margin-top: 18%;
   }
 }
 .main-page-wrapper .search-wrapper {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 95%;
 }
 .search-form input {
-  width: 50%;
+  width: 80%;
   height: 45px;
   border-radius: 3px;
   border: 1px solid lightgrey;
@@ -493,7 +508,7 @@ a:hover {
   padding: 1%;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
 }
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .search-form input {
     width: 100%;
   }
@@ -508,6 +523,11 @@ a:hover {
   width: 100%;
   font-size: 1.6rem;
   overflow-y: auto;
+}
+@media (max-width: 991px) {
+  .user-history-wrapper {
+    margin-top: 6%;
+  }
 }
 @media (max-width: 767px) {
   .user-history-wrapper {
@@ -547,7 +567,7 @@ a:hover {
   font-size: 2rem;
   font-weight: bold;
 }
-@media (max-width: 767px) {
+@media (max-width: 1024px) {
   .user-history-table .user-history-table-headers {
     padding: 0px 17.2% 2% 7%;
   }
@@ -576,7 +596,7 @@ a:hover {
   text-align: center;
   align-items: center;
   width: 100%;
-  height: 28px;
+  height: 38px;
   transition: height 0.3s ease-in-out;
   overflow: hidden;
 }
@@ -585,16 +605,21 @@ a:hover {
   text-align: left;
   padding-left: 2%;
 }
+@media (max-width: 1024px) {
+  .user-history-table-data .user-history .user-history-question {
+    width: 69%;
+    margin-top: 1%;
+  }
+}
 @media (max-width: 767px) {
   .user-history-table-data .user-history .user-history-question {
     width: 55%;
-    margin-top: 1%;
   }
 }
 .user-history-table-data .user-history .user-history-timestamp {
   width: 13%;
 }
-@media (max-width: 767px) {
+@media (max-width: 1024px) {
   .user-history-table-data .user-history .user-history-timestamp {
     width: initial;
   }
@@ -604,10 +629,20 @@ a:hover {
   display: flex;
   justify-content: flex-end;
 }
+@media (max-width: 1024px) {
+  .user-history-table-data .user-history .user-history-note {
+    width: 67%;
+    margin-top: 8%;
+  }
+}
 @media (max-width: 767px) {
   .user-history-table-data .user-history .user-history-note {
-    width: 86%;
-    margin-top: 4%;
+    width: 80%;
+  }
+}
+@media (max-width: 320px) {
+  .user-history-table-data .user-history .user-history-note {
+    width: 92%;
   }
 }
 .user-history-table-data .user-history .user-history-note .user-history-note-btn {
@@ -648,7 +683,7 @@ a:hover {
 .user-history-table-data .user-history .user-history-note .user-history-del-btn:hover {
   background-color: #F9393D;
 }
-@media (max-width: 767px) {
+@media (max-width: 1024px) {
   .user-history-table-data .user-history .user-history-note .user-history-del-btn {
     opacity: 1;
   }
@@ -683,7 +718,12 @@ a:hover {
   transform: scale(1.5);
 }
 .expanded .user-history {
-  height: 380px;
+  height: 480px;
+}
+@media (max-width: 767px) {
+  .expanded .user-history {
+    height: 380px;
+  }
 }
 .note-view-wrapper {
   width: 100%;
@@ -691,6 +731,15 @@ a:hover {
   flex-direction: column;
   align-items: center;
   font-size: 1.6rem;
+}
+@media (max-width: 991px) {
+  .note-view-wrapper {
+    margin-top: 6%;
+  }
+  .note-view-wrapper .markdown-editor .markdown-preview,
+  .note-view-wrapper .markdown-editor textarea {
+    height: 60vh;
+  }
 }
 @media (max-width: 767px) {
   .note-view-wrapper {
@@ -700,12 +749,18 @@ a:hover {
     height: 52vh;
   }
   .note-view-wrapper .markdown-editor textarea {
-    height: 47vh;
+    height: 48vh;
   }
 }
 .note-view-wrapper .note-view-header {
   margin: 2% 0px;
   font-size: 3rem;
+}
+@media (max-width: 320px) {
+  .note-view-wrapper .note-view-header {
+    width: 67%;
+    text-align: center;
+  }
 }
 .note-view-wrapper .note-wrapper {
   display: flex;
@@ -773,6 +828,11 @@ a:hover {
   font-size: 1.6rem;
   overflow-y: auto;
 }
+@media (max-width: 991px) {
+  .notes-view-wrapper {
+    margin-top: 6%;
+  }
+}
 @media (max-width: 767px) {
   .notes-view-wrapper {
     margin-top: 13%;
@@ -791,7 +851,21 @@ a:hover {
   display: flex;
   flex-wrap: wrap;
   margin: 5% 6% 0;
-  width: 88%;
+  width: 90%;
+}
+@media (max-width: 991px) {
+  .notes-view-wrapper .notes-wrapper {
+    margin-left: 10%;
+  }
+}
+@media (max-width: 767px) {
+  .notes-view-wrapper .notes-wrapper {
+    margin-left: 0%;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: nowrap;
+    width: 100%;
+  }
 }
 .note-card {
   width: 306px;
@@ -802,6 +876,11 @@ a:hover {
   margin: 13px;
   text-decoration: none;
   color: black;
+}
+@media (max-width: 1024px) {
+  .note-card {
+    width: 283px;
+  }
 }
 .note-card:hover {
   transform: scale(1.05);

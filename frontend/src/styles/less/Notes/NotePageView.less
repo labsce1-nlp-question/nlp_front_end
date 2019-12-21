@@ -5,21 +5,36 @@
   align-items: center;
   font-size: 1.6rem;
 
+  @media @tablet {
+    margin-top: 6%;
+
+    .markdown-editor .markdown-preview, .markdown-editor textarea {
+      height: 60vh;
+    }
+  }
+
   @media @mobile {
     margin-top: 13%;
 
     .markdown-editor .markdown-preview {
       height: 52vh;
     }
+
     .markdown-editor textarea {
-      height: 47vh;
+      height: 48vh;
     }
   }
   
   .note-view-header {
     margin: 2% 0px;
     font-size: 3rem;
+
+    @media (max-width: 320px) {
+      width: 67%; 
+      text-align: center;
+    }
   }
+
   .note-wrapper {
     display: flex;
     flex-wrap: wrap;
